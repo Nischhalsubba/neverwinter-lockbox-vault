@@ -1,3 +1,5 @@
+import nwhubMedia from './data/nwhub-media.js';
+
 const WIKI_API = 'https://neverwinter.fandom.com/api.php';
 const STORAGE_KEY = 'lockbox-cover-media-v2';
 const CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
@@ -52,6 +54,20 @@ const saveStoredCovers = () => {
 };
 
 readStoredCovers();
+
+const seedNwHubCovers = () => {
+  for (const [slug, media] of Object.entries(nwhubMedia?.items?.lockbox || {})) {
+    if (!media?.url || !isSafeImageUrl(media.url)) continue;
+    coverMedia.set(slug, {
+      ...media,
+      pageUrl: media.sourceUrl || nwhubMedia.source || 'https://nw-hub.com/packs',
+      provider: media.provider || 'NW Hub',
+      rightsNote: media.rightsNote || 'Image URL published by NW Hub; Neverwinter artwork rights remain with the respective publisher.',
+    });
+  }
+};
+
+seedNwHubCovers();
 
 export const buildCoverApiUrl = (entries) => {
   const params = new URLSearchParams({
@@ -150,4 +166,5 @@ export const hydrateCoverMedia = async (
 
 export const __resetCoverMediaForTests = () => {
   coverMedia.clear();
+  seedNwHubCovers();
 };
