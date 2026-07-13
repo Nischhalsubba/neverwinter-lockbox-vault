@@ -9,11 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "node --test",
-    "check": "npm run test && npm run build",
-    "prepare-assets": "python3 scripts_build.py",
-    "predev": "npm run prepare-assets",
-    "pretest": "npm run prepare-assets",
-    "prebuild": "npm run prepare-assets"
+    "check": "npm run test && npm run build"
   },
   "devDependencies": {
     "vite": "^7.0.0"
