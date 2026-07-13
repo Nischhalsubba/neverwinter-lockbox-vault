@@ -52,10 +52,11 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>
           </button>
         </div>
+        <button class="sr-only" type="submit">Search</button>
         <p class="search-hint">Press <kbd>/</kbd> to search. Press <kbd>Esc</kbd> to clear.</p>
       </form>
 
-      <div class="stats" aria-label="Archive summary">
+      <div class="stats" role="region" aria-label="Archive summary">
         <article><strong id="stat-total">71</strong><span>Lockboxes</span></article>
         <article><strong>2013–2026</strong><span>Release archive</span></article>
         <article><strong id="stat-account">0</strong><span>With account unlocks</span></article>
@@ -79,7 +80,7 @@
         </div>
       </div>
 
-      <div class="filter-bar" aria-label="Catalog filters">
+      <div class="filter-bar" role="region" aria-label="Catalog filters">
         <div class="filter-group category-filters" role="group" aria-label="Reward type">
           <button class="filter-chip is-active" data-category="all" type="button" aria-pressed="true">All</button>
           <button class="filter-chip" data-category="companion" type="button" aria-pressed="false">Companion</button>
@@ -140,7 +141,7 @@
         </article>
         <article>
           <h3>Media sources</h3>
-          <p>Lockbox covers remain placeholders until downloaded and checked. Reward thumbnails now resolve from explicit ToonForge mappings, while official Neverwinter and NW Hub pages are tracked as research sources.</p>
+          <p>Real media is resolved from NW Hub first, followed by explicit ToonForge mappings and Neverwinter Wiki/Fandom. Generated placeholder artwork is hidden and is not used as a visible fallback.</p>
         </article>
         <article>
           <h3>Credits</h3>
@@ -168,6 +169,8 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
+  <script src="./no-placeholder-guard.js?v=1"></script>
+  <script type="module" src="./runtime-media.js?v=5"></script>
   <script type="module" src="./app.js"></script>
 </body>
 </html>
