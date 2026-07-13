@@ -1,3 +1,5 @@
+import nwhubMedia from './data/nwhub-media.js';
+
 const TOONFORGE_REPO = 'https://github.com/n00bin/nwc';
 const TOONFORGE_RAW = 'https://raw.githubusercontent.com/n00bin/nwc/main/images';
 
@@ -145,6 +147,27 @@ export const cleanRewardName = (value = '') => {
     .trim();
 };
 
+export const normalizeMediaKey = (value = '') => cleanRewardName(value)
+  .normalize('NFKD')
+  .replace(/[^a-z0-9]+/gi, ' ')
+  .replace(/\s+/g, ' ')
+  .trim()
+  .toLowerCase();
+
+const resolveNwHubMedia = (type, rewardName) => {
+  const key = normalizeMediaKey(rewardName);
+  const mapped = nwhubMedia?.items?.[type]?.[key];
+  if (!mapped?.url) return null;
+
+  return {
+    ...mapped,
+    canonicalName: mapped.name || cleanRewardName(rewardName),
+    sourceUrl: mapped.sourceUrl || nwhubMedia.source || 'https://nw-hub.com/packs',
+    provider: mapped.provider || 'NW Hub',
+    match: 'nwhub',
+  };
+};
+
 const buildMedia = (folder, filename, canonicalName, match = 'exact') => ({
   url: `${TOONFORGE_RAW}/${folder}/${encodeURIComponent(filename)}`,
   sourceUrl: `${TOONFORGE_REPO}/blob/main/images/${folder}/${encodeURIComponent(filename)}`,
@@ -156,6 +179,9 @@ const buildMedia = (folder, filename, canonicalName, match = 'exact') => ({
 });
 
 export const resolveRewardMedia = (type, rewardName) => {
+  const nwhub = resolveNwHubMedia(type, rewardName);
+  if (nwhub) return nwhub;
+
   const cleaned = cleanRewardName(rewardName);
   const canonical = aliases[cleaned] || cleaned;
 
@@ -192,7 +218,7 @@ export const MEDIA_SOURCES = {
   },
   nwhub: {
     name: 'Neverwinter Hub',
-    url: 'https://nw-hub.com/',
-    use: 'Secondary discovery source when a directly attributable asset can be verified.',
+    url: 'https://nw-hub.com/packs',
+    use: 'Primary source for extracted pack, lockbox, companion, mount, artifact, and race images when an exact item match is available.',
   },
 };
