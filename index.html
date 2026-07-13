@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0d12">
+  <meta name="theme-color" content="#f6f5f1">
   <meta name="description" content="Browse every Neverwinter lockbox and its companion, mount, artifact, race, and account-unlock rewards.">
   <title>Neverwinter Lockbox Vault</title>
   <link rel="manifest" href="/manifest.webmanifest">
@@ -13,104 +13,141 @@
 <body>
   <a class="skip-link" href="#results">Skip to lockboxes</a>
 
-  <header class="topbar">
-    <div class="topbar-inner">
+  <header class="site-header">
+    <div class="header-inner">
       <a class="brand" href="./" aria-label="Lockbox Vault home">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 32 32"><path d="M5 13h22v14H5zM8 13c.6-5 3.5-8 8-8s7.4 3 8 8M16 5v22M5 19h22"/><path d="M14 17h4v6h-4z"/></svg>
         </span>
-        <span class="brand-copy">
+        <span>
           <strong>Lockbox Vault</strong>
           <small>Neverwinter reward archive</small>
         </span>
       </a>
 
-      <nav class="topbar-actions" aria-label="Primary navigation">
-        <a href="#catalog">Browse</a>
+      <nav class="header-nav" aria-label="Primary navigation">
+        <a href="#catalog">Archive</a>
         <a href="#about">About</a>
-        <a class="topbar-source" href="https://nw-hub.com/packs" target="_blank" rel="noreferrer">NW Hub source</a>
+        <a class="source-link" href="https://nw-hub.com/packs" target="_blank" rel="noreferrer">Sources</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="page-title">
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="hero-inner">
-        <div class="hero-copy">
-          <p class="eyebrow">The complete community archive</p>
-          <h1 id="page-title">Find the lockbox.<br><span>See the real rewards.</span></h1>
-          <p class="hero-lede">Search twelve years of Neverwinter lockboxes, then inspect their companions, mounts, artifacts, races, and account-wide unlocks without opening fourteen wiki tabs like a desperate archaeologist.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#catalog">Explore the archive</a>
-            <a class="button button-ghost" href="https://neverwinter.fandom.com/wiki/Lockbox" target="_blank" rel="noreferrer">Open the wiki</a>
-          </div>
-        </div>
-
-        <div class="hero-stats" role="region" aria-label="Archive statistics">
-          <article><span class="stat-kicker">Archive</span><strong id="stat-total">71</strong><small>lockboxes documented</small></article>
-          <article><span class="stat-kicker">Timeline</span><strong id="stat-years">14</strong><small>release years covered</small></article>
-          <article><span class="stat-kicker">Rewards</span><strong id="stat-rewards">0</strong><small>headline rewards indexed</small></article>
-          <article><span class="stat-kicker">Unlocks</span><strong id="stat-account">0</strong><small>account-wide packs</small></article>
-        </div>
+    <section class="intro" aria-labelledby="page-title">
+      <div class="intro-copy">
+        <p class="eyebrow">Neverwinter community database</p>
+        <h1 id="page-title">Every lockbox.<br>One clean archive.</h1>
+        <p>Search releases, compare headline rewards, and inspect companion, mount, artifact, race, and account-wide unlocks in one place.</p>
       </div>
+
+      <dl class="archive-stats" aria-label="Archive statistics">
+        <div><dt>Lockboxes</dt><dd id="stat-total">71</dd></div>
+        <div><dt>Years</dt><dd id="stat-years">14</dd></div>
+        <div><dt>Rewards</dt><dd id="stat-rewards">0</dd></div>
+        <div><dt>Account unlocks</dt><dd id="stat-account">0</dd></div>
+      </dl>
     </section>
 
-    <section class="catalog-layout" id="catalog" aria-labelledby="catalog-title">
-      <aside class="filter-panel" aria-label="Catalogue filters">
-        <div class="filter-panel-heading"><p class="eyebrow">Refine the archive</p><h2>Filter</h2></div>
+    <section class="catalog" id="catalog" aria-labelledby="catalog-title">
+      <header class="catalog-titlebar">
+        <div>
+          <p class="eyebrow">Archive</p>
+          <h2 id="catalog-title">Browse lockboxes</h2>
+        </div>
+        <p id="result-count" aria-live="polite">Showing 71 lockboxes</p>
+      </header>
+
+      <div class="toolbar" aria-label="Catalogue controls">
         <form class="search-form" id="search-form" role="search">
-          <label for="search-input">Search</label>
+          <label class="sr-only" for="search-input">Search lockboxes and rewards</label>
           <div class="search-box">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
-            <input id="search-input" name="q" type="search" autocomplete="off" placeholder="Snowtusk, Minsc, 2024…">
-            <button id="clear-search" class="clear-search" type="button" aria-label="Clear search" hidden>×</button>
+            <input id="search-input" name="q" type="search" autocomplete="off" placeholder="Search lockboxes or rewards">
+            <button id="clear-search" class="clear-search" type="button" aria-label="Clear search" hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>
+            </button>
           </div>
           <button class="sr-only" type="submit">Search</button>
         </form>
-        <fieldset class="filter-block">
-          <legend>Reward type</legend>
-          <div class="category-list">
-            <button class="category-button is-active" type="button" data-category="all" aria-pressed="true"><span>All rewards</span><small id="count-all">71</small></button>
-            <button class="category-button" type="button" data-category="companion" aria-pressed="false"><span>Companions</span><small id="count-companion">0</small></button>
-            <button class="category-button" type="button" data-category="mount" aria-pressed="false"><span>Mounts</span><small id="count-mount">0</small></button>
-            <button class="category-button" type="button" data-category="artifact" aria-pressed="false"><span>Artifacts</span><small id="count-artifact">0</small></button>
-            <button class="category-button" type="button" data-category="race" aria-pressed="false"><span>Race packs</span><small id="count-race">0</small></button>
-            <button class="category-button" type="button" data-category="account" aria-pressed="false"><span>Account unlocks</span><small id="count-account">0</small></button>
-          </div>
-        </fieldset>
-        <div class="filter-row"><label for="year-filter">Release year</label><select id="year-filter"><option value="all">All years</option></select></div>
-        <div class="filter-row"><label for="sort-filter">Sort by</label><select id="sort-filter"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="az">Name A–Z</option><option value="za">Name Z–A</option></select></div>
-        <button class="reset-button" id="reset-filters" type="button" hidden>Reset all filters</button>
-        <div class="source-note"><span class="source-dot" aria-hidden="true"></span><p>Artwork is loaded from NW Hub, ToonForge, and Neverwinter Wiki. No generated image placeholders are shown.</p></div>
-      </aside>
 
-      <div class="catalog-content">
-        <header class="catalog-header">
-          <div><p class="eyebrow">Browse the collection</p><h2 id="catalog-title">Lockboxes</h2><p id="result-count" aria-live="polite">Showing 71 lockboxes</p></div>
-          <div class="view-switcher" role="group" aria-label="Catalogue view">
-            <button id="grid-view" class="view-button is-active" type="button" aria-pressed="true" aria-label="Grid view"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg></button>
-            <button id="list-view" class="view-button" type="button" aria-pressed="false" aria-label="List view"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h14"/></svg></button>
-          </div>
-        </header>
-        <div class="results-grid" id="results" tabindex="-1"></div>
-        <div class="empty-state" id="empty-state" hidden><span aria-hidden="true">◇</span><h3>No matching lockboxes</h3><p>Try a different reward, year, or name. The archive is intact. Your filters are simply being dramatic.</p><button class="button button-primary" id="empty-reset" type="button">Reset filters</button></div>
+        <div class="select-control">
+          <label for="year-filter">Year</label>
+          <select id="year-filter"><option value="all">All years</option></select>
+        </div>
+
+        <div class="select-control">
+          <label for="sort-filter">Sort</label>
+          <select id="sort-filter">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="az">Name A–Z</option>
+            <option value="za">Name Z–A</option>
+          </select>
+        </div>
+
+        <div class="view-switcher" role="group" aria-label="Catalogue view">
+          <button id="grid-view" class="view-button is-active" type="button" aria-pressed="true" aria-label="Grid view">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>
+          </button>
+          <button id="list-view" class="view-button" type="button" aria-pressed="false" aria-label="List view">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h14"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="category-row" aria-label="Filter by reward type">
+        <button class="category-button is-active" type="button" data-category="all" aria-pressed="true">All <span id="count-all">71</span></button>
+        <button class="category-button" type="button" data-category="companion" aria-pressed="false">Companions <span id="count-companion">0</span></button>
+        <button class="category-button" type="button" data-category="mount" aria-pressed="false">Mounts <span id="count-mount">0</span></button>
+        <button class="category-button" type="button" data-category="artifact" aria-pressed="false">Artifacts <span id="count-artifact">0</span></button>
+        <button class="category-button" type="button" data-category="race" aria-pressed="false">Race packs <span id="count-race">0</span></button>
+        <button class="category-button" type="button" data-category="account" aria-pressed="false">Account unlocks <span id="count-account">0</span></button>
+        <button class="reset-button" id="reset-filters" type="button" hidden>Reset</button>
+      </div>
+
+      <div class="results-grid" id="results" tabindex="-1"></div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="18" cy="18" r="10"/><path d="m32 32-7-7"/></svg>
+        <h3>No matching lockboxes</h3>
+        <p>Try a different name, reward type, or year.</p>
+        <button class="button button-primary" id="empty-reset" type="button">Reset filters</button>
       </div>
     </section>
 
-    <section class="about-section" id="about" aria-labelledby="about-title">
-      <div><p class="eyebrow">Built for players</p><h2 id="about-title">A visual index, not another spreadsheet.</h2></div>
-      <div class="about-grid">
-        <article><strong>Fast discovery</strong><p>Search names, reward types, years, and account unlocks from one screen.</p></article>
-        <article><strong>Real media first</strong><p>Verified community imagery is preferred. Missing art stays absent rather than being fabricated.</p></article>
-        <article><strong>Source-aware</strong><p>Every resolved reward thumbnail links back to the source that supplied it.</p></article>
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2 id="about-title">Built for quick, reliable lookup.</h2>
+      </div>
+      <div class="about-copy">
+        <p>Media is resolved from NW Hub, ToonForge, and Neverwinter Wiki. Missing artwork stays absent rather than being replaced with fabricated images.</p>
+        <div class="about-links">
+          <a href="https://nw-hub.com/packs" target="_blank" rel="noreferrer">NW Hub</a>
+          <a href="https://github.com/n00bin/nwc" target="_blank" rel="noreferrer">ToonForge</a>
+          <a href="https://neverwinter.fandom.com/wiki/Lockbox" target="_blank" rel="noreferrer">Neverwinter Wiki</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer"><p>Unofficial fan project. Neverwinter and related artwork belong to their respective rights holders.</p><p>Data snapshot: July 2026</p></footer>
-  <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title"><div class="dialog-shell"><button class="dialog-close" id="dialog-close" type="button" aria-label="Close details">×</button><div id="dialog-content"></div></div></dialog>
+  <footer class="site-footer">
+    <p>Unofficial fan project. Neverwinter and related artwork belong to their respective rights holders.</p>
+    <p>Data snapshot: July 2026</p>
+  </footer>
+
+  <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title">
+    <div class="dialog-shell">
+      <button class="dialog-close" id="dialog-close" type="button" aria-label="Close details">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+      <div id="dialog-content"></div>
+    </div>
+  </dialog>
+
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
   <script type="module" src="./app.js"></script>
 </body>
 </html>
