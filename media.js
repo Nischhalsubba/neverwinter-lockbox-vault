@@ -180,6 +180,11 @@ export const MEDIA_SOURCES = {
     url: 'https://www.playneverwinter.com/en/news',
     use: 'Primary source for lockbox announcements and promotional artwork.',
   },
+  wiki: {
+    name: 'Neverwinter Wiki / Fandom',
+    url: 'https://neverwinter.fandom.com/wiki/Lockbox',
+    use: 'Community-maintained lockbox page images loaded through the public MediaWiki API.',
+  },
   toonforge: {
     name: 'ToonForge / Neverwinter Compendium',
     url: TOONFORGE_REPO,

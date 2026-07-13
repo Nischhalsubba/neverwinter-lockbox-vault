@@ -1,6 +1,7 @@
 import data from './data/lockboxes.json';
 import { filterLockboxes } from './catalog.js';
 import { MEDIA_SOURCES, resolveRewardMedia } from './media.js';
+import { hydrateCoverMedia, resolveCoverMedia } from './covers.js';
 
 (() => {
   'use strict';
@@ -82,9 +83,31 @@ import { MEDIA_SOURCES, resolveRewardMedia } from './media.js';
     `;
   };
 
-  const artworkStatusLabel = (entry) => entry.imageDiscovery
-    ? 'Official source found'
-    : 'Placeholder cover';
+  const artworkStatusLabel = (entry) => {
+    const cover = resolveCoverMedia(entry);
+    if (!cover.isPlaceholder) return 'Community thumbnail';
+    return entry.imageDiscovery ? 'Artwork source located' : 'Placeholder cover';
+  };
+
+  const coverImageMarkup = (entry, { eager = false } = {}) => {
+    const cover = resolveCoverMedia(entry);
+    const alt = cover.isPlaceholder
+      ? `Generated placeholder cover for ${entry.name}`
+      : `${entry.name} cover image`;
+
+    return `
+      <img
+        src="${escapeHtml(cover.url)}"
+        data-cover-image
+        data-cover-fallback="${escapeHtml(entry.image)}"
+        alt="${escapeHtml(alt)}"
+        ${eager ? '' : 'loading="lazy"'}
+        referrerpolicy="no-referrer"
+        width="960"
+        height="600"
+      >
+    `;
+  };
 
   const renderCard = (entry) => {
     const rewardRows = firstAvailableRewards(entry).map(([type, value]) => `
@@ -97,8 +120,8 @@ import { MEDIA_SOURCES, resolveRewardMedia } from './media.js';
     return `
       <article class="lockbox-card" data-slug="${escapeHtml(entry.slug)}">
         <div class="card-media">
-          <img src="${escapeHtml(entry.image)}" alt="Generated placeholder cover for ${escapeHtml(entry.name)}" loading="lazy" width="960" height="600">
-          <span class="image-status${entry.imageDiscovery ? ' source-found' : ''}">${artworkStatusLabel(entry)}</span>
+          ${coverImageMarkup(entry)}
+          <span class="image-status${resolveCoverMedia(entry).isPlaceholder ? '' : ' source-found'}">${artworkStatusLabel(entry)}</span>
         </div>
         <div class="card-body">
           <div class="card-meta">
@@ -171,9 +194,10 @@ import { MEDIA_SOURCES, resolveRewardMedia } from './media.js';
     const entry = data.find((item) => item.slug === slug);
     if (!entry) return;
     const officialSource = entry.imageDiscovery;
+    const cover = resolveCoverMedia(entry);
     elements.dialogContent.innerHTML = `
       <div class="detail-hero">
-        <img src="${escapeHtml(entry.image)}" alt="Generated placeholder cover for ${escapeHtml(entry.name)}" width="960" height="600">
+        ${coverImageMarkup(entry, { eager: true })}
         <div class="detail-heading">
           <p class="eyebrow">Released ${escapeHtml(entry.releaseLabel)}</p>
           <h2 id="detail-title">${escapeHtml(entry.name)}</h2>
@@ -186,7 +210,15 @@ import { MEDIA_SOURCES, resolveRewardMedia } from './media.js';
       </div>
       <div class="detail-content">
         <p>Rewards below reproduce the linked community sheet. Pack contents and live-game availability can change, so verify important trading or purchase decisions in-game.</p>
-        ${officialSource ? `
+        ${!cover.isPlaceholder ? `
+          <aside class="source-notice">
+            <div>
+              <strong>Lockbox thumbnail loaded</strong>
+              <p>Cover image supplied by ${escapeHtml(cover.provider)}. ${escapeHtml(cover.rightsNote || '')}</p>
+            </div>
+            ${cover.pageUrl ? `<a href="${escapeHtml(cover.pageUrl)}" target="_blank" rel="noreferrer">Open image source</a>` : ''}
+          </aside>
+        ` : officialSource ? `
           <aside class="source-notice">
             <div>
               <strong>Official artwork source located</strong>
@@ -203,9 +235,10 @@ import { MEDIA_SOURCES, resolveRewardMedia } from './media.js';
         </div>
         <section class="media-provenance" aria-labelledby="media-provenance-title">
           <h3 id="media-provenance-title">Media provenance</h3>
-          <p>Main lockbox covers stay as generated placeholders until the actual image file is downloaded and checked. Reward thumbnails are resolved from ToonForge only when an explicit filename mapping exists.</p>
+          <p>Lockbox covers are loaded from the Neverwinter Wiki page-image API when available, with generated local artwork as a safe fallback. Reward thumbnails are resolved from ToonForge only when an explicit filename mapping exists.</p>
           <div class="source-links">
             <a href="${escapeHtml(MEDIA_SOURCES.official.url)}" target="_blank" rel="noreferrer">Official Neverwinter</a>
+            <a href="${escapeHtml(MEDIA_SOURCES.wiki.url)}" target="_blank" rel="noreferrer">Neverwinter Wiki</a>
             <a href="${escapeHtml(MEDIA_SOURCES.toonforge.url)}" target="_blank" rel="noreferrer">ToonForge</a>
             <a href="${escapeHtml(MEDIA_SOURCES.nwhub.url)}" target="_blank" rel="noreferrer">NW Hub</a>
           </div>
@@ -305,6 +338,21 @@ import { MEDIA_SOURCES, resolveRewardMedia } from './media.js';
     if (location.hash) history.replaceState(null, '', `${location.pathname}${location.search}`);
   });
   document.addEventListener('error', (event) => {
+    const coverImage = event.target.closest?.('[data-cover-image]');
+    if (coverImage) {
+      const fallback = coverImage.dataset.coverFallback;
+      if (fallback && coverImage.getAttribute('src') !== fallback) {
+        coverImage.src = fallback;
+        const container = coverImage.closest('.card-media, .detail-hero');
+        const badge = container?.querySelector('.image-status');
+        if (badge) {
+          badge.textContent = 'Placeholder cover';
+          badge.classList.remove('source-found');
+        }
+      }
+      return;
+    }
+
     const image = event.target.closest?.('[data-media-image]');
     if (!image) return;
     const wrapper = image.closest('.reward-media');
@@ -337,10 +385,19 @@ import { MEDIA_SOURCES, resolveRewardMedia } from './media.js';
   initStats();
   initStateFromUrl();
   setView(state.view);
+  const coverHydration = hydrateCoverMedia(lockboxes);
+
   setTimeout(() => {
     elements.loading.hidden = true;
     render();
     if (location.hash) openDetails(location.hash.slice(1), false);
+
+    coverHydration.then((updated) => {
+      if (!updated) return;
+      render();
+      const slug = location.hash.slice(1);
+      if (slug && elements.dialog.open) openDetails(slug, false);
+    }).catch(() => {});
   }, 280);
 
   if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
