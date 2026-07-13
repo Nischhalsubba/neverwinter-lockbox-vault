@@ -59,20 +59,20 @@ const rewardThumb = (type, name, compact = false) => {
 
 const coverMarkup = (entry) => {
   const cover = coverCache.get(entry.slug);
-  if (!cover) return `<div class="card-visual card-visual-empty" aria-hidden="true"><span>${entry.year}</span><strong>${esc(initials(entry.name))}</strong><small>Artwork loading</small></div>`;
+  if (!cover) return '';
   return `<div class="card-visual"><img src="${esc(cover.url)}" alt="${esc(entry.name)} artwork" loading="lazy" referrerpolicy="no-referrer" data-cover-image><span class="media-source-badge">${esc(cover.provider)}</span></div>`;
 };
 
 const card = (entry) => {
   const previews = allRewards(entry).slice(0,4).map(({type,name}) => `<div class="reward-strip-item">${rewardThumb(type,name,true)}<span>${esc(cleanReward(name))}</span></div>`).join('');
-  return `<article class="lockbox-card">
+  return `<article class="lockbox-card${coverCache.has(entry.slug) ? ' has-cover' : ' no-cover'}">
     ${coverMarkup(entry)}
     <div class="card-content">
       <div class="card-topline"><time datetime="${entry.releaseDate}">${esc(entry.releaseLabel)}</time>${entry.hasAccountUnlock ? '<span class="unlock-badge">Account unlock</span>' : ''}</div>
       <h3>${esc(entry.name)}</h3>
       <p class="card-summary">${rewardCount(entry)} highlighted ${rewardCount(entry) === 1 ? 'reward' : 'rewards'}</p>
       <div class="reward-strip">${previews || '<p class="no-rewards">No headline rewards listed</p>'}</div>
-      <button class="card-open" type="button" data-open="${esc(entry.slug)}">Explore rewards <span aria-hidden="true">↗</span></button>
+      <button class="card-open" type="button" data-open="${esc(entry.slug)}">View rewards <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg></button>
     </div>
   </article>`;
 };
@@ -123,8 +123,8 @@ const openDetails = (slug, updateHash = true) => {
   const entry = lockboxes.find((item) => item.slug === slug);
   if (!entry) { if (location.hash) history.replaceState(null,'',`${location.pathname}${location.search}`); return; }
   const cover = coverCache.get(entry.slug);
-  els.dialogContent.innerHTML = `<header class="detail-hero">
-    <div class="detail-cover">${cover ? `<img src="${esc(cover.url)}" alt="${esc(entry.name)} artwork" referrerpolicy="no-referrer">` : `<div class="detail-cover-empty"><span>${entry.year}</span><strong>${esc(initials(entry.name))}</strong></div>`}</div>
+  els.dialogContent.innerHTML = `<header class="detail-hero${cover ? ' has-cover' : ' no-cover'}">
+    ${cover ? `<div class="detail-cover"><img src="${esc(cover.url)}" alt="${esc(entry.name)} artwork" referrerpolicy="no-referrer"></div>` : ''}
     <div class="detail-intro"><p class="eyebrow">Released ${esc(entry.releaseLabel)}</p><h2 id="detail-title">${esc(entry.name)}</h2><p>${rewardCount(entry)} highlighted rewards across the archive.</p><div class="detail-badges"><span>${esc(entry.platform)}</span>${entry.hasAccountUnlock ? '<span>Account-wide unlocks</span>' : ''}<span>${entry.year}</span></div></div>
   </header>
   <div class="detail-body">
