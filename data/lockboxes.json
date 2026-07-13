@@ -1,0 +1,2057 @@
+[
+  {
+    "id": 1,
+    "slug": "nightmare-lockbox",
+    "name": "Nightmare Lockbox",
+    "companion": "Phoera",
+    "artifact": null,
+    "mount": "Heavy Inferno Nightmare",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Phoera"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "Heavy Inferno Nightmare"
+      ],
+      "races": []
+    },
+    "releaseDate": "2013-04-25",
+    "releaseLabel": "25 April 2013",
+    "year": 2013,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/nightmare-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": {
+      "provider": "Official Neverwinter",
+      "pageUrl": "https://www.playneverwinter.com/en/news-details/1012530",
+      "status": "official-source-found",
+      "rightsHolder": "Cryptic Studios / Arc Games",
+      "note": "Official announcement page includes Nightmare Lockbox game artwork. Local image replacement is still pending."
+    }
+  },
+  {
+    "id": 2,
+    "slug": "feywild-lockbox",
+    "name": "Feywild Lockbox",
+    "companion": "Aranea",
+    "artifact": null,
+    "mount": "Sylvan Stag",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Aranea"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "Sylvan Stag"
+      ],
+      "races": []
+    },
+    "releaseDate": "2013-08-15",
+    "releaseLabel": "15 August 2013",
+    "year": 2013,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/feywild-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 3,
+    "slug": "dark-forest-lockbox",
+    "name": "Dark Forest Lockbox",
+    "companion": "Pseudodragon",
+    "artifact": null,
+    "mount": "Owlbear",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Pseudodragon"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "Owlbear"
+      ],
+      "races": []
+    },
+    "releaseDate": "2013-10-03",
+    "releaseLabel": "3 October 2013",
+    "year": 2013,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/dark-forest-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 4,
+    "slug": "rusted-iron-lockbox",
+    "name": "Rusted Iron Lockbox",
+    "companion": "Rust Monster",
+    "artifact": null,
+    "mount": "Apparatus of Kwalish",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Rust Monster"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "Apparatus of Kwalish"
+      ],
+      "races": []
+    },
+    "releaseDate": "2013-12-05",
+    "releaseLabel": "5 December 2013",
+    "year": 2013,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/rusted-iron-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 5,
+    "slug": "unearthed-lockbox",
+    "name": "Unearthed Lockbox",
+    "companion": null,
+    "artifact": "Thayan Book of the Dead",
+    "mount": "Emperor Beetle, Giant Beetle (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "Thayan Book of the Dead"
+      ],
+      "mounts": [
+        "Emperor Beetle",
+        "Giant Beetle (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2014-02-13",
+    "releaseLabel": "13 February 2014",
+    "year": 2014,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/unearthed-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 6,
+    "slug": "frozen-crystal-lockbox",
+    "name": "Frozen Crystal Lockbox",
+    "companion": "Black Ice Ioun Stone",
+    "artifact": "Sphere of Black Ice",
+    "mount": "Black Ice Warhorse",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Black Ice Ioun Stone"
+      ],
+      "artifacts": [
+        "Sphere of Black Ice"
+      ],
+      "mounts": [
+        "Black Ice Warhorse"
+      ],
+      "races": []
+    },
+    "releaseDate": "2014-05-13",
+    "releaseLabel": "13 May 2014",
+    "year": 2014,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/frozen-crystal-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 7,
+    "slug": "lockbox-of-the-magnificent-emporium",
+    "name": "Lockbox of the Magnificent Emporium",
+    "companion": "Laughing Skull",
+    "artifact": "Kessell's Spheres of Annihilation",
+    "mount": "Tenser's Floating Disk",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Laughing Skull"
+      ],
+      "artifacts": [
+        "Kessell's Spheres of Annihilation"
+      ],
+      "mounts": [
+        "Tenser's Floating Disk"
+      ],
+      "races": []
+    },
+    "releaseDate": "2014-06-26",
+    "releaseLabel": "26 June 2014",
+    "year": 2014,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/lockbox-of-the-magnificent-emporium.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 8,
+    "slug": "tyrannical-lockbox",
+    "name": "Tyrannical Lockbox",
+    "companion": null,
+    "artifact": "Oghma's Token of Free Movement",
+    "mount": "Imperial Rage Drake, Rage Drake (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "Oghma's Token of Free Movement"
+      ],
+      "mounts": [
+        "Imperial Rage Drake",
+        "Rage Drake (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2014-08-14",
+    "releaseLabel": "14 August 2014",
+    "year": 2014,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/tyrannical-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 9,
+    "slug": "fell-dragon-lockbox",
+    "name": "Fell Dragon Lockbox",
+    "companion": "Assassin Drake",
+    "artifact": "Belial's Portal Stone",
+    "mount": "Skeleton Steed",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Assassin Drake"
+      ],
+      "artifacts": [
+        "Belial's Portal Stone"
+      ],
+      "mounts": [
+        "Skeleton Steed"
+      ],
+      "races": []
+    },
+    "releaseDate": "2014-11-02",
+    "releaseLabel": "2 November 2014",
+    "year": 2014,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/fell-dragon-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 10,
+    "slug": "nine-hells-lockbox",
+    "name": "Nine Hells Lockbox",
+    "companion": null,
+    "artifact": "Token of Chromatic Storm, Heart of the White Dragon (Epic), Heart of the Green Dragon (Epic), Heart of the Blue Dragon (Epic), Heart of the Black Dragon (Epic)",
+    "mount": null,
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "Token of Chromatic Storm",
+        "Heart of the White Dragon (Epic)",
+        "Heart of the Green Dragon (Epic)",
+        "Heart of the Blue Dragon (Epic)",
+        "Heart of the Black Dragon (Epic)"
+      ],
+      "mounts": [],
+      "races": []
+    },
+    "releaseDate": "2014-11-18",
+    "releaseLabel": "18 November 2014",
+    "year": 2014,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/nine-hells-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 11,
+    "slug": "dragonforged-lockbox",
+    "name": "Dragonforged Lockbox",
+    "companion": "Iron Golem",
+    "artifact": null,
+    "mount": "Gorgon",
+    "race": "Sigil of the Metallic Ancestry Dragonborn",
+    "rewards": {
+      "companions": [
+        "Iron Golem"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "Gorgon"
+      ],
+      "races": [
+        "Sigil of the Metallic Ancestry Dragonborn"
+      ]
+    },
+    "releaseDate": "2015-01-15",
+    "releaseLabel": "15 January 2015",
+    "year": 2015,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/dragonforged-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 12,
+    "slug": "black-earth-lockbox",
+    "name": "Black Earth Lockbox",
+    "companion": null,
+    "artifact": "Symbol of Earth",
+    "mount": "Armored Bulette, Bulette (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "Symbol of Earth"
+      ],
+      "mounts": [
+        "Armored Bulette",
+        "Bulette (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2015-04-07",
+    "releaseLabel": "7 April 2015",
+    "year": 2015,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/black-earth-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 13,
+    "slug": "eternal-flame-lockbox",
+    "name": "Eternal Flame Lockbox",
+    "companion": null,
+    "artifact": "Symbol of Fire",
+    "mount": "Armored Giant Strider, Giant Strider (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "Symbol of Fire"
+      ],
+      "mounts": [
+        "Armored Giant Strider",
+        "Giant Strider (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2015-06-04",
+    "releaseLabel": "4 June 2015",
+    "year": 2015,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/eternal-flame-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 14,
+    "slug": "crushing-wave-lockbox",
+    "name": "Crushing Wave Lockbox",
+    "companion": null,
+    "artifact": "Symbol of Water",
+    "mount": "Coastal Flail Snail, Flail Snail (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "Symbol of Water"
+      ],
+      "mounts": [
+        "Coastal Flail Snail",
+        "Flail Snail (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2015-08-11",
+    "releaseLabel": "11 August 2015",
+    "year": 2015,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/crushing-wave-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 15,
+    "slug": "howling-hatred-lockbox",
+    "name": "Howling Hatred Lockbox",
+    "companion": null,
+    "artifact": "Symbol of Air",
+    "mount": "Armored Axe Beak, Axe Beak (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "Symbol of Air"
+      ],
+      "mounts": [
+        "Armored Axe Beak",
+        "Axe Beak (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2015-10-01",
+    "releaseLabel": "1 October 2015",
+    "year": 2015,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/howling-hatred-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 16,
+    "slug": "glorious-resurgence-lockbox",
+    "name": "Glorious Resurgence Lockbox",
+    "companion": "Glorious Resurgence Epic Companions Pack",
+    "artifact": "Glorious Resurgence Epic Artifacts Pack",
+    "mount": "Glorious Resurgence Epic Mounts Pack",
+    "race": "Glorious Resurgence Legendary Pack",
+    "rewards": {
+      "companions": [
+        "Glorious Resurgence Epic Companions Pack"
+      ],
+      "artifacts": [
+        "Glorious Resurgence Epic Artifacts Pack"
+      ],
+      "mounts": [
+        "Glorious Resurgence Epic Mounts Pack"
+      ],
+      "races": [
+        "Glorious Resurgence Legendary Pack"
+      ]
+    },
+    "releaseDate": "2015-11-17",
+    "releaseLabel": "17 November 2015",
+    "year": 2015,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/glorious-resurgence-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 17,
+    "slug": "new-life-lockbox",
+    "name": "New Life Lockbox",
+    "companion": "New Life Legendary Companion Pack, New Life Epic Companion Pack",
+    "artifact": "Horn of Valhalla",
+    "mount": null,
+    "race": null,
+    "rewards": {
+      "companions": [
+        "New Life Legendary Companion Pack",
+        "New Life Epic Companion Pack"
+      ],
+      "artifacts": [
+        "Horn of Valhalla"
+      ],
+      "mounts": [],
+      "races": []
+    },
+    "releaseDate": "2016-01-21",
+    "releaseLabel": "21 January 2016",
+    "year": 2016,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/new-life-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 18,
+    "slug": "shaundakul-lockbox",
+    "name": "Shaundakul Lockbox",
+    "companion": null,
+    "artifact": null,
+    "mount": "Armored Griffon Mount Pack",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [],
+      "mounts": [
+        "Armored Griffon Mount Pack"
+      ],
+      "races": []
+    },
+    "releaseDate": "2016-03-15",
+    "releaseLabel": "15 March 2016",
+    "year": 2016,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/shaundakul-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 19,
+    "slug": "firemane-lockbox",
+    "name": "Firemane Lockbox",
+    "companion": "Stalwart Golden Lion",
+    "artifact": null,
+    "mount": "Swift Golden Lion",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Stalwart Golden Lion"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "Swift Golden Lion"
+      ],
+      "races": []
+    },
+    "releaseDate": "2016-06-07",
+    "releaseLabel": "7 June 2016",
+    "year": 2016,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/firemane-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 20,
+    "slug": "runic-lockbox",
+    "name": "Runic Lockbox",
+    "companion": null,
+    "artifact": null,
+    "mount": "Runeclad Manticore",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [],
+      "mounts": [
+        "Runeclad Manticore"
+      ],
+      "races": []
+    },
+    "releaseDate": "2016-08-16",
+    "releaseLabel": "16 August 2016",
+    "year": 2016,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/runic-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 21,
+    "slug": "giants-lockbox",
+    "name": "Giants' Lockbox",
+    "companion": "Manticore",
+    "artifact": "Eye of the Giant",
+    "mount": null,
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Manticore"
+      ],
+      "artifacts": [
+        "Eye of the Giant"
+      ],
+      "mounts": [],
+      "races": []
+    },
+    "releaseDate": "2016-11-08",
+    "releaseLabel": "8 November 2016",
+    "year": 2016,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/giants-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 22,
+    "slug": "many-starred-lockbox",
+    "name": "Many-Starred Lockbox",
+    "companion": null,
+    "artifact": "Tome of Ascendance",
+    "mount": "Arcane Whirlwind, Whirlwind (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "Tome of Ascendance"
+      ],
+      "mounts": [
+        "Arcane Whirlwind",
+        "Whirlwind (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2017-02-21",
+    "releaseLabel": "21 February 2017",
+    "year": 2017,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/many-starred-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 23,
+    "slug": "lockbox-of-the-nine",
+    "name": "Lockbox of the Nine",
+    "companion": null,
+    "artifact": "Sigil of the Nine",
+    "mount": "Celestial Stag, Starfade Stag (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "Sigil of the Nine"
+      ],
+      "mounts": [
+        "Celestial Stag",
+        "Starfade Stag (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2017-05-02",
+    "releaseLabel": "2 May 2017",
+    "year": 2017,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/lockbox-of-the-nine.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 24,
+    "slug": "merchant-prince-lockbox",
+    "name": "Merchant Prince Lockbox",
+    "companion": "Tamed Velociraptor",
+    "artifact": null,
+    "mount": "Legendary Tyrannosaur Pack, Cavalry Tyrannosaur (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Tamed Velociraptor"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "Legendary Tyrannosaur Pack",
+        "Cavalry Tyrannosaur (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2017-07-25",
+    "releaseLabel": "25 July 2017",
+    "year": 2017,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/merchant-prince-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 25,
+    "slug": "lockbox-of-the-lost",
+    "name": "Lockbox of the Lost",
+    "companion": "Savage Allosaur",
+    "artifact": null,
+    "mount": "Legendary Carpet of Flying, Carpet of Flying (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Savage Allosaur"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "Legendary Carpet of Flying",
+        "Carpet of Flying (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2017-10-24",
+    "releaseLabel": "24 October 2017",
+    "year": 2017,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/lockbox-of-the-lost.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 26,
+    "slug": "soulmonger-s-lockbox",
+    "name": "Soulmonger's Lockbox",
+    "companion": "Infant Gorilla",
+    "artifact": null,
+    "mount": "War Triceratops, Triceratops (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Infant Gorilla"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "War Triceratops",
+        "Triceratops (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2018-02-27",
+    "releaseLabel": "27 February 2018",
+    "year": 2018,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/soulmonger-s-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 27,
+    "slug": "undying-lockbox",
+    "name": "Undying Lockbox",
+    "companion": "Razorwood",
+    "artifact": null,
+    "mount": "Swarm, Mist Form (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Razorwood"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "Swarm",
+        "Mist Form (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2018-06-26",
+    "releaseLabel": "26 June 2018",
+    "year": 2018,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/undying-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 28,
+    "slug": "new-opportunities-lockbox",
+    "name": "New Opportunities Lockbox",
+    "companion": "Deep Crow Hatchling",
+    "artifact": null,
+    "mount": "Legendary Adolescent Deep Crow, Adolescent Deep Crow (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Deep Crow Hatchling"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "Legendary Adolescent Deep Crow",
+        "Adolescent Deep Crow (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2018-11-06",
+    "releaseLabel": "6 November 2018",
+    "year": 2018,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/new-opportunities-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 29,
+    "slug": "reborn-lockbox-console-only",
+    "name": "Reborn Lockbox (CONSOLE ONLY)",
+    "companion": "Reborn Epic Companions Pack",
+    "artifact": "Shard of Orcus' Wand, Shard of Orcus' Wand (Epic)",
+    "mount": "Reborn Legendary Mounts Pack, Reborn Epic Mounts Pack",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Reborn Epic Companions Pack"
+      ],
+      "artifacts": [
+        "Shard of Orcus' Wand",
+        "Shard of Orcus' Wand (Epic)"
+      ],
+      "mounts": [
+        "Reborn Legendary Mounts Pack",
+        "Reborn Epic Mounts Pack"
+      ],
+      "races": []
+    },
+    "releaseDate": "2018-11-06",
+    "releaseLabel": "6 November 2018",
+    "year": 2018,
+    "platform": "Console only",
+    "hasAccountUnlock": false,
+    "image": "assets/images/reborn-lockbox-console-only.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 30,
+    "slug": "acquired-treasures-lockbox",
+    "name": "Acquired Treasures Lockbox",
+    "companion": "Acquired Treasures Epic Companion Pack",
+    "artifact": null,
+    "mount": "Acquired Treasures Legendary Mount Pack, Acquired Treasures Epic Mount Pack",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Acquired Treasures Epic Companion Pack"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "Acquired Treasures Legendary Mount Pack",
+        "Acquired Treasures Epic Mount Pack"
+      ],
+      "races": []
+    },
+    "releaseDate": "2019-02-12",
+    "releaseLabel": "12 February 2019",
+    "year": 2019,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/acquired-treasures-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 31,
+    "slug": "lockbox-of-the-mad-mage",
+    "name": "Lockbox of the Mad Mage",
+    "companion": "Grung",
+    "artifact": "Wheel of Elements, Wheel of Elements (Rare)",
+    "mount": "Legendary Hellfire Engine, Hellfire Engine (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Grung"
+      ],
+      "artifacts": [
+        "Wheel of Elements",
+        "Wheel of Elements (Rare)"
+      ],
+      "mounts": [
+        "Legendary Hellfire Engine",
+        "Hellfire Engine (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2019-04-23",
+    "releaseLabel": "23 April 2019",
+    "year": 2019,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/lockbox-of-the-mad-mage.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 32,
+    "slug": "excavated-lockbox",
+    "name": "Excavated Lockbox",
+    "companion": "Excavated Epic Companions Pack",
+    "artifact": null,
+    "mount": "Excavated Legendary Mounts Pack, Excavated Epic Mounts Pack",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Excavated Epic Companions Pack"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "Excavated Legendary Mounts Pack",
+        "Excavated Epic Mounts Pack"
+      ],
+      "races": []
+    },
+    "releaseDate": "2019-06-11",
+    "releaseLabel": "11 June 2019",
+    "year": 2019,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/excavated-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 33,
+    "slug": "halaster-s-lockbox",
+    "name": "Halaster's Lockbox",
+    "companion": "Crystal Golem",
+    "artifact": null,
+    "mount": "Legendary Giant Toad, Epic Giant Toad",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Crystal Golem"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "Legendary Giant Toad",
+        "Epic Giant Toad"
+      ],
+      "races": []
+    },
+    "releaseDate": "2019-08-13",
+    "releaseLabel": "13 August 2019",
+    "year": 2019,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/halaster-s-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 34,
+    "slug": "stardock-lockbox",
+    "name": "Stardock Lockbox",
+    "companion": "Stardock Epic Companion Pack",
+    "artifact": null,
+    "mount": "Stardock Legendary Mount Pack, Stardock Epic Mount Pack",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Stardock Epic Companion Pack"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "Stardock Legendary Mount Pack",
+        "Stardock Epic Mount Pack"
+      ],
+      "races": []
+    },
+    "releaseDate": "2019-11-22",
+    "releaseLabel": "22 November 2019",
+    "year": 2019,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/stardock-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 35,
+    "slug": "the-descent-lockbox",
+    "name": "The Descent Lockbox",
+    "companion": "Fiendish Charmer Pack",
+    "artifact": "Belial's Portal Stone, Belial's Portal Stone (Rare)",
+    "mount": "Legendary Barlgura, Barlgura (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Fiendish Charmer Pack"
+      ],
+      "artifacts": [
+        "Belial's Portal Stone",
+        "Belial's Portal Stone (Rare)"
+      ],
+      "mounts": [
+        "Legendary Barlgura",
+        "Barlgura (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2020-01-21",
+    "releaseLabel": "21 January 2020",
+    "year": 2020,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/the-descent-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 36,
+    "slug": "wasteland-lockbox",
+    "name": "Wasteland Lockbox",
+    "companion": "Wasteland Epic Companion Pack",
+    "artifact": null,
+    "mount": "Wasteland Legendary Mount Pack, Wasteland Epic Mount Pack",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Wasteland Epic Companion Pack"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "Wasteland Legendary Mount Pack",
+        "Wasteland Epic Mount Pack"
+      ],
+      "races": []
+    },
+    "releaseDate": "2020-04-16",
+    "releaseLabel": "16 April 2020",
+    "year": 2020,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": false,
+    "image": "assets/images/wasteland-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 37,
+    "slug": "the-blood-war-lockbox",
+    "name": "The Blood War Lockbox",
+    "companion": "Spined Devil",
+    "artifact": "Staff of Flowers, Staff of Flowers (Rare)",
+    "mount": "[Infernal War Machine] - Account unlock, Infernal War Machine (Epic)",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Spined Devil"
+      ],
+      "artifacts": [
+        "Staff of Flowers",
+        "Staff of Flowers (Rare)"
+      ],
+      "mounts": [
+        "[Infernal War Machine] - Account unlock",
+        "Infernal War Machine (Epic)"
+      ],
+      "races": []
+    },
+    "releaseDate": "2020-06-30",
+    "releaseLabel": "30 June 2020",
+    "year": 2020,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/the-blood-war-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 38,
+    "slug": "redeemed-lockbox",
+    "name": "Redeemed Lockbox",
+    "companion": "Redeemed Epic Companion Pack",
+    "artifact": null,
+    "mount": "[King of Spines] - Account unlock, Legendary Tyrannosaur Pack",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Redeemed Epic Companion Pack"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[King of Spines] - Account unlock",
+        "Legendary Tyrannosaur Pack"
+      ],
+      "races": []
+    },
+    "releaseDate": "2020-09-15",
+    "releaseLabel": "15 September 2020",
+    "year": 2020,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/redeemed-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 39,
+    "slug": "forsaken-lockbox",
+    "name": "Forsaken Lockbox",
+    "companion": "Forsaken Epic Companion Pack",
+    "artifact": null,
+    "mount": "[Polar Siege Bear] - Account unlock, [Brown Siege Bear] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Forsaken Epic Companion Pack"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Polar Siege Bear] - Account unlock",
+        "[Brown Siege Bear] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2020-12-08",
+    "releaseLabel": "8 December 2020",
+    "year": 2020,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/forsaken-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 40,
+    "slug": "spellbound-lockbox",
+    "name": "Spellbound Lockbox",
+    "companion": "Displacer Beast",
+    "artifact": null,
+    "mount": "[Hag's Hexing Cauldron] - Account unlock, [Hag's Cooking Cauldron] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Displacer Beast"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Hag's Hexing Cauldron] - Account unlock",
+        "[Hag's Cooking Cauldron] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2021-02-09",
+    "releaseLabel": "9 February 2021",
+    "year": 2021,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/spellbound-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 41,
+    "slug": "enchanting-lockbox",
+    "name": "Enchanting Lockbox",
+    "companion": "Enchanting Epic Companion Pack",
+    "artifact": null,
+    "mount": "[Feywild Stag] - Account unlock, [Cosmos Stag] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Enchanting Epic Companion Pack"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Feywild Stag] - Account unlock",
+        "[Cosmos Stag] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2021-04-29",
+    "releaseLabel": "29 April 2021",
+    "year": 2021,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/enchanting-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 42,
+    "slug": "ensorcelled-lockbox",
+    "name": "Ensorcelled Lockbox",
+    "companion": "Butterfly",
+    "artifact": null,
+    "mount": "[Feywild Griffon] - Account unlock, [Armored Griffon] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Butterfly"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Feywild Griffon] - Account unlock",
+        "[Armored Griffon] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2021-06-17",
+    "releaseLabel": "17 June 2021",
+    "year": 2021,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/ensorcelled-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 43,
+    "slug": "lockbox-of-justice",
+    "name": "Lockbox of Justice",
+    "companion": "Minsc",
+    "artifact": null,
+    "mount": "[Noble Pegasus] - Account unlock, [Pegasus] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Minsc"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Noble Pegasus] - Account unlock",
+        "[Pegasus] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2021-07-27",
+    "releaseLabel": "27 July 2021",
+    "year": 2021,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/lockbox-of-justice.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 44,
+    "slug": "reconnaissance-lockbox",
+    "name": "Reconnaissance Lockbox",
+    "companion": "Legendary Class Companion Choice Pack",
+    "artifact": null,
+    "mount": "[Marvelous Reconnaissance Balloons] - Account unlock, [Legendary Reconnaissance Balloons] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "Legendary Class Companion Choice Pack"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Marvelous Reconnaissance Balloons] - Account unlock",
+        "[Legendary Reconnaissance Balloons] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2021-10-07",
+    "releaseLabel": "7 October 2021",
+    "year": 2021,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/reconnaissance-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 45,
+    "slug": "stealth-lockbox",
+    "name": "Stealth Lockbox",
+    "companion": "[Shadow Elemental] - Account unlock",
+    "artifact": null,
+    "mount": "[Rimefire Salamander] - Account unlock, [Frost Salamander] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Shadow Elemental] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Rimefire Salamander] - Account unlock",
+        "[Frost Salamander] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2021-12-02",
+    "releaseLabel": "2 December 2021",
+    "year": 2021,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/stealth-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 46,
+    "slug": "skeletal-lockbox",
+    "name": "Skeletal Lockbox",
+    "companion": "[Lich] - Account unlock",
+    "artifact": null,
+    "mount": "[Empowered Dragonbone Golem] - Account unlock, [Dragonbone Golem] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Lich] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Empowered Dragonbone Golem] - Account unlock",
+        "[Dragonbone Golem] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2022-01-11",
+    "releaseLabel": "11 January 2022",
+    "year": 2022,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/skeletal-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 47,
+    "slug": "lockbox-of-dark-omens",
+    "name": "Lockbox of Dark Omens",
+    "companion": "[Dragon Hunter] - Account unlock",
+    "artifact": null,
+    "mount": "[Omen of Despair] - Account unlock, [Black Unicorn] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Dragon Hunter] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Omen of Despair] - Account unlock",
+        "[Black Unicorn] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2022-03-24",
+    "releaseLabel": "24 March 2022",
+    "year": 2022,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/lockbox-of-dark-omens.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 48,
+    "slug": "dragon-cult-lockbox",
+    "name": "Dragon Cult Lockbox",
+    "companion": null,
+    "artifact": "[Dragonbone Blades] - Account unlock",
+    "mount": "[Nightfire Dragonnel] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "[Dragonbone Blades] - Account unlock"
+      ],
+      "mounts": [
+        "[Nightfire Dragonnel] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2022-06-14",
+    "releaseLabel": "14 June 2022",
+    "year": 2022,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/dragon-cult-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 49,
+    "slug": "dragonslayer-s-lockbox",
+    "name": "Dragonslayer's Lockbox",
+    "companion": "[Kavatos Stormeye] - Account unlock",
+    "artifact": null,
+    "mount": "[Bigby's Hand] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Kavatos Stormeye] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Bigby's Hand] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2022-09-01",
+    "releaseLabel": "1 September 2022",
+    "year": 2022,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/dragonslayer-s-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 50,
+    "slug": "myconid-lockbox",
+    "name": "Myconid Lockbox",
+    "companion": "[Rumpadump] - Account unlock",
+    "artifact": null,
+    "mount": "[Myconid Bulette] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Rumpadump] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Myconid Bulette] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2022-11-08",
+    "releaseLabel": "8 November 2022",
+    "year": 2022,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/myconid-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 51,
+    "slug": "lockbox-of-lost-knowledge",
+    "name": "Lockbox of Lost Knowledge",
+    "companion": "[Flumph] - Account unlock",
+    "artifact": null,
+    "mount": "[Umber Hulk] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Flumph] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Umber Hulk] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2023-01-12",
+    "releaseLabel": "12 January 2023",
+    "year": 2023,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/lockbox-of-lost-knowledge.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 52,
+    "slug": "lolthian-lockbox",
+    "name": "Lolthian Lockbox",
+    "companion": "[Blaspheme Assassin] - Account unlock",
+    "artifact": null,
+    "mount": "[Ebon Riding Lizard] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Blaspheme Assassin] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Ebon Riding Lizard] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2023-03-28",
+    "releaseLabel": "28 March 2023",
+    "year": 2023,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/lolthian-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 53,
+    "slug": "atramentous-lockbox",
+    "name": "Atramentous Lockbox",
+    "companion": "[Minotaur Mercenary] - Account unlock",
+    "artifact": null,
+    "mount": "[Deadly Driderform] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Minotaur Mercenary] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Deadly Driderform] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2023-05-25",
+    "releaseLabel": "25 May 2023",
+    "year": 2023,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/atramentous-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 54,
+    "slug": "planar-panic-lockbox",
+    "name": "Planar Panic Lockbox",
+    "companion": "[Bobby the Barbarian] - Account unlock",
+    "artifact": null,
+    "mount": "[Uni the Unicorn] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Bobby the Barbarian] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Uni the Unicorn] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2023-07-07",
+    "releaseLabel": "7 July 2023",
+    "year": 2023,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/planar-panic-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": {
+      "provider": "Official Neverwinter",
+      "pageUrl": "https://www.playneverwinter.com/en/news-details/11547963",
+      "status": "official-source-found",
+      "rightsHolder": "Cryptic Studios / Arc Games",
+      "note": "Official announcement page includes Planar Panic Lockbox reward artwork. Local image replacement is still pending."
+    }
+  },
+  {
+    "id": 55,
+    "slug": "lockbox-of-shadowy-flight",
+    "name": "Lockbox of Shadowy Flight",
+    "companion": null,
+    "artifact": "[Crystal of Soul's Flight] - Account unlock",
+    "mount": "[Demon Wings] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "[Crystal of Soul's Flight] - Account unlock"
+      ],
+      "mounts": [
+        "[Demon Wings] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2023-09-14",
+    "releaseLabel": "14 September 2023",
+    "year": 2023,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/lockbox-of-shadowy-flight.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 56,
+    "slug": "miniature-giant-space-lockbox",
+    "name": "Miniature Giant Space Lockbox",
+    "companion": "[Xaryxian Defector] - Account unlock",
+    "artifact": null,
+    "mount": "[Giant Space Hamster] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Xaryxian Defector] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Giant Space Hamster] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2023-11-07",
+    "releaseLabel": "7 November 2023",
+    "year": 2023,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/miniature-giant-space-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 57,
+    "slug": "starlight-armaments-lockbox",
+    "name": "Starlight Armaments Lockbox",
+    "companion": null,
+    "artifact": "[Marco's Mystic Marker] - Account unlock",
+    "mount": "[Golden Armored Griffon] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "[Marco's Mystic Marker] - Account unlock"
+      ],
+      "mounts": [
+        "[Golden Armored Griffon] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2024-01-18",
+    "releaseLabel": "18 January 2024",
+    "year": 2024,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/starlight-armaments-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 58,
+    "slug": "doomspace-lockbox",
+    "name": "Doomspace Lockbox",
+    "companion": null,
+    "artifact": "[Beacon of Meteor Swarm] - Account unlock",
+    "mount": "[Zodar Armor] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "[Beacon of Meteor Swarm] - Account unlock"
+      ],
+      "mounts": [
+        "[Zodar Armor] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2024-04-23",
+    "releaseLabel": "23 April 2024",
+    "year": 2024,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/doomspace-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 59,
+    "slug": "astronautical-lockbox",
+    "name": "Astronautical Lockbox",
+    "companion": "[Flapjack] - Account unlock",
+    "artifact": null,
+    "mount": "[Space Guppy School] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Flapjack] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Space Guppy School] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2024-06-03",
+    "releaseLabel": "3 June 2024",
+    "year": 2024,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/astronautical-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 60,
+    "slug": "leaping-flame-lockbox",
+    "name": "Leaping Flame Lockbox",
+    "companion": "[Diana the Acrobat] - Account unlock",
+    "artifact": null,
+    "mount": "[Bestial Fire Archon] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Diana the Acrobat] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Bestial Fire Archon] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2024-07-16",
+    "releaseLabel": "16 July 2024",
+    "year": 2024,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/leaping-flame-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 61,
+    "slug": "foxfire-lockbox",
+    "name": "Foxfire Lockbox",
+    "companion": null,
+    "artifact": "[Heart of the Volcano] - Account unlock",
+    "mount": "[Red Mountain Fox] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "[Heart of the Volcano] - Account unlock"
+      ],
+      "mounts": [
+        "[Red Mountain Fox] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2024-09-19",
+    "releaseLabel": "19 September 2024",
+    "year": 2024,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/foxfire-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 62,
+    "slug": "psionic-lockbox",
+    "name": "Psionic Lockbox",
+    "companion": null,
+    "artifact": "[Grace of Pelor] - Account unlock",
+    "mount": "[Brain Stealer Dragon] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "[Grace of Pelor] - Account unlock"
+      ],
+      "mounts": [
+        "[Brain Stealer Dragon] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2024-11-19",
+    "releaseLabel": "19 November 2024",
+    "year": 2024,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/psionic-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 63,
+    "slug": "earth-mote-lockbox",
+    "name": "Earth Mote Lockbox",
+    "companion": "[Hank the Ranger] - Account unlock",
+    "artifact": null,
+    "mount": "[Skyhold Alligator] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Hank the Ranger] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Skyhold Alligator] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2025-01-12",
+    "releaseLabel": "12 January 2025",
+    "year": 2025,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/earth-mote-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 64,
+    "slug": "glorious-undead-lockbox",
+    "name": "Glorious Undead Lockbox",
+    "companion": null,
+    "artifact": "[Nightflame Censer] - Account unlock",
+    "mount": "[Glorious Undead Lion] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "[Nightflame Censer] - Account unlock"
+      ],
+      "mounts": [
+        "[Glorious Undead Lion] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2025-03-11",
+    "releaseLabel": "11 March 2025",
+    "year": 2025,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/glorious-undead-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 65,
+    "slug": "wings-and-cauldrons-lockbox",
+    "name": "Wings and Cauldrons Lockbox",
+    "companion": "[Aoth Fezim & Brightwing] - Account unlock",
+    "artifact": null,
+    "mount": "[Hag's Enchanted Cauldron] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Aoth Fezim & Brightwing] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Hag's Enchanted Cauldron] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2025-05-14",
+    "releaseLabel": "14 May 2025",
+    "year": 2025,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/wings-and-cauldrons-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 66,
+    "slug": "phantasmal-fantasy-lockbox",
+    "name": "Phantasmal Fantasy Lockbox",
+    "companion": "[Lysaera] - Account unlock",
+    "artifact": null,
+    "mount": "[Phantom Panther] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Lysaera] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Phantom Panther] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2025-07-17",
+    "releaseLabel": "17 July 2025",
+    "year": 2025,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/phantasmal-fantasy-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 67,
+    "slug": "feywild-wonders-lockbox",
+    "name": "Feywild Wonders Lockbox",
+    "companion": "[Grace Revoir] - Account unlock",
+    "artifact": null,
+    "mount": "[Twice-Pale Alder Mount] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Grace Revoir] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Twice-Pale Alder Mount] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2025-08-27",
+    "releaseLabel": "27 August 2025",
+    "year": 2025,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/feywild-wonders-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 68,
+    "slug": "grubby-goods-lockbox",
+    "name": "Grubby Goods Lockbox",
+    "companion": null,
+    "artifact": "Combat Enchantments Choice Pack",
+    "mount": "[Grubshank the Burdened] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "Combat Enchantments Choice Pack"
+      ],
+      "mounts": [
+        "[Grubshank the Burdened] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2025-11-25",
+    "releaseLabel": "25 November 2025",
+    "year": 2025,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/grubby-goods-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 69,
+    "slug": "deathly-delights-lockbox",
+    "name": "Deathly Delights Lockbox",
+    "companion": null,
+    "artifact": "[Demon Skull] - Account unlock",
+    "mount": "[Demonic Gravehound] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [],
+      "artifacts": [
+        "[Demon Skull] - Account unlock"
+      ],
+      "mounts": [
+        "[Demonic Gravehound] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2026-01-20",
+    "releaseLabel": "20 January 2026",
+    "year": 2026,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/deathly-delights-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 70,
+    "slug": "pet-pals-lockbox",
+    "name": "Pet Pals Lockbox",
+    "companion": "[Sardina the Tressym] - Account unlock",
+    "artifact": null,
+    "mount": "[Cactus the Hedgehog] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Sardina the Tressym] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Cactus the Hedgehog] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2026-03-10",
+    "releaseLabel": "10 March 2026",
+    "year": 2026,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/pet-pals-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  },
+  {
+    "id": 71,
+    "slug": "encroaching-frost-lockbox",
+    "name": "Encroaching Frost Lockbox",
+    "companion": "[Sir Waddlelot] - Account unlock",
+    "artifact": null,
+    "mount": "[Snowtusk] - Account unlock",
+    "race": null,
+    "rewards": {
+      "companions": [
+        "[Sir Waddlelot] - Account unlock"
+      ],
+      "artifacts": [],
+      "mounts": [
+        "[Snowtusk] - Account unlock"
+      ],
+      "races": []
+    },
+    "releaseDate": "2026-05-19",
+    "releaseLabel": "19 May 2026",
+    "year": 2026,
+    "platform": "All platforms / not specified",
+    "hasAccountUnlock": true,
+    "image": "assets/images/encroaching-frost-lockbox.svg",
+    "imageStatus": "generated-placeholder",
+    "imageSource": null,
+    "imageDiscovery": null
+  }
+]

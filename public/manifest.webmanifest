@@ -1,0 +1,12 @@
+{
+  "name": "Neverwinter Lockbox Vault",
+  "short_name": "Lockbox Vault",
+  "description": "Search Neverwinter lockboxes and their highlighted rewards.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080a0f",
+  "theme_color": "#090b10",
+  "icons": [
+    {"src": "assets/app-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ]
+}

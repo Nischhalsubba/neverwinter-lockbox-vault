@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b10">
+  <meta name="description" content="Search Neverwinter lockboxes and browse their companion, artifact, mount, race, and account-unlock rewards.">
+  <title>Neverwinter Lockbox Vault</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/app-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#results">Skip to results</a>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="./" aria-label="Neverwinter Lockbox Vault home">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M9 20h30v20H9zM12 20c1-8 6-12 12-12s11 4 12 12M24 8v32M9 28h30"/>
+          <path d="M21 25h6v8h-6z"/>
+        </svg>
+        <span>
+          <strong>Lockbox Vault</strong>
+          <small>Neverwinter community database</small>
+        </span>
+      </a>
+      <nav class="header-actions" aria-label="Primary">
+        <a class="text-link" href="#about">About</a>
+        <a class="button button-secondary button-small" href="https://docs.google.com/spreadsheets/d/1s66hDVSHkdwmbRmkQi4fAW_a7mh6y6TVK7hIXazs8LY/edit?gid=1802349840#gid=1802349840" target="_blank" rel="noreferrer">
+          Source sheet
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9M19 14v5H5V5h5"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero shell" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Community-maintained reward archive</p>
+        <h1 id="page-title">Find what drops from every Neverwinter lockbox.</h1>
+        <p class="hero-lede">Search lockboxes, companions, artifacts, mounts, races, and account-wide unlocks without excavating twelve years of forum posts.</p>
+      </div>
+
+      <form class="search-panel" id="search-form" role="search">
+        <label for="search-input">Search the vault</label>
+        <div class="search-field">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="search-input" name="q" type="search" autocomplete="off" placeholder="Try Snowtusk, Minsc, artifact, or 2024">
+          <button class="clear-search" id="clear-search" type="button" aria-label="Clear search" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>
+          </button>
+        </div>
+        <p class="search-hint">Press <kbd>/</kbd> to search. Press <kbd>Esc</kbd> to clear.</p>
+      </form>
+
+      <div class="stats" aria-label="Archive summary">
+        <article><strong id="stat-total">71</strong><span>Lockboxes</span></article>
+        <article><strong>2013–2026</strong><span>Release archive</span></article>
+        <article><strong id="stat-account">0</strong><span>With account unlocks</span></article>
+        <article><strong id="stat-latest">May 2026</strong><span>Latest sheet entry</span></article>
+      </div>
+    </section>
+
+    <section class="catalog shell" aria-labelledby="catalog-title">
+      <div class="catalog-heading">
+        <div>
+          <p class="eyebrow">Browse the archive</p>
+          <h2 id="catalog-title">Lockboxes and rewards</h2>
+        </div>
+        <div class="view-toggle" role="group" aria-label="View style">
+          <button id="grid-view" class="icon-button is-active" type="button" aria-label="Grid view" aria-pressed="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>
+          </button>
+          <button id="list-view" class="icon-button" type="button" aria-label="List view" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-bar" aria-label="Catalog filters">
+        <div class="filter-group category-filters" role="group" aria-label="Reward type">
+          <button class="filter-chip is-active" data-category="all" type="button" aria-pressed="true">All</button>
+          <button class="filter-chip" data-category="companion" type="button" aria-pressed="false">Companion</button>
+          <button class="filter-chip" data-category="artifact" type="button" aria-pressed="false">Artifact</button>
+          <button class="filter-chip" data-category="mount" type="button" aria-pressed="false">Mount</button>
+          <button class="filter-chip" data-category="race" type="button" aria-pressed="false">Race</button>
+          <button class="filter-chip" data-category="account" type="button" aria-pressed="false">Account unlock</button>
+        </div>
+
+        <div class="select-filters">
+          <label>
+            <span>Year</span>
+            <select id="year-filter">
+              <option value="all">All years</option>
+            </select>
+          </label>
+          <label>
+            <span>Sort</span>
+            <select id="sort-filter">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="az">Name A–Z</option>
+              <option value="za">Name Z–A</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="result-summary">
+        <p id="result-count" aria-live="polite">Showing 71 lockboxes</p>
+        <button class="text-button" id="reset-filters" type="button" hidden>Reset filters</button>
+      </div>
+
+      <div class="loading-state" id="loading-state" aria-live="polite">
+        <span></span><span></span><span></span>
+        <p>Opening the vault…</p>
+      </div>
+
+      <div class="card-grid" id="results" tabindex="-1" hidden></div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 27h40v26H12zM16 27c1-11 7-17 16-17s15 6 16 17M32 10v43M12 37h40"/><path d="m24 25 16 16M40 25 24 41"/></svg>
+        <h3>No lockboxes found</h3>
+        <p>Try another item name, reward type, or year. The mimic ate nothing. Your filters are merely too specific.</p>
+        <button class="button button-primary" id="empty-reset" type="button">Reset filters</button>
+      </div>
+    </section>
+
+    <section class="about shell" id="about" aria-labelledby="about-title">
+      <div>
+        <p class="eyebrow">About this project</p>
+        <h2 id="about-title">A fast, searchable layer over a community spreadsheet.</h2>
+      </div>
+      <div class="about-grid">
+        <article>
+          <h3>Current data</h3>
+          <p>The archive contains the 71 entries present in the “Boxes” sheet, from Nightmare Lockbox through Encroaching Frost Lockbox.</p>
+        </article>
+        <article>
+          <h3>Media sources</h3>
+          <p>Lockbox covers remain placeholders until downloaded and checked. Reward thumbnails now resolve from explicit ToonForge mappings, while official Neverwinter and NW Hub pages are tracked as research sources.</p>
+        </article>
+        <article>
+          <h3>Credits</h3>
+          <p>Source document compiled by Asura of Synergy Guild. Neverwinter and related game assets belong to their respective rights holders.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p>Unofficial fan project. Not affiliated with Cryptic Studios, Arc Games, or Wizards of the Coast.</p>
+      <p>Data snapshot: July 2026</p>
+    </div>
+  </footer>
+
+  <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title">
+    <div class="dialog-shell">
+      <button class="dialog-close icon-button" id="dialog-close" type="button" aria-label="Close details">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+      <div id="dialog-content"></div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

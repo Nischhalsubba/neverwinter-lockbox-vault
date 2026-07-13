@@ -1,0 +1,21 @@
+{
+  "name": "neverwinter-lockbox-vault",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Searchable community database of Neverwinter lockboxes and their headline rewards.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test",
+    "check": "npm run test && npm run build",
+    "prepare-assets": "python3 scripts_build.py",
+    "predev": "npm run prepare-assets",
+    "pretest": "npm run prepare-assets",
+    "prebuild": "npm run prepare-assets"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0"
+  }
+}
