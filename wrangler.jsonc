@@ -1,0 +1,11 @@
+{
+  "name": "neverwinter-lockbox-vault",
+  "compatibility_date": "2026-07-13",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
