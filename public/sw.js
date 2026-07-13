@@ -1,4 +1,4 @@
-const CACHE = 'lockbox-vault-v3';
+const CACHE = 'lockbox-vault-v4';
 const APP_SHELL = ['./', './manifest.webmanifest', './assets/app-icon.svg', './runtime-media.js'];
 
 const shouldPreferNetwork = (request) => (
@@ -17,7 +17,7 @@ const injectRuntimeMedia = async (response) => {
 
   const injected = html.replace(
     '</body>',
-    '<script type="module" src="./runtime-media.js"></script></body>',
+    '<script type="module" src="./runtime-media.js?v=4"></script></body>',
   );
 
   return new Response(injected, {
