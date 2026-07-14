@@ -16,9 +16,15 @@
   <header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="./" aria-label="Lockbox Vault home">
-        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 13h22v14H5zM8 13c.6-5 3.5-8 8-8s7.4 3 8 8M16 5v22M5 19h22"/><path d="M14 17h4v6h-4z"/></svg></span>
-        <span class="brand-copy"><strong>Lockbox Vault</strong><small>Neverwinter reward archive</small></span>
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M5 13h22v14H5zM8 13c.6-5 3.5-8 8-8s7.4 3 8 8M16 5v22M5 19h22"/><path d="M14 17h4v6h-4z"/></svg>
+        </span>
+        <span class="brand-copy">
+          <strong>Lockbox Vault</strong>
+          <small>Neverwinter reward archive</small>
+        </span>
       </a>
+
       <nav class="topbar-actions" aria-label="Primary navigation">
         <a href="#catalog">Browse</a>
         <a href="#about">About</a>
@@ -40,18 +46,39 @@
             <a class="button button-ghost" href="https://neverwinter.fandom.com/wiki/Lockbox" target="_blank" rel="noreferrer">Open the wiki</a>
           </div>
         </div>
+
         <div class="hero-stats" role="region" aria-label="Archive statistics">
-          <article><span class="stat-kicker">Archive</span><strong id="stat-total">71</strong><small>lockboxes documented</small></article>
-          <article><span class="stat-kicker">Timeline</span><strong id="stat-years">14</strong><small>release years covered</small></article>
-          <article><span class="stat-kicker">Rewards</span><strong id="stat-rewards">0</strong><small>headline rewards indexed</small></article>
-          <article><span class="stat-kicker">Unlocks</span><strong id="stat-account">0</strong><small>account-wide packs</small></article>
+          <article>
+            <span class="stat-kicker">Archive</span>
+            <strong id="stat-total">71</strong>
+            <small>lockboxes documented</small>
+          </article>
+          <article>
+            <span class="stat-kicker">Timeline</span>
+            <strong id="stat-years">14</strong>
+            <small>release years covered</small>
+          </article>
+          <article>
+            <span class="stat-kicker">Rewards</span>
+            <strong id="stat-rewards">0</strong>
+            <small>headline rewards indexed</small>
+          </article>
+          <article>
+            <span class="stat-kicker">Unlocks</span>
+            <strong id="stat-account">0</strong><span id="stat-latest" hidden>May 2026</span>
+            <small>account-wide packs</small>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="catalog-layout" id="catalog" aria-labelledby="catalog-title">
       <aside class="filter-panel" aria-label="Catalogue filters">
-        <div class="filter-panel-heading"><p class="eyebrow">Refine the archive</p><h2>Filter</h2></div>
+        <div class="filter-panel-heading">
+          <p class="eyebrow">Refine the archive</p>
+          <h2>Filter</h2>
+        </div>
+
         <form class="search-form" id="search-form" role="search">
           <label for="search-input">Search</label>
           <div class="search-box">
@@ -65,36 +92,74 @@
         <fieldset class="filter-block">
           <legend>Reward type</legend>
           <div class="category-list">
-            <button class="category-button is-active" type="button" data-category="all" aria-pressed="true"><span>All rewards</span><small id="count-all">71</small></button>
-            <button class="category-button" type="button" data-category="companion" aria-pressed="false"><span>Companions</span><small id="count-companion">0</small></button>
-            <button class="category-button" type="button" data-category="mount" aria-pressed="false"><span>Mounts</span><small id="count-mount">0</small></button>
-            <button class="category-button" type="button" data-category="artifact" aria-pressed="false"><span>Artifacts</span><small id="count-artifact">0</small></button>
-            <button class="category-button" type="button" data-category="race" aria-pressed="false"><span>Race packs</span><small id="count-race">0</small></button>
-            <button class="category-button" type="button" data-category="account" aria-pressed="false"><span>Account unlocks</span><small id="count-account">0</small></button>
+            <button class="category-button filter-chip is-active" type="button" data-category="all" aria-pressed="true"><span>All rewards</span><small id="count-all">71</small></button>
+            <button class="category-button filter-chip" type="button" data-category="companion" aria-pressed="false"><span>Companions</span><small id="count-companion">0</small></button>
+            <button class="category-button filter-chip" type="button" data-category="mount" aria-pressed="false"><span>Mounts</span><small id="count-mount">0</small></button>
+            <button class="category-button filter-chip" type="button" data-category="artifact" aria-pressed="false"><span>Artifacts</span><small id="count-artifact">0</small></button>
+            <button class="category-button filter-chip" type="button" data-category="race" aria-pressed="false"><span>Race packs</span><small id="count-race">0</small></button>
+            <button class="category-button filter-chip" type="button" data-category="account" aria-pressed="false"><span>Account unlocks</span><small id="count-account">0</small></button>
           </div>
         </fieldset>
 
-        <div class="filter-row"><label for="year-filter">Release year</label><select id="year-filter"><option value="all">All years</option></select></div>
-        <div class="filter-row"><label for="sort-filter">Sort by</label><select id="sort-filter"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="az">Name A–Z</option><option value="za">Name Z–A</option></select></div>
+        <div class="filter-row">
+          <label for="year-filter">Release year</label>
+          <select id="year-filter">
+            <option value="all">All years</option>
+          </select>
+        </div>
+
+        <div class="filter-row">
+          <label for="sort-filter">Sort by</label>
+          <select id="sort-filter">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="az">Name A–Z</option>
+            <option value="za">Name Z–A</option>
+          </select>
+        </div>
+
         <button class="reset-button" id="reset-filters" type="button" hidden>Reset all filters</button>
-        <div class="source-note"><span class="source-dot" aria-hidden="true"></span><p>Artwork is loaded from NW Hub, ToonForge, and Neverwinter Wiki. No generated image placeholders are shown.</p></div>
+
+        <div class="source-note">
+          <span class="source-dot" aria-hidden="true"></span>
+          <p>Artwork is loaded from NW Hub, ToonForge, and Neverwinter Wiki. No generated image placeholders are shown.</p>
+        </div>
       </aside>
 
       <div class="catalog-content">
         <header class="catalog-header">
-          <div><p class="eyebrow">Browse the collection</p><h2 id="catalog-title">Lockboxes</h2><p id="result-count" aria-live="polite">Showing 71 lockboxes</p></div>
+          <div>
+            <p class="eyebrow">Browse the collection</p>
+            <h2 id="catalog-title">Lockboxes</h2>
+            <p id="result-count" aria-live="polite">Showing 71 lockboxes</p>
+          </div>
           <div class="view-switcher" role="group" aria-label="Catalogue view">
-            <button id="grid-view" class="view-button is-active" type="button" aria-pressed="true" aria-label="Grid view"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg></button>
-            <button id="list-view" class="view-button" type="button" aria-pressed="false" aria-label="List view"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h14"/></svg></button>
+            <button id="grid-view" class="view-button is-active" type="button" aria-pressed="true" aria-label="Grid view">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>
+            </button>
+            <button id="list-view" class="view-button" type="button" aria-pressed="false" aria-label="List view">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h14"/></svg>
+            </button>
           </div>
         </header>
+
+        <div class="loading-state" id="loading-state" hidden></div>
         <div class="results-grid" id="results" tabindex="-1"></div>
-        <div class="empty-state" id="empty-state" hidden><span aria-hidden="true">◇</span><h3>No matching lockboxes</h3><p>Try a different reward, year, or name. The archive is intact. Your filters are simply being dramatic.</p><button class="button button-primary" id="empty-reset" type="button">Reset filters</button></div>
+
+        <div class="empty-state" id="empty-state" hidden>
+          <span aria-hidden="true">◇</span>
+          <h3>No matching lockboxes</h3>
+          <p>Try a different reward, year, or name. The archive is intact. Your filters are simply being dramatic.</p>
+          <button class="button button-primary" id="empty-reset" type="button">Reset filters</button>
+        </div>
       </div>
     </section>
 
     <section class="about-section" id="about" aria-labelledby="about-title">
-      <div><p class="eyebrow">Built for players</p><h2 id="about-title">A visual index, not another spreadsheet.</h2></div>
+      <div>
+        <p class="eyebrow">Built for players</p>
+        <h2 id="about-title">A visual index, not another spreadsheet.</h2>
+      </div>
       <div class="about-grid">
         <article><strong>Fast discovery</strong><p>Search names, reward types, years, and account unlocks from one screen.</p></article>
         <article><strong>Real media first</strong><p>Verified community imagery is preferred. Missing art stays absent rather than being fabricated.</p></article>
@@ -103,10 +168,20 @@
     </section>
   </main>
 
-  <footer class="footer"><p>Unofficial fan project. Neverwinter and related artwork belong to their respective rights holders.</p><p>Data snapshot: July 2026</p></footer>
+  <footer class="footer">
+    <p>Unofficial fan project. Neverwinter and related artwork belong to their respective rights holders.</p>
+    <p>Data snapshot: July 2026</p>
+  </footer>
 
-  <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title"><div class="dialog-shell"><button class="dialog-close" id="dialog-close" type="button" aria-label="Close details">×</button><div id="dialog-content"></div></div></dialog>
+  <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title">
+    <div class="dialog-shell">
+      <button class="dialog-close" id="dialog-close" type="button" aria-label="Close details">×</button>
+      <div id="dialog-content"></div>
+    </div>
+  </dialog>
+
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
   <script type="module" src="./app.js"></script>
 </body>
 </html>
