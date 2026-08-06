@@ -1,24 +1,59 @@
-# Neverwinter Lockbox Vault
-
 <!-- interactive-readme-standard:start -->
 
-> [!NOTE]
-> **Branch-specific documentation:** this section is maintained for [`automation/build-release-artifact`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/tree/automation/build-release-artifact). It is generated from the files present on this branch and preserves the project-authored README below.
+<div align="center">
 
-<details open>
-<summary><strong>Interactive repository guide</strong></summary>
+# neverwinter-lockbox-vault
 
-## Branch overview
+**Branch-aware technical guide for [`automation/build-release-artifact`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/tree/automation/build-release-artifact)**
 
-| Item | Value |
+<p><img alt="branch: automation/build-release-artifact" src="https://img.shields.io/static/v1?label=&message=branch%3A%20automation%2Fbuild-release-artifact&color=5965F2&style=flat-square"> <img alt="Vite" src="https://img.shields.io/static/v1?label=&message=Vite&color=24292F&style=flat-square"> <img alt="JavaScript" src="https://img.shields.io/static/v1?label=&message=JavaScript&color=24292F&style=flat-square"> <img alt="CSS" src="https://img.shields.io/static/v1?label=&message=CSS&color=24292F&style=flat-square"> <img alt="HTML" src="https://img.shields.io/static/v1?label=&message=HTML&color=24292F&style=flat-square"> <img alt="Python" src="https://img.shields.io/static/v1?label=&message=Python&color=24292F&style=flat-square"> <img alt="docs: branch-aware" src="https://img.shields.io/static/v1?label=&message=docs%3A%20branch-aware&color=8250DF&style=flat-square"></p>
+
+<p>
+  <a href="https://github.com/Nischhalsubba/neverwinter-lockbox-vault/tree/automation/build-release-artifact"><strong>Browse source</strong></a> ·
+  <a href="https://github.com/Nischhalsubba/neverwinter-lockbox-vault/issues"><strong>Issues</strong></a> ·
+  <a href="https://github.com/Nischhalsubba/neverwinter-lockbox-vault/codespaces/new?ref=automation%2Fbuild-release-artifact"><strong>Open in Codespaces</strong></a>
+</p>
+
+</div>
+
+> [!IMPORTANT]
+> This guide is generated from the files actually present on `automation/build-release-artifact`. It links to detected source paths, preserves project-authored notes, and avoids claiming components that were not found.
+
+## At a glance
+
+| Item | Detected value |
 |---|---|
-| Repository | [`Nischhalsubba/neverwinter-lockbox-vault`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault) |
-| Branch | [`automation/build-release-artifact`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/tree/automation/build-release-artifact) |
-| Detected stack | Vite, JavaScript, CSS, HTML, Python |
-| Detected manifests | package.json |
-| Documentation policy | Every maintained branch must explain purpose, setup, structure, architecture, flows, testing, delivery, security, and ownership. |
+| Purpose | Searchable community database of Neverwinter lockboxes and their headline rewards. |
+| Branch role | Compared with `main` |
+| Stack | Vite, JavaScript, CSS, HTML, Python |
+| Manifests | package.json |
+| Prerequisites | Node.js |
+| Delivery | GitHub Actions |
+| License | No license file detected |
 
-## Repository structure
+## Branch scope
+
+This branch differs from the default branch in the following detected paths:
+
+- [`README.md`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/blob/automation/build-release-artifact/README.md)
+
+## Quick start
+
+```bash
+npm install
+npm run dev
+npm run build
+npm run test
+npm run preview
+```
+
+### Configuration surface
+
+- No committed environment example file was detected.
+
+> Never commit secrets, private keys, production credentials, customer data, or unredacted infrastructure details.
+
+## Repository map
 
 ```mermaid
 flowchart TD
@@ -44,9 +79,14 @@ flowchart TD
     ROOT --> MORE["+ 7 more top-level entries"]
 ```
 
-The diagram is generated from the branch's actual top-level files and directories. Use the branch link above for complete source navigation.
+| Responsibility | Detected source paths |
+|---|---|
+| Interface | [`public`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/tree/automation/build-release-artifact/public) |
+| Data | [`data`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/tree/automation/build-release-artifact/data) |
+| Quality | [`tests`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/tree/automation/build-release-artifact/tests) |
+| Delivery | [`.github`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/tree/automation/build-release-artifact/.github), [`scripts`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/tree/automation/build-release-artifact/scripts) |
 
-## Website or application structure
+## Website or application map
 
 ```mermaid
 flowchart TD
@@ -54,42 +94,151 @@ flowchart TD
     APP --> R0["public"]
 ```
 
-## Application and responsibility flow
+## Architecture and responsibility flow
 
 ```mermaid
 flowchart LR
-    ACTOR["User / contributor"]
-    ACTOR --> A0["Interface: public"]
+    USER["User / contributor"]
+    USER --> A0["Interface: public"]
     A0 --> A1["Data: data"]
     A1 --> A2["Quality: tests"]
     A2 --> A3["Delivery: .github, scripts"]
     A3 --> DELIVERY["Delivery: GitHub Actions"]
 ```
 
-## Change-to-delivery flow
+<details>
+<summary><strong>Data flow and model surface</strong></summary>
 
 ```mermaid
 flowchart LR
-    CHANGE["Change on automation/build-release-artifact"]
-    CHECK["Validate: npm run dev, npm run build, npm run test, npm run preview"]
-    REVIEW["Review documentation and architecture impact"]
-    RELEASE["Merge, release, or deploy according to this branch"]
-    CHANGE --> CHECK --> REVIEW --> RELEASE
+    INPUT["User or system input"] --> VALIDATE["Validate and normalize"]
+    VALIDATE --> LOGIC["Application logic"]
+    LOGIC --> STORE["Persistent or local storage"]
+    STORE --> READ["Query / retrieval"]
+    READ --> OUTPUT["UI, API, report, or export"]
 ```
 
-## README requirements for this branch
+Detected data areas: [`data`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/tree/automation/build-release-artifact/data).
 
-- Explain what this branch contains and how it differs from the default branch.
-- Keep installation, configuration, usage, testing, deployment, security, support, and license information accurate.
-- Document repository, website or application, API, data, authentication, background-job, and deployment flows when they exist.
-- Prefer Mermaid diagrams and expandable `<details>` sections for visual navigation.
-- Link diagrams and modules to real source paths; never invent missing components.
-- Preserve project-specific documentation and update diagrams whenever architecture or major paths change.
-- Treat secrets, private infrastructure, customer data, and credentials as prohibited README content.
+</details>
+<details>
+<summary><strong>Background jobs and scheduled work</strong></summary>
+
+```mermaid
+flowchart LR
+    EVENT["Event / schedule"] --> QUEUE["Queue or job definition"]
+    QUEUE --> WORKER["Worker / processor"]
+    WORKER --> RESULT["Persist result or emit side effect"]
+    WORKER -->|failure| RETRY["Retry, alert, or dead-letter path"]
+```
+
+Relevant detected files: [`worker.js`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/blob/automation/build-release-artifact/worker.js).
+
+</details>
+
+## Quality, security, and operations
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### Quality
+
+- [`tests`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/tree/automation/build-release-artifact/tests)
+
+Detected commands:
+- `npm run dev`
+- `npm run build`
+- `npm run test`
+- `npm run preview`
+
+</td>
+<td width="33%" valign="top">
+
+### Security
+
+- No dedicated security policy or automated dependency configuration was detected.
+
+Review authentication, authorization, input validation, dependency updates, secret handling, and failure recovery before release.
+
+</td>
+<td width="34%" valign="top">
+
+### Observability
+
+- No dedicated observability integration was detected automatically.
+
+Define useful logs, metrics, traces, alerts, and rollback signals for production-facing branches.
+
+</td>
+</tr>
+</table>
+
+## Delivery flow
+
+```mermaid
+flowchart LR
+    CHANGE["Change on automation/build-release-artifact"] --> CHECK["Tests and quality checks"]
+    CHECK --> REVIEW["Review architecture and documentation impact"]
+    REVIEW --> BUILD["Build or package"]
+    BUILD --> DEPLOY["Deploy or release"]
+    DEPLOY --> VERIFY["Verify health and rollback readiness"]
+```
+
+### Automation detected
+
+- [`.github/workflows/build-release-artifact.yml`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/blob/automation/build-release-artifact/.github/workflows/build-release-artifact.yml)
+- [`.github/workflows/ci.yml`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/blob/automation/build-release-artifact/.github/workflows/ci.yml)
+- [`.github/workflows/extract-nwhub-assets.yml`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/blob/automation/build-release-artifact/.github/workflows/extract-nwhub-assets.yml)
+
+## Contribution flow
+
+```mermaid
+flowchart LR
+    FORK["Create branch"] --> CHANGE["Make focused change"]
+    CHANGE --> TEST["Run relevant checks"]
+    TEST --> DOCS["Update README and diagrams"]
+    DOCS --> PR["Open pull request"]
+    PR --> REVIEW["Review and iterate"]
+    REVIEW --> MERGE["Merge when ready"]
+```
+
+- Keep changes focused and explain architectural consequences.
+- Run the checks relevant to the changed area.
+- Update diagrams whenever routes, modules, data models, authentication, jobs, or delivery paths change.
+- Add screenshots or recordings for visual behavior changes when useful.
+- Use issues for reproducible defects and pull requests for reviewable changes.
+
+## Ownership and support
+
+| Topic | Source |
+|---|---|
+| Repository | [`Nischhalsubba/neverwinter-lockbox-vault`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault) |
+| Branch | [`automation/build-release-artifact`](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/tree/automation/build-release-artifact) |
+| Ownership | No CODEOWNERS file detected |
+| Contributing | Use the contribution flow above |
+| Support | [Open or review issues](https://github.com/Nischhalsubba/neverwinter-lockbox-vault/issues) |
+| License | No license file detected |
+
+<details>
+<summary><strong>Documentation maintenance checklist</strong></summary>
+
+- [ ] Purpose and branch scope are accurate.
+- [ ] Setup and configuration commands still work.
+- [ ] Repository, application, API, data, authentication, job, and deployment diagrams match the code.
+- [ ] Tests, security controls, observability, and rollback behavior are documented.
+- [ ] Links point to real files on this branch.
+- [ ] No secrets or private operational details are exposed.
 
 </details>
 
 <!-- interactive-readme-standard:end -->
+
+<!-- project-authored-notes:start -->
+<details>
+<summary><strong>Project-authored notes preserved from this branch</strong></summary>
+
+# Neverwinter Lockbox Vault
 
 A responsive, searchable community database for Neverwinter lockboxes and their headline rewards.
 
@@ -201,3 +350,6 @@ Do not silently use search thumbnails or unrelated promotional artwork. Every pu
 ## Disclaimer
 
 This is an unofficial fan project. Neverwinter, Dungeons & Dragons, and related names and artwork belong to their respective rights holders. The project is not affiliated with Cryptic Studios, Arc Games, or Wizards of the Coast.
+
+</details>
+<!-- project-authored-notes:end -->
