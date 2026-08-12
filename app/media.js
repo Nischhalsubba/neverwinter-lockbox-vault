@@ -1,4 +1,5 @@
 import nwhubMedia from './data/nwhub-media.js';
+import localMedia from './data/local-media.js';
 
 const TOONFORGE_REPO = 'https://github.com/n00bin/nwc';
 const TOONFORGE_RAW = 'https://raw.githubusercontent.com/n00bin/nwc/main/images';
@@ -154,6 +155,19 @@ export const normalizeMediaKey = (value = '') => cleanRewardName(value)
   .trim()
   .toLowerCase();
 
+const resolveLocalMedia = (type, rewardName) => {
+  const key = normalizeMediaKey(rewardName);
+  const mapped = localMedia?.items?.[type]?.[key];
+  if (!mapped?.url) return null;
+
+  return {
+    ...mapped,
+    canonicalName: mapped.name || cleanRewardName(rewardName),
+    provider: mapped.provider || 'Local verified artwork',
+    match: 'local',
+  };
+};
+
 const resolveNwHubMedia = (type, rewardName) => {
   const key = normalizeMediaKey(rewardName);
   const mapped = nwhubMedia?.items?.[type]?.[key];
@@ -179,6 +193,9 @@ const buildMedia = (folder, filename, canonicalName, match = 'exact') => ({
 });
 
 export const resolveRewardMedia = (type, rewardName) => {
+  const local = resolveLocalMedia(type, rewardName);
+  if (local) return local;
+
   const nwhub = resolveNwHubMedia(type, rewardName);
   if (nwhub) return nwhub;
 
@@ -201,6 +218,11 @@ export const resolveRewardMedia = (type, rewardName) => {
 };
 
 export const MEDIA_SOURCES = {
+  local: {
+    name: 'Synced local artwork',
+    url: 'https://neverwinter.fandom.com/wiki/Lockbox',
+    use: 'Verified Neverwinter artwork downloaded, normalized, and stored with the site for reliable display.',
+  },
   official: {
     name: 'Official Neverwinter news',
     url: 'https://www.playneverwinter.com/en/news',
@@ -209,7 +231,7 @@ export const MEDIA_SOURCES = {
   wiki: {
     name: 'Neverwinter Wiki / Fandom',
     url: 'https://neverwinter.fandom.com/wiki/Lockbox',
-    use: 'Community-maintained lockbox page images loaded through the public MediaWiki API.',
+    use: 'Community-maintained lockbox and item artwork.',
   },
   toonforge: {
     name: 'ToonForge / Neverwinter Compendium',
@@ -219,6 +241,6 @@ export const MEDIA_SOURCES = {
   nwhub: {
     name: 'Neverwinter Hub',
     url: 'https://nw-hub.com/packs',
-    use: 'Primary source for extracted pack, lockbox, companion, mount, artifact, and race images when an exact item match is available.',
+    use: 'Pack, lockbox, companion, mount, artifact, and race images when an exact item match is available.',
   },
 };

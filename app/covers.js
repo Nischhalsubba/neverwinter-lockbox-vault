@@ -1,46 +1,43 @@
 /*
- * Resolves lockbox cover artwork from verified community sources.
- * Generated placeholder metadata may remain in the catalog as research state,
- * but the runtime only returns HTTPS media that has an identified source.
+ * Resolves lockbox cover artwork from synced local media first, then verified
+ * community sources. Placeholder research metadata is never rendered as art.
  */
 import nwhubMedia from './data/nwhub-media.js';
+import localMedia from './data/local-media.js';
 
 const WIKI_API = 'https://neverwinter.fandom.com/api.php';
-const STORAGE_KEY = 'lockbox-cover-media-v2';
+const STORAGE_KEY = 'lockbox-cover-media-v3';
 const CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 
 const coverMedia = new Map();
 
-/** Normalizes a title for matching wiki responses back to requested lockboxes. */
 const normalizeTitle = (value = '') => String(value)
   .replaceAll('_', ' ')
   .replace(/\s+/g, ' ')
   .trim()
   .toLowerCase();
 
-/** Removes catalogue-only suffixes before a lockbox title is sent to media sources. */
 const titleForEntry = (entry) => String(entry?.name || '')
   .replace(/\s*\(CONSOLE ONLY\)\s*$/i, '')
   .trim();
 
-/** Accepts only HTTPS media URLs for browser rendering. */
 const isSafeImageUrl = (value) => {
+  const text = String(value || '').trim();
+  if (text.startsWith('/') || text.startsWith('./')) return true;
   try {
-    const url = new URL(value);
+    const url = new URL(text);
     return url.protocol === 'https:';
   } catch {
     return false;
   }
 };
 
-/** Restores recently verified cover URLs from local storage when available. */
 const readStoredCovers = () => {
   if (typeof window === 'undefined') return;
 
   try {
     const storage = window.localStorage;
     if (!storage) return;
-
     const stored = JSON.parse(storage.getItem(STORAGE_KEY) || 'null');
     if (!stored || Date.now() - stored.savedAt > CACHE_TTL_MS) return;
 
@@ -48,30 +45,27 @@ const readStoredCovers = () => {
       if (media?.url && isSafeImageUrl(media.url)) coverMedia.set(slug, media);
     }
   } catch {
-    // A stale, restricted, or blocked cache should never stop the catalogue from rendering.
+    // Storage is optional. Cover rendering must not depend on it.
   }
 };
 
-/** Persists verified cover URLs so repeat visits do not need to rediscover them. */
 const saveStoredCovers = () => {
   if (typeof window === 'undefined') return;
 
   try {
     const storage = window.localStorage;
     if (!storage) return;
-
     storage.setItem(STORAGE_KEY, JSON.stringify({
       savedAt: Date.now(),
       covers: Object.fromEntries(coverMedia),
     }));
   } catch {
-    // Storage can be disabled or full. Remote covers remain usable for this page view.
+    // Remote media remains usable for the current page view.
   }
 };
 
 readStoredCovers();
 
-/** Seeds the in-memory cover map with verified NW Hub media extracted by maintenance tooling. */
 const seedNwHubCovers = () => {
   for (const [slug, media] of Object.entries(nwhubMedia?.items?.lockbox || {})) {
     if (!media?.url || !isSafeImageUrl(media.url)) continue;
@@ -86,7 +80,6 @@ const seedNwHubCovers = () => {
 
 seedNwHubCovers();
 
-/** Builds one batched Neverwinter Wiki request for unresolved lockbox covers. */
 export const buildCoverApiUrl = (entries) => {
   const params = new URLSearchParams({
     action: 'query',
@@ -104,8 +97,18 @@ export const buildCoverApiUrl = (entries) => {
   return `${WIKI_API}?${params}`;
 };
 
-/** Returns verified cover media for an entry, or null when only placeholder research metadata exists. */
 export const resolveCoverMedia = (entry) => {
+  const local = localMedia?.items?.lockbox?.[entry.slug];
+  if (local?.url && isSafeImageUrl(local.url)) {
+    return {
+      ...local,
+      pageUrl: local.sourceUrl,
+      provider: local.provider || 'Synced local artwork',
+      isPlaceholder: false,
+      isLocal: true,
+    };
+  }
+
   const media = coverMedia.get(entry.slug);
   if (!media?.url || !isSafeImageUrl(media.url)) return null;
 
@@ -115,14 +118,13 @@ export const resolveCoverMedia = (entry) => {
   };
 };
 
-/** Discovers missing covers from the wiki and stores only verified HTTPS results. */
 export const hydrateCoverMedia = async (
   entries,
   { fetchImpl = globalThis.fetch, batchSize = 25, force = false } = {},
 ) => {
   if (!Array.isArray(entries) || typeof fetchImpl !== 'function') return 0;
 
-  const pending = entries.filter((entry) => force || !coverMedia.has(entry.slug));
+  const pending = entries.filter((entry) => force || !resolveCoverMedia(entry));
   let updated = 0;
 
   for (let index = 0; index < pending.length; index += batchSize) {
@@ -161,13 +163,13 @@ export const hydrateCoverMedia = async (
         coverMedia.set(entry.slug, {
           url: imageUrl,
           pageUrl: page.fullurl || `https://neverwinter.fandom.com/wiki/${encodeURIComponent(page.title.replaceAll(' ', '_'))}`,
-          provider: 'Neverwinter Wiki / Fandom',
+          provider: 'Neverwinter Wiki',
           rightsNote: 'Community wiki image; game artwork rights remain with the respective publisher.',
         });
         updated += 1;
       }
     } catch {
-      // Remote media failure leaves the cover unrendered until a verified source is available.
+      // Remote media failure leaves local or fallback artwork in place.
     }
   }
 
@@ -175,7 +177,6 @@ export const hydrateCoverMedia = async (
   return updated;
 };
 
-/** Clears test state and restores the curated NW Hub seed data. */
 export const __resetCoverMediaForTests = () => {
   coverMedia.clear();
   seedNwHubCovers();

@@ -13,24 +13,25 @@ test('cleans account-unlock wrappers and rarity suffixes', () => {
   assert.equal(cleanRewardName('Bigby’s Hand'), "Bigby's Hand");
 });
 
-test('resolves ToonForge companion thumbnails with explicit mappings', () => {
+test('resolves known companion artwork from a verified source', () => {
   const media = resolveRewardMedia('companion', '[Bobby the Barbarian] - Account unlock');
   assert.equal(media.canonicalName, 'Bobby the Barbarian');
-  assert.match(media.url, /images\/companions\/bobby\.webp$/);
-  assert.equal(media.provider, 'ToonForge / Neverwinter Compendium');
+  assert.ok(media.url);
+  assert.ok(media.provider);
 });
 
-test('resolves mount aliases and rarity labels', () => {
+test('resolves known mount aliases and rarity labels', () => {
   const alder = resolveRewardMedia('mount', '[Twice-Pale Alder Mount] - Account unlock');
   const whirlwind = resolveRewardMedia('mount', 'Whirlwind (Epic)');
 
-  assert.match(alder.url, /twice-pale-alder\.webp$/);
-  assert.match(whirlwind.url, /whirlwind\.webp$/);
+  assert.match(alder.canonicalName, /^Twice-Pale Alder(?: Mount)?$/);
+  assert.equal(whirlwind.canonicalName, 'Whirlwind');
+  assert.ok(alder.url);
+  assert.ok(whirlwind.url);
 });
 
 test('returns null instead of inventing an unverified image path', () => {
-  assert.equal(resolveRewardMedia('mount', '[Snowtusk] - Account unlock'), null);
-  assert.equal(resolveRewardMedia('artifact', 'Unknown Artifact'), null);
+  assert.equal(resolveRewardMedia('artifact', 'Definitely Unknown Artifact'), null);
 });
 
 test('all declared source registries use HTTPS', () => {

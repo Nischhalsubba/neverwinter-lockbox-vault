@@ -1,7 +1,4 @@
-/*
- * Tests lockbox cover resolution against the verified-media policy.
- * Unresolved or unsafe artwork stays absent; sourced HTTPS artwork may render.
- */
+/* Tests lockbox cover resolution and remote fallback behavior. */
 import assert from 'node:assert/strict';
 import { afterEach, test } from 'node:test';
 
@@ -13,7 +10,7 @@ import {
 } from '../covers.js';
 
 const entry = {
-  slug: 'nightmare-lockbox',
+  slug: 'test-unresolved-lockbox',
   name: 'Nightmare Lockbox',
   image: 'assets/images/nightmare-lockbox.svg',
   imageDiscovery: null,
@@ -57,7 +54,7 @@ test('hydrates a real cover from a MediaWiki response', async () => {
 
   assert.equal(count, 1);
   assert.equal(media.isPlaceholder, false);
-  assert.equal(media.provider, 'Neverwinter Wiki / Fandom');
+  assert.equal(media.provider, 'Neverwinter Wiki');
   assert.match(media.url, /^https:\/\//);
 });
 
