@@ -30,6 +30,30 @@ test('resolves known mount aliases and rarity labels', () => {
   assert.ok(whirlwind.url);
 });
 
+test('fills historical pack labels with NW Hub category artwork', () => {
+  const companion = resolveRewardMedia('companion', 'Wasteland Epic Companion Pack');
+  const mount = resolveRewardMedia('mount', 'Stardock Legendary Mount Pack');
+  const artifact = resolveRewardMedia('artifact', 'Glorious Resurgence Epic Artifacts Pack');
+
+  assert.match(companion.url, /^https:\/\/nw-hub\.com\/assets\/choice-packs\//);
+  assert.match(mount.url, /^https:\/\/nw-hub\.com\/assets\/choice-packs\//);
+  assert.match(artifact.url, /^https:\/\/nw-hub\.com\/assets\/choice-packs\//);
+  assert.match(companion.provider, /NW Hub/);
+});
+
+test('resolves the remaining visible individual rewards from curated sources', () => {
+  for (const [type, name] of [
+    ['mount', "Hag's Hexing Cauldron"],
+    ['mount', 'Cactus the Hedgehog'],
+    ['companion', 'Sardina the Tressym'],
+  ]) {
+    const media = resolveRewardMedia(type, name);
+    assert.ok(media?.url, `${name} should have artwork`);
+    assert.match(media.url, /^https:\/\//);
+    assert.ok(media.provider);
+  }
+});
+
 test('returns null instead of inventing an unverified image path', () => {
   assert.equal(resolveRewardMedia('artifact', 'Definitely Unknown Artifact'), null);
 });
