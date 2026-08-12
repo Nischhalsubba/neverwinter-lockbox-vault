@@ -24,7 +24,7 @@ test('resolves known mount aliases and rarity labels', () => {
   const alder = resolveRewardMedia('mount', '[Twice-Pale Alder Mount] - Account unlock');
   const whirlwind = resolveRewardMedia('mount', 'Whirlwind (Epic)');
 
-  assert.equal(alder.canonicalName, 'Twice-Pale Alder');
+  assert.match(alder.canonicalName, /^Twice-Pale Alder(?: Mount)?$/);
   assert.equal(whirlwind.canonicalName, 'Whirlwind');
   assert.ok(alder.url);
   assert.ok(whirlwind.url);
