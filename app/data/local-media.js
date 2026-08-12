@@ -1,41 +1,358 @@
 export default {
-  "generatedAt": "2026-08-12T12:45:01.277Z",
+  "generatedAt": "2026-08-12T12:59:14.180Z",
   "stats": {
-    "lockboxesResolved": 5,
-    "rewardsResolved": 115,
-    "unresolved": 139
+    "lockboxesResolved": 50,
+    "rewardsResolved": 137,
+    "unresolved": 72
   },
   "items": {
     "lockbox": {
       "nightmare-lockbox": {
         "url": "/assets/lockboxes/nightmare-lockbox.webp",
-        "sourceUrl": "https://neverwinter.fandom.com/wiki/Heavy_Mystic_Nightmare",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Nightmare_Lockbox",
         "provider": "Neverwinter Wiki",
-        "matchedTitle": "Heavy Mystic Nightmare"
+        "matchedTitle": "Nightmare Lockbox",
+        "matchedFile": "Icon_Inventory_Runestone_Special_Lockbox_Nightmare_T8_01.png"
+      },
+      "feywild-lockbox": {
+        "url": "/assets/lockboxes/feywild-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Feywild_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Feywild Lockbox",
+        "matchedFile": "Icon_Lockbox_Feywild.png"
+      },
+      "dark-forest-lockbox": {
+        "url": "/assets/lockboxes/dark-forest-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Dark_Forest_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Dark Forest Lockbox",
+        "matchedFile": "Icon_Lockbox_Darkforest.png"
+      },
+      "rusted-iron-lockbox": {
+        "url": "/assets/lockboxes/rusted-iron-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Rusted_Iron_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Rusted Iron Lockbox",
+        "matchedFile": "Icon_Lockbox_Rustediron.png"
+      },
+      "unearthed-lockbox": {
+        "url": "/assets/lockboxes/unearthed-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Unearthed_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Unearthed Lockbox",
+        "matchedFile": "Icon_Lockbox_Unearthed.png"
+      },
+      "frozen-crystal-lockbox": {
+        "url": "/assets/lockboxes/frozen-crystal-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Frozen_Crystal_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Frozen Crystal Lockbox",
+        "matchedFile": "Icon_Lockbox_Frozencrystal.png"
+      },
+      "lockbox-of-the-magnificent-emporium": {
+        "url": "/assets/lockboxes/lockbox-of-the-magnificent-emporium.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Lockbox_of_the_Magnificent_Emporium",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Lockbox of the Magnificent Emporium",
+        "matchedFile": "Icon_Lockbox_Magnificentemporium.png"
+      },
+      "tyrannical-lockbox": {
+        "url": "/assets/lockboxes/tyrannical-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Tyrannical_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Tyrannical Lockbox",
+        "matchedFile": "Icon_Lockbox_Tyrannical.png"
+      },
+      "fell-dragon-lockbox": {
+        "url": "/assets/lockboxes/fell-dragon-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Fell_Dragon_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Fell Dragon Lockbox",
+        "matchedFile": "Icon_Lockbox_Felldragon.png"
+      },
+      "nine-hells-lockbox": {
+        "url": "/assets/lockboxes/nine-hells-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Nine_Hells_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Nine Hells Lockbox",
+        "matchedFile": "Icon_Lockbox_Ninehells.png"
+      },
+      "dragonforged-lockbox": {
+        "url": "/assets/lockboxes/dragonforged-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Dragonforged_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Dragonforged Lockbox",
+        "matchedFile": "Icon_Lockbox_DragonForged.png"
+      },
+      "black-earth-lockbox": {
+        "url": "/assets/lockboxes/black-earth-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Black_Earth_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Black Earth Lockbox",
+        "matchedFile": "Icon_Lockbox_Blackearth.png"
+      },
+      "eternal-flame-lockbox": {
+        "url": "/assets/lockboxes/eternal-flame-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Eternal_Flame_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Eternal Flame Lockbox",
+        "matchedFile": "Icon_Lockbox_Eternalflame.png"
+      },
+      "crushing-wave-lockbox": {
+        "url": "/assets/lockboxes/crushing-wave-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Crushing_Wave_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Crushing Wave Lockbox",
+        "matchedFile": "Icon_Lockbox_Crushingwave.png"
+      },
+      "howling-hatred-lockbox": {
+        "url": "/assets/lockboxes/howling-hatred-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Howling_Hatred_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Howling Hatred Lockbox",
+        "matchedFile": "Icon_Lockbox_Howling_Hatred.png"
+      },
+      "glorious-resurgence-lockbox": {
+        "url": "/assets/lockboxes/glorious-resurgence-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Glorious_Resurgence_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Glorious Resurgence Lockbox",
+        "matchedFile": "Icon_Lockbox_Resurgence.png"
+      },
+      "new-life-lockbox": {
+        "url": "/assets/lockboxes/new-life-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/New_Life_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "New Life Lockbox",
+        "matchedFile": "Icon_Lockbox_Newlife.png"
+      },
+      "shaundakul-lockbox": {
+        "url": "/assets/lockboxes/shaundakul-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Shaundakul_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Shaundakul Lockbox",
+        "matchedFile": "Icon_Lockbox_Shaundakul.png"
+      },
+      "firemane-lockbox": {
+        "url": "/assets/lockboxes/firemane-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Firemane_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Firemane Lockbox",
+        "matchedFile": "Icon_Lockbox_Firemane.png"
+      },
+      "runic-lockbox": {
+        "url": "/assets/lockboxes/runic-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Runic_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Runic Lockbox",
+        "matchedFile": "Icon_Lockbox_Runic.png"
+      },
+      "giants-lockbox": {
+        "url": "/assets/lockboxes/giants-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Giants'_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Giants' Lockbox",
+        "matchedFile": "Icon_Lockbox_Giants.png"
       },
       "many-starred-lockbox": {
         "url": "/assets/lockboxes/many-starred-lockbox.webp",
-        "sourceUrl": "https://neverwinter.fandom.com/wiki/Collection/Mounts",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Many-Starred_Lockbox",
         "provider": "Neverwinter Wiki",
-        "matchedTitle": "Collection/Mounts"
+        "matchedTitle": "Many-Starred Lockbox",
+        "matchedFile": "Icon_Lockbox_Manystarred.png"
       },
-      "myconid-lockbox": {
-        "url": "/assets/lockboxes/myconid-lockbox.webp",
-        "sourceUrl": "https://neverwinter.fandom.com/wiki/Collection/Companions",
+      "lockbox-of-the-nine": {
+        "url": "/assets/lockboxes/lockbox-of-the-nine.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Lockbox_of_the_Nine",
         "provider": "Neverwinter Wiki",
-        "matchedTitle": "Collection/Companions"
+        "matchedTitle": "Lockbox of the Nine",
+        "matchedFile": "Icon_Lockbox_Ofthenine.png"
+      },
+      "merchant-prince-lockbox": {
+        "url": "/assets/lockboxes/merchant-prince-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Merchant_Prince_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Merchant Prince Lockbox",
+        "matchedFile": "Icon_Lockbox_Merchantprince.png"
+      },
+      "lockbox-of-the-lost": {
+        "url": "/assets/lockboxes/lockbox-of-the-lost.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Lockbox_of_the_Lost",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Lockbox of the Lost",
+        "matchedFile": "Icon_Lockbox_OftheLost.png"
+      },
+      "soulmonger-s-lockbox": {
+        "url": "/assets/lockboxes/soulmonger-s-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Soulmonger's_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Soulmonger's Lockbox",
+        "matchedFile": "Icon_Lockbox_Soulmonger.png"
+      },
+      "undying-lockbox": {
+        "url": "/assets/lockboxes/undying-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Undying_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Undying Lockbox",
+        "matchedFile": "Icon_Lockbox_Undying.png"
+      },
+      "new-opportunities-lockbox": {
+        "url": "/assets/lockboxes/new-opportunities-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/New_Opportunities_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "New Opportunities Lockbox",
+        "matchedFile": "Icon_Lockbox_Newopportunities.png"
+      },
+      "reborn-lockbox-console-only": {
+        "url": "/assets/lockboxes/reborn-lockbox-console-only.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Reborn_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Reborn Lockbox",
+        "matchedFile": "Icon_Lockbox_Reborn.png"
+      },
+      "lockbox-of-the-mad-mage": {
+        "url": "/assets/lockboxes/lockbox-of-the-mad-mage.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Lockbox_of_the_Mad_Mage",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Lockbox of the Mad Mage",
+        "matchedFile": "Icon_Lockbox_Madmage.png"
+      },
+      "excavated-lockbox": {
+        "url": "/assets/lockboxes/excavated-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Excavated_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Excavated Lockbox",
+        "matchedFile": "Icon_Lockbox_Excavated.png"
+      },
+      "halaster-s-lockbox": {
+        "url": "/assets/lockboxes/halaster-s-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Halaster's_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Halaster's Lockbox",
+        "matchedFile": "Icon_Lockbox_Halaster.png"
+      },
+      "stardock-lockbox": {
+        "url": "/assets/lockboxes/stardock-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Stardock_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Stardock Lockbox",
+        "matchedFile": "Icon_Lockbox_Stardock.png"
+      },
+      "the-descent-lockbox": {
+        "url": "/assets/lockboxes/the-descent-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/The_Descent_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "The Descent Lockbox",
+        "matchedFile": "Icon_Lockbox_Descent.png"
+      },
+      "wasteland-lockbox": {
+        "url": "/assets/lockboxes/wasteland-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Wasteland_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Wasteland Lockbox",
+        "matchedFile": "Icon_Lockbox_Wasteland.png"
+      },
+      "the-blood-war-lockbox": {
+        "url": "/assets/lockboxes/the-blood-war-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/The_Blood_War_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "The Blood War Lockbox",
+        "matchedFile": "Icon_Lockbox_Bloodwar.png"
+      },
+      "redeemed-lockbox": {
+        "url": "/assets/lockboxes/redeemed-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Redeemed_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Redeemed Lockbox",
+        "matchedFile": "Icon_Lockbox_Redeemed.png"
+      },
+      "forsaken-lockbox": {
+        "url": "/assets/lockboxes/forsaken-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Forsaken_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Forsaken Lockbox",
+        "matchedFile": "Icon_Lockbox_Forsaken.png"
+      },
+      "spellbound-lockbox": {
+        "url": "/assets/lockboxes/spellbound-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Spellbound_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Spellbound Lockbox",
+        "matchedFile": "Icon_Lockbox_Spellbound.png"
+      },
+      "enchanting-lockbox": {
+        "url": "/assets/lockboxes/enchanting-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Enchanting_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Enchanting Lockbox",
+        "matchedFile": "Icon_Lockbox_Enchanting.png"
+      },
+      "ensorcelled-lockbox": {
+        "url": "/assets/lockboxes/ensorcelled-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Ensorcelled_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Ensorcelled Lockbox",
+        "matchedFile": "Icon_Lockbox_Ensorcelled.png"
+      },
+      "lockbox-of-justice": {
+        "url": "/assets/lockboxes/lockbox-of-justice.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Lockbox_of_Justice",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Lockbox of Justice",
+        "matchedFile": "Icon_Lockbox_Justice.png"
+      },
+      "reconnaissance-lockbox": {
+        "url": "/assets/lockboxes/reconnaissance-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Reconnaissance_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Reconnaissance Lockbox",
+        "matchedFile": "Icon_Lockbox_Recon.png"
+      },
+      "stealth-lockbox": {
+        "url": "/assets/lockboxes/stealth-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Stealth_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Stealth Lockbox",
+        "matchedFile": "Icon_Lockbox_Stealth.png"
+      },
+      "skeletal-lockbox": {
+        "url": "/assets/lockboxes/skeletal-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Skeletal_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Skeletal Lockbox",
+        "matchedFile": "Icon_M22_Lockbox_Skeletons.png"
+      },
+      "lockbox-of-dark-omens": {
+        "url": "/assets/lockboxes/lockbox-of-dark-omens.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Lockbox_of_Dark_Omens",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Lockbox of Dark Omens",
+        "matchedFile": "Icon_Lockbox_DarkOmens.png"
+      },
+      "dragon-cult-lockbox": {
+        "url": "/assets/lockboxes/dragon-cult-lockbox.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Dragon_Cult_Lockbox",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Dragon Cult Lockbox",
+        "matchedFile": "Icon_M23_Lockbox_Dragoncult.png"
       },
       "planar-panic-lockbox": {
         "url": "/assets/lockboxes/planar-panic-lockbox.webp",
         "sourceUrl": "https://www.playneverwinter.com/en/news-details/11547963",
         "provider": "Official Neverwinter",
-        "matchedTitle": "Planar Panic Lockbox"
+        "matchedTitle": "https://www.playneverwinter.com/en/news-details/11547963"
+      },
+      "encroaching-frost-lockbox": {
+        "url": "/assets/lockboxes/encroaching-frost-lockbox.webp",
+        "sourceUrl": "https://steamcommunity.com/app/109600/announcements/",
+        "provider": "Official Neverwinter / Steam",
+        "matchedTitle": "Encroaching Frost Lockbox"
       },
       "buried-treasure-lockbox": {
         "url": "/assets/lockboxes/buried-treasure-lockbox.webp",
         "sourceUrl": "https://steamcommunity.com/app/109600/announcements/",
-        "provider": "Neverwinter / Arc Games",
-        "matchedTitle": "Buried Treasure Lockbox"
+        "provider": "Official Neverwinter / Steam",
+        "matchedTitle": "Buried Treasure Lockbox / Ollie the Octie"
       }
     },
     "companion": {
@@ -157,6 +474,14 @@ export default {
         "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/companions/crystalline-golem.webp",
         "provider": "ToonForge / Neverwinter Compendium",
         "matchedTitle": "Crystal Golem"
+      },
+      "fiendish charmer pack": {
+        "name": "Fiendish Charmer Pack",
+        "url": "/assets/rewards/companion/fiendish-charmer-pack.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Fiendish_Charmer_Pack",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Fiendish Charmer Pack",
+        "matchedFile": "Icon_Lockbox_Pet_Fiendish_Charmer_Rewardpack.png"
       },
       "spined devil": {
         "name": "Spined Devil",
@@ -294,9 +619,9 @@ export default {
       "sir waddlelot": {
         "name": "Sir Waddlelot",
         "url": "/assets/rewards/companion/sir-waddlelot.webp",
-        "sourceUrl": "https://neverwinter.fandom.com/wiki/Dawn_Unicorn",
-        "provider": "Neverwinter Wiki",
-        "matchedTitle": "Dawn Unicorn"
+        "sourceUrl": "https://steamcommunity.com/app/109600/announcements/",
+        "provider": "Official Neverwinter / Steam",
+        "matchedTitle": "Sir Waddlelot"
       }
     },
     "mount": {
@@ -734,12 +1059,166 @@ export default {
         "provider": "ToonForge / Neverwinter Compendium",
         "matchedTitle": "Nightfire Dragonnel"
       },
+      "bigby s hand": {
+        "name": "Bigby's Hand",
+        "url": "/assets/rewards/mount/bigbys-hand.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/bigbys-hand.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Bigby's Hand"
+      },
+      "myconid bulette": {
+        "name": "Myconid Bulette",
+        "url": "/assets/rewards/mount/myconid-bulette.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/myconid-bulette.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Myconid Bulette"
+      },
+      "umber hulk": {
+        "name": "Umber Hulk",
+        "url": "/assets/rewards/mount/umber-hulk.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/umber-hulk.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Umber Hulk"
+      },
+      "ebon riding lizard": {
+        "name": "Ebon Riding Lizard",
+        "url": "/assets/rewards/mount/ebon-riding-lizard.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/ebon-riding-lizard.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Ebon Riding Lizard"
+      },
+      "deadly driderform": {
+        "name": "Deadly Driderform",
+        "url": "/assets/rewards/mount/deadly-driderform.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/deadly-driderform.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Deadly Driderform"
+      },
+      "uni the unicorn": {
+        "name": "Uni the Unicorn",
+        "url": "/assets/rewards/mount/uni-the-unicorn.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/uni-the-unicorn.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Uni the Unicorn"
+      },
+      "demon wings": {
+        "name": "Demon Wings",
+        "url": "/assets/rewards/mount/demon-wings.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/demon-wings.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Demon Wings"
+      },
+      "giant space hamster": {
+        "name": "Giant Space Hamster",
+        "url": "/assets/rewards/mount/giant-space-hamster.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/giant-space-hamster.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Giant Space Hamster"
+      },
+      "golden armored griffon": {
+        "name": "Golden Armored Griffon",
+        "url": "/assets/rewards/mount/golden-armored-griffon.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/golden-armored-griffon.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Golden Armored Griffon"
+      },
+      "zodar armor": {
+        "name": "Zodar Armor",
+        "url": "/assets/rewards/mount/zodar-armor.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/zodar-armor.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Zodar Armor"
+      },
+      "space guppy school": {
+        "name": "Space Guppy School",
+        "url": "/assets/rewards/mount/space-guppy-school.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/space-guppy-school.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Space Guppy School"
+      },
+      "bestial fire archon": {
+        "name": "Bestial Fire Archon",
+        "url": "/assets/rewards/mount/bestial-fire-archon.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/bestial-fire-archon.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Bestial Fire Archon"
+      },
+      "red mountain fox": {
+        "name": "Red Mountain Fox",
+        "url": "/assets/rewards/mount/red-mountain-fox.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/red-mountain-fox.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Red Mountain Fox"
+      },
+      "brain stealer dragon": {
+        "name": "Brain Stealer Dragon",
+        "url": "/assets/rewards/mount/brain-stealer-dragon.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/brain-stealer-dragon.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Brain Stealer Dragon"
+      },
+      "skyhold alligator": {
+        "name": "Skyhold Alligator",
+        "url": "/assets/rewards/mount/skyhold-alligator.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/skyhold-alligator.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Skyhold Alligator"
+      },
+      "glorious undead lion": {
+        "name": "Glorious Undead Lion",
+        "url": "/assets/rewards/mount/glorious-undead-lion.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/glorious-undead-lion.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Glorious Undead Lion"
+      },
+      "hag s enchanted cauldron": {
+        "name": "Hag's Enchanted Cauldron",
+        "url": "/assets/rewards/mount/hags-enchanted-cauldron.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/hags-enchanted-cauldron.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Hag's Enchanted Cauldron"
+      },
+      "phantom panther": {
+        "name": "Phantom Panther",
+        "url": "/assets/rewards/mount/phantom-panther.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/phantom-panther.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Phantom Panther"
+      },
+      "twice pale alder mount": {
+        "name": "Twice-Pale Alder Mount",
+        "url": "/assets/rewards/mount/twice-pale-alder-mount.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/twice-pale-alder.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Twice-Pale Alder"
+      },
+      "grubshank the burdened": {
+        "name": "Grubshank the Burdened",
+        "url": "/assets/rewards/mount/grubshank-the-burdened.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/grubshank-the-burdened.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Grubshank the Burdened"
+      },
+      "demonic gravehound": {
+        "name": "Demonic Gravehound",
+        "url": "/assets/rewards/mount/demonic-gravehound.webp",
+        "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/demonic-gravehound.webp",
+        "provider": "ToonForge / Neverwinter Compendium",
+        "matchedTitle": "Demonic Gravehound"
+      },
       "snowtusk": {
         "name": "Snowtusk",
         "url": "/assets/rewards/mount/snowtusk.webp",
-        "sourceUrl": "https://neverwinter.fandom.com/wiki/Collection/Mounts",
-        "provider": "Neverwinter Wiki",
-        "matchedTitle": "Collection/Mounts"
+        "sourceUrl": "https://steamcommunity.com/app/109600/announcements/",
+        "provider": "Official Neverwinter / Steam",
+        "matchedTitle": "Snowtusk"
+      },
+      "ollie the octie": {
+        "name": "Ollie the Octie",
+        "url": "/assets/rewards/mount/ollie-the-octie.webp",
+        "sourceUrl": "https://steamcommunity.com/app/109600/announcements/",
+        "provider": "Official Neverwinter / Steam",
+        "matchedTitle": "Ollie the Octie"
       }
     },
     "artifact": {
@@ -756,6 +1235,30 @@ export default {
         "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/artifacts/Icon_Inventory_Artifacts_Chromatic_Storm.webp",
         "provider": "ToonForge / Neverwinter Compendium",
         "matchedTitle": "Token of Chromatic Storm"
+      },
+      "heart of the white dragon": {
+        "name": "Heart of the White Dragon",
+        "url": "/assets/rewards/artifact/heart-of-the-white-dragon.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Heart_of_the_White_Dragon",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Heart of the White Dragon",
+        "matchedFile": "Icon_Inventory_Artifacts_White_Dragon_Heart.png"
+      },
+      "heart of the green dragon": {
+        "name": "Heart of the Green Dragon",
+        "url": "/assets/rewards/artifact/heart-of-the-green-dragon.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Heart_of_the_Green_Dragon",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Heart of the Green Dragon",
+        "matchedFile": "Icon_Inventory_Artifacts_Green_Dragon_Heart.png"
+      },
+      "heart of the blue dragon": {
+        "name": "Heart of the Blue Dragon",
+        "url": "/assets/rewards/artifact/heart-of-the-blue-dragon.webp",
+        "sourceUrl": "https://neverwinter.fandom.com/wiki/Heart_of_the_Blue_Dragon",
+        "provider": "Neverwinter Wiki",
+        "matchedTitle": "Heart of the Blue Dragon",
+        "matchedFile": "Icon_Inventory_Artifacts_Blue_Dragon_Heart.png"
       },
       "heart of the black dragon": {
         "name": "Heart of the Black Dragon",
@@ -778,13 +1281,6 @@ export default {
         "provider": "Neverwinter Wiki",
         "matchedTitle": "Horn of Valhalla"
       },
-      "sigil of the nine": {
-        "name": "Sigil of the Nine",
-        "url": "/assets/rewards/artifact/sigil-of-the-nine.webp",
-        "sourceUrl": "https://neverwinter.fandom.com/wiki/The_Vault_of_the_Nine",
-        "provider": "Neverwinter Wiki",
-        "matchedTitle": "The Vault of the Nine"
-      },
       "shard of orcus wand": {
         "name": "Shard of Orcus' Wand",
         "url": "/assets/rewards/artifact/shard-of-orcus-wand.webp",
@@ -799,54 +1295,33 @@ export default {
         "provider": "Neverwinter Wiki",
         "matchedTitle": "Staff of Flowers"
       },
-      "marco s mystic marker": {
-        "name": "Marco's Mystic Marker",
-        "url": "/assets/rewards/artifact/marcos-mystic-marker.webp",
-        "sourceUrl": "https://neverwinter.fandom.com/wiki/Enchanting_(previous)",
-        "provider": "Neverwinter Wiki",
-        "matchedTitle": "Enchanting (previous)"
+      "combat enchantments choice pack": {
+        "name": "Combat Enchantments Choice Pack",
+        "url": "/assets/rewards/artifact/combat-enchantments-choice-pack.webp",
+        "sourceUrl": "https://steamcommunity.com/app/109600/announcements/",
+        "provider": "Official Neverwinter / Steam",
+        "matchedTitle": "Combat Enchantments Choice Pack"
       },
-      "heart of the volcano": {
-        "name": "Heart of the Volcano",
-        "url": "/assets/rewards/artifact/heart-of-the-volcano.webp",
-        "sourceUrl": "https://neverwinter.fandom.com/wiki/Volcanic_Galeb_Duhr",
-        "provider": "Neverwinter Wiki",
-        "matchedTitle": "Volcanic Galeb Duhr"
-      },
-      "grace of pelor": {
-        "name": "Grace of Pelor",
-        "url": "/assets/rewards/artifact/grace-of-pelor.webp",
-        "sourceUrl": "https://neverwinter.fandom.com/wiki/Artifact",
-        "provider": "Neverwinter Wiki",
-        "matchedTitle": "Artifact"
-      },
-      "nightflame censer": {
-        "name": "Nightflame Censer",
-        "url": "/assets/rewards/artifact/nightflame-censer.webp",
-        "sourceUrl": "https://neverwinter.fandom.com/wiki/Artifact",
-        "provider": "Neverwinter Wiki",
-        "matchedTitle": "Artifact"
-      },
-      "demon skull": {
-        "name": "Demon Skull",
-        "url": "/assets/rewards/artifact/demon-skull.webp",
-        "sourceUrl": "https://neverwinter.fandom.com/wiki/Twisted_Skulls",
-        "provider": "Neverwinter Wiki",
-        "matchedTitle": "Twisted Skulls"
+      "shifting shards": {
+        "name": "Shifting Shards",
+        "url": "/assets/rewards/artifact/shifting-shards.webp",
+        "sourceUrl": "https://steamcommunity.com/app/109600/announcements/",
+        "provider": "Official Neverwinter / Steam",
+        "matchedTitle": "Shifting Shards"
       },
       "fluid aurora": {
         "name": "Fluid Aurora",
         "url": "/assets/rewards/artifact/fluid-aurora.webp",
-        "sourceUrl": "https://neverwinter.fandom.com/wiki/Owlbear_Leather_Belt_of_Intelligence",
-        "provider": "Neverwinter Wiki",
-        "matchedTitle": "Owlbear Leather Belt of Intelligence"
+        "sourceUrl": "https://steamcommunity.com/app/109600/announcements/",
+        "provider": "Official Neverwinter / Steam",
+        "matchedTitle": "Fluid Aurora"
       },
       "shattered resolve": {
         "name": "Shattered Resolve",
         "url": "/assets/rewards/artifact/shattered-resolve.webp",
-        "sourceUrl": "https://neverwinter.fandom.com/wiki/Collection/Storm_King%27s_Thunder",
-        "provider": "Neverwinter Wiki",
-        "matchedTitle": "Collection/Storm King's Thunder"
+        "sourceUrl": "https://steamcommunity.com/app/109600/announcements/",
+        "provider": "Official Neverwinter / Steam",
+        "matchedTitle": "Shattered Resolve"
       }
     },
     "race": {}
