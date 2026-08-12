@@ -1,40 +1,51 @@
+/*
+ * Guards the current Lockbox Vault interaction hierarchy, visual tokens, and
+ * responsive behavior without depending on superseded prototype markup.
+ */
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { test } from 'node:test';
 
 const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
-const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
 const app = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+const covers = await readFile(new URL('../covers.js', import.meta.url), 'utf8');
+const foundation = await readFile(new URL('../theme/01-foundation.css', import.meta.url), 'utf8');
+const responsive = await readFile(new URL('../theme/05-responsive.css', import.meta.url), 'utf8');
 
-test('minimal layout keeps a compact archive hierarchy', () => {
-  assert.match(html, /class="intro"/);
-  assert.match(html, /class="toolbar"/);
-  assert.match(html, /class="category-row"/);
-  assert.match(html, /class="results-grid"/);
-});
-
-test('design system exposes restrained neutral tokens', () => {
-  for (const token of ['--bg:', '--surface:', '--text:', '--muted:', '--accent:']) {
-    assert.match(css, new RegExp(token.replace('-', '\\-')));
+test('archive hierarchy keeps navigation, discovery controls, results, and detail view', () => {
+  for (const marker of [
+    'class="topbar"',
+    'class="hero"',
+    'class="filter-panel"',
+    'class="results-grid"',
+    'class="detail-dialog"',
+  ]) {
+    assert.match(html, new RegExp(marker));
   }
-  assert.doesNotMatch(css, /linear-gradient|radial-gradient/);
 });
 
-test('functional icon buttons use SVG rather than emoji glyphs', () => {
-  assert.match(html, /id="clear-search"[\s\S]*?<svg/);
-  assert.match(html, /id="dialog-close"[\s\S]*?<svg/);
-  assert.match(app, /class="card-open"[\s\S]*?<svg/);
+test('design system exposes the maintained editorial archive tokens', () => {
+  for (const token of ['--ink:', '--muted:', '--paper:', '--white:', '--violet:', '--lime:', '--coral:']) {
+    assert.ok(foundation.includes(token), `Expected design token ${token}`);
+  }
 });
 
-test('unresolved cover media is omitted rather than replaced', () => {
-  assert.match(app, /if \(!cover\) return '';/);
-  assert.doesNotMatch(app, /Artwork loading/);
-  assert.doesNotMatch(app, /detail-cover-empty/);
+test('view controls use SVG icons and accessible labels', () => {
+  assert.match(html, /id="grid-view"[\s\S]*?<svg/);
+  assert.match(html, /id="list-view"[\s\S]*?<svg/);
+  assert.match(html, /aria-label="Clear search"/);
+  assert.match(html, /aria-label="Close details"/);
 });
 
-test('responsive checkpoints cover tablet and mobile widths', () => {
-  assert.match(css, /@media\(max-width:1024px\)/);
-  assert.match(css, /@media\(max-width:720px\)/);
-  assert.match(css, /@media\(max-width:440px\)/);
-  assert.match(css, /prefers-reduced-motion/);
+test('unverified cover images are omitted rather than rendered from placeholder paths', () => {
+  assert.match(covers, /return null;/);
+  assert.doesNotMatch(covers, /Generated community placeholder/);
+  assert.match(app, /card-visual-empty/);
+});
+
+test('responsive checkpoints cover desktop compression, tablet, mobile, and reduced motion', () => {
+  assert.match(responsive, /@media\(max-width:1250px\)/);
+  assert.match(responsive, /@media\(max-width:900px\)/);
+  assert.match(responsive, /@media\(max-width:620px\)/);
+  assert.match(responsive, /prefers-reduced-motion/);
 });
