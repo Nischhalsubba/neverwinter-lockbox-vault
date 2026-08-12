@@ -10,6 +10,10 @@ on:
       - 'app/data/local-media.js'
       - 'app/data/media-sync-report.json'
 
+concurrency:
+  group: neverwinter-media-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
