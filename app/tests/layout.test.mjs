@@ -8,10 +8,12 @@ const covers = await readFile(new URL('../covers.js', import.meta.url), 'utf8');
 const css = await readFile(new URL('../redesign.css', import.meta.url), 'utf8');
 const media = await readFile(new URL('../media.js', import.meta.url), 'utf8');
 
-test('application shell exposes the active archive workspace controls', () => {
-  for (const id of ['catalog', 'search-input', 'year-filter', 'sort-filter', 'results', 'grid-view', 'list-view', 'detail-dialog']) {
+test('application shell exposes the simple catalog controls', () => {
+  for (const id of ['catalog', 'search-input', 'year-filter', 'sort-filter', 'results', 'detail-dialog']) {
     assert.match(html, new RegExp(`id=["']${id}["']`));
   }
+  assert.match(html, /class="category-tabs"/);
+  assert.doesNotMatch(html, /id="grid-view"|id="list-view"/);
   assert.match(html, /src="\.\/app-v2\.js"/);
 });
 
@@ -23,22 +25,22 @@ test('catalog runtime can boot when served directly or through Vite', () => {
   assert.match(app, /import\(['"]\.\/covers\.js['"]\)/);
 });
 
-test('synced local media is preferred while fallbacks remain available', () => {
+test('synced local media is preferred while readable fallbacks remain available', () => {
   assert.match(media, /local-media\.js/);
   assert.match(covers, /local-media\.js/);
-  assert.match(app, /vaultIcon/);
+  assert.match(app, /vaultFallback/);
   assert.match(app, /rewardIcon/);
   assert.match(covers, /isLocal: true/);
 });
 
-test('catalog-first stylesheet covers desktop, tablet, mobile, focus, and reduced motion', () => {
-  for (const selector of ['.topbar', '.archive-intro', '.catalog-layout', '.filter-panel', '.lockbox-card', '.detail-dialog']) {
+test('stylesheet favors a compact icon catalog across screen sizes', () => {
+  for (const selector of ['.topbar', '.hub-toolbar', '.category-tabs', '.pack-card', '.pack-icon', '.detail-dialog']) {
     assert.ok(css.includes(selector), `Expected catalog selector ${selector}`);
   }
-  assert.doesNotMatch(html, /class="hero"/);
+  assert.doesNotMatch(html, /class="hero"|class="filter-panel"/);
   assert.match(css, /focus-visible/);
-  assert.match(css, /@media \(max-width: 1250px\)/);
-  assert.match(css, /@media \(max-width: 920px\)/);
-  assert.match(css, /@media \(max-width: 660px\)/);
+  assert.match(css, /@media \(max-width: 859px\)/);
+  assert.match(css, /@media \(max-width: 640px\)/);
+  assert.match(css, /@media \(max-width: 420px\)/);
   assert.match(css, /prefers-reduced-motion/);
 });
