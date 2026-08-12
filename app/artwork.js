@@ -9,35 +9,15 @@ const LOCAL_PACK_ART = {
 
 const curatedMedia = {
   companion: {
-    'Sardina the Tressym': {
-      url: 'https://forgottenrealms.fandom.com/wiki/Special:FilePath/Sardina_the_Tressym.png',
-      sourceUrl: 'https://forgottenrealms.fandom.com/wiki/Sardina',
-      provider: 'Forgotten Realms Wiki',
-    },
+    'Sardina the Tressym': '/assets/rewards/curated/sardina-the-tressym.png',
   },
   mount: {
-    'Cactus the Hedgehog': {
-      url: 'https://forgottenrealms.fandom.com/wiki/Special:FilePath/Cactus_the_Hedgehog.png',
-      sourceUrl: 'https://forgottenrealms.fandom.com/wiki/Cactus_(hedgehog)',
-      provider: 'Forgotten Realms Wiki',
-    },
-    "Hag's Hexing Cauldron": {
-      url: 'https://static.wikia.nocookie.net/neverwinter_gamepedia/images/7/77/Icons_Inventory_Mount_Cauldron_Mythic.png/revision/latest?cb=20210424062237',
-      sourceUrl: 'https://neverwinter.fandom.com/wiki/Hag%27s_Hexing_Cauldron',
-      provider: 'Neverwinter Wiki',
-    },
+    'Cactus the Hedgehog': '/assets/rewards/curated/cactus-the-hedgehog.png',
+    "Hag's Hexing Cauldron": '/assets/rewards/curated/hags-hexing-cauldron.png',
   },
   race: {
-    'Sigil of the Metallic Ancestry Dragonborn': {
-      url: 'https://static.wikia.nocookie.net/neverwinter_gamepedia/images/3/31/Icon_Lockbox_Sigil_Metallicdragonborn.png/revision/latest?cb=20150115203247',
-      sourceUrl: 'https://neverwinter.fandom.com/wiki/Sigil_of_the_Metallic_Ancestry_Dragonborn',
-      provider: 'Neverwinter Wiki',
-    },
-    'Glorious Resurgence Legendary Pack': {
-      url: 'https://static.wikia.nocookie.net/neverwinter_gamepedia/images/5/5c/Icon_Lockbox_Resurgence_Legendarypack.png/revision/latest?cb=20151118143748',
-      sourceUrl: 'https://neverwinter.fandom.com/wiki/Glorious_Resurgence_Legendary_Pack',
-      provider: 'Neverwinter Wiki',
-    },
+    'Sigil of the Metallic Ancestry Dragonborn': '/assets/rewards/curated/metallic-ancestry-dragonborn.png',
+    'Glorious Resurgence Legendary Pack': '/assets/rewards/curated/glorious-resurgence-legendary-pack.png',
   },
 };
 
@@ -85,7 +65,6 @@ const packArtwork = (type, canonicalName) => {
   return {
     url,
     canonicalName,
-    provider: 'Local pack artwork',
     match: 'category-pack',
   };
 };
@@ -95,8 +74,14 @@ export const resolveRewardMedia = (type, rewardName) => {
   if (local) return local;
 
   const canonicalName = cleanRewardName(rewardName);
-  const curated = curatedMedia?.[type]?.[canonicalName];
-  if (curated?.url) return { ...curated, canonicalName, match: 'curated' };
+  const curatedUrl = curatedMedia?.[type]?.[canonicalName];
+  if (curatedUrl) {
+    return {
+      url: curatedUrl,
+      canonicalName,
+      match: 'curated-local',
+    };
+  }
 
   return packArtwork(type, canonicalName);
 };
@@ -110,11 +95,4 @@ export const resolveCoverMedia = (entry) => {
     isLocal: String(mapped.url).startsWith('/'),
     isPlaceholder: false,
   };
-};
-
-export const MEDIA_SOURCES = {
-  archive: {
-    name: 'Local archive artwork',
-    url: 'https://neverwinter.fandom.com/wiki/Lockbox',
-  },
 };
