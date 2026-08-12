@@ -2,7 +2,6 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
 import {
-  MEDIA_SOURCES,
   cleanRewardName,
   resolveCoverMedia,
   resolveRewardMedia,
@@ -32,7 +31,7 @@ test('resolves historical pack labels to local pack artwork', () => {
   }
 });
 
-test('resolves remaining individual and special rewards without external catalog URLs', () => {
+test('resolves remaining individual and special rewards from repository assets', () => {
   for (const [type, name] of [
     ['mount', "Hag's Hexing Cauldron"],
     ['mount', 'Cactus the Hedgehog'],
@@ -42,7 +41,8 @@ test('resolves remaining individual and special rewards without external catalog
   ]) {
     const media = resolveRewardMedia(type, name);
     assert.ok(media?.url, `${name} should have artwork`);
-    assert.doesNotMatch(media.url, /nw-hub\.com/i);
+    assert.match(media.url, /^\/assets\/rewards\/curated\//);
+    assert.doesNotMatch(media.url, /^https?:\/\//);
   }
 });
 
@@ -55,10 +55,4 @@ test('resolves lockbox covers from project-hosted artwork', () => {
 
 test('returns null instead of inventing an unverified image path', () => {
   assert.equal(resolveRewardMedia('artifact', 'Definitely Unknown Artifact'), null);
-});
-
-test('declared reference registry remains HTTPS', () => {
-  for (const source of Object.values(MEDIA_SOURCES)) {
-    assert.match(source.url, /^https:\/\//);
-  }
 });
