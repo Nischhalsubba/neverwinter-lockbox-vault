@@ -37,8 +37,8 @@ test('view controls and search controls remain accessible', () => {
 test('runtime retains resilient fallbacks while local media can be generated', () => {
   assert.match(app, /rewardFallback/);
   assert.match(app, /vaultIcon/);
-  assert.match(localMedia, /items:/);
-  assert.match(localMedia, /lockbox:/);
+  assert.match(localMedia, /["']?items["']?\s*:/);
+  assert.match(localMedia, /["']?lockbox["']?\s*:/);
 });
 
 test('responsive checkpoints cover desktop, tablet, mobile, and reduced motion', () => {
