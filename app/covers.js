@@ -35,26 +35,32 @@ const isSafeImageUrl = (value) => {
 
 /** Restores recently verified cover URLs from local storage when available. */
 const readStoredCovers = () => {
-  if (typeof window === 'undefined' || !window.localStorage) return;
+  if (typeof window === 'undefined') return;
 
   try {
-    const stored = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || 'null');
+    const storage = window.localStorage;
+    if (!storage) return;
+
+    const stored = JSON.parse(storage.getItem(STORAGE_KEY) || 'null');
     if (!stored || Date.now() - stored.savedAt > CACHE_TTL_MS) return;
 
     for (const [slug, media] of Object.entries(stored.covers || {})) {
       if (media?.url && isSafeImageUrl(media.url)) coverMedia.set(slug, media);
     }
   } catch {
-    // A stale or blocked cache should never stop the catalogue from rendering.
+    // A stale, restricted, or blocked cache should never stop the catalogue from rendering.
   }
 };
 
 /** Persists verified cover URLs so repeat visits do not need to rediscover them. */
 const saveStoredCovers = () => {
-  if (typeof window === 'undefined' || !window.localStorage) return;
+  if (typeof window === 'undefined') return;
 
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify({
+    const storage = window.localStorage;
+    if (!storage) return;
+
+    storage.setItem(STORAGE_KEY, JSON.stringify({
       savedAt: Date.now(),
       covers: Object.fromEntries(coverMedia),
     }));
