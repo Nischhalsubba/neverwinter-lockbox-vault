@@ -27,7 +27,22 @@ const normalize = (value = '') => cleanName(value)
   .trim()
   .toLowerCase();
 
-const mediaKey = (value = '') => normalize(value);
+const targets = [];
+for (const entry of lockboxes) {
+  targets.push({ type: 'lockbox', key: entry.slug, name: cleanName(entry.name) });
+  for (const [type, plural] of [
+    ['companion', 'companions'],
+    ['mount', 'mounts'],
+    ['artifact', 'artifacts'],
+    ['race', 'races'],
+  ]) {
+    for (const rawName of entry.rewards?.[plural] || []) {
+      const name = cleanName(rawName);
+      if (name) targets.push({ type, key: normalize(name), name });
+    }
+  }
+}
+const uniqueTargets = [...new Map(targets.map((target) => [`${target.type}:${target.key}`, target])).values()];
 
 const safeHttpUrl = (value) => {
   try {
@@ -38,29 +53,7 @@ const safeHttpUrl = (value) => {
   }
 };
 
-const targetList = [];
-for (const entry of lockboxes) {
-  targetList.push({ type: 'lockbox', key: entry.slug, name: cleanName(entry.name) });
-  for (const [type, plural] of [
-    ['companion', 'companions'],
-    ['mount', 'mounts'],
-    ['artifact', 'artifacts'],
-    ['race', 'races'],
-  ]) {
-    for (const rawName of entry.rewards?.[plural] || []) {
-      const name = cleanName(rawName);
-      if (name) targetList.push({ type, key: mediaKey(name), name });
-    }
-  }
-}
-
-const targets = [...new Map(targetList.map((target) => [`${target.type}:${target.key}`, target])).values()];
-
-const browser = await chromium.launch({
-  headless: true,
-  args: ['--disable-dev-shm-usage', '--no-sandbox'],
-});
-
+const browser = await chromium.launch({ headless: true, args: ['--disable-dev-shm-usage', '--no-sandbox'] });
 const context = await browser.newContext({
   viewport: { width: 1600, height: 1200 },
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131 Safari/537.36',
@@ -73,63 +66,54 @@ page.on('response', (response) => {
   if (!url) return;
   const contentType = response.headers()['content-type'] || '';
   if (!contentType.startsWith('image/') && !/\.(?:avif|gif|jpe?g|png|svg|webp)(?:\?|$)/i.test(url)) return;
-  networkImages.set(url, {
-    url,
-    source: 'network',
-    contentType,
-    status: response.status(),
-    viewLabel: 'network',
-  });
+  networkImages.set(url, { url, kind: 'network', viewLabel: 'network', contentType, status: response.status() });
 });
 
 const scrollToEnd = async () => {
-  let stable = 0;
   let previousHeight = 0;
-  for (let attempt = 0; attempt < 40 && stable < 4; attempt += 1) {
+  let stable = 0;
+  for (let attempt = 0; attempt < 18 && stable < 3; attempt += 1) {
     const height = await page.evaluate(() => document.documentElement.scrollHeight);
-    await page.evaluate((target) => window.scrollTo({ top: target, behavior: 'instant' }), height);
-    await page.waitForTimeout(450);
-    if (height === previousHeight) stable += 1;
-    else stable = 0;
+    await page.evaluate((target) => window.scrollTo(0, target), height);
+    await page.waitForTimeout(300);
+    stable = height === previousHeight ? stable + 1 : 0;
     previousHeight = height;
   }
-  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+  await page.evaluate(() => window.scrollTo(0, 0));
 };
 
-const collectDomAssets = async (viewLabel) => page.evaluate((label) => {
+const collectDomAssets = (viewLabel) => page.evaluate((label) => {
+  const textOf = (node) => String(node?.innerText || node?.textContent || '').replace(/\s+/g, ' ').trim();
   const absolute = (value) => {
     try { return new URL(value, window.location.href).href; } catch { return null; }
   };
-  const textOf = (node) => String(node?.innerText || node?.textContent || '').replace(/\s+/g, ' ').trim();
 
-  const contextFor = (element) => {
+  const nearby = (element) => {
     const ancestors = [];
     let current = element.parentElement;
-    for (let depth = 0; current && depth < 8; depth += 1, current = current.parentElement) {
+    for (let depth = 0; current && depth < 7; depth += 1, current = current.parentElement) {
       const text = textOf(current);
       const imageCount = current.querySelectorAll?.('img,source')?.length || 0;
-      if (text && text.length <= 900) ancestors.push({ depth, text, imageCount });
+      if (text && text.length <= 800) ancestors.push({ depth, text, imageCount });
     }
-    const nearest = ancestors.find((item) => item.imageCount <= 1 && item.text.length <= 220)
-      || ancestors.find((item) => item.text.length <= 220)
+    const nearest = ancestors.find((item) => item.imageCount <= 1 && item.text.length <= 240)
+      || ancestors.find((item) => item.text.length <= 240)
       || ancestors[0]
       || null;
-    const card = element.closest?.('article,li,a,button,[role="button"],[role="listitem"]');
     return {
       nearestText: nearest?.text || '',
-      cardText: card ? textOf(card).slice(0, 500) : '',
-      parentText: textOf(element.parentElement).slice(0, 500),
-      siblingText: [textOf(element.previousElementSibling), textOf(element.nextElementSibling)].filter(Boolean).join(' | ').slice(0, 350),
+      parentText: textOf(element.parentElement).slice(0, 420),
+      siblingText: [textOf(element.previousElementSibling), textOf(element.nextElementSibling)].filter(Boolean).join(' | ').slice(0, 320),
       ancestors,
     };
   };
 
-  const entries = [];
+  const output = [];
   const push = (element, rawUrl, kind) => {
     const url = absolute(rawUrl);
     if (!url || url.startsWith('data:') || url.startsWith('blob:')) return;
     const rect = element.getBoundingClientRect();
-    entries.push({
+    output.push({
       url,
       kind,
       viewLabel: label,
@@ -140,182 +124,147 @@ const collectDomAssets = async (viewLabel) => page.evaluate((label) => {
       height: Math.round(rect.height || element.naturalHeight || 0),
       naturalWidth: element.naturalWidth || 0,
       naturalHeight: element.naturalHeight || 0,
-      ...contextFor(element),
+      ...nearby(element),
     });
   };
 
   document.querySelectorAll('img').forEach((image) => push(image, image.currentSrc || image.src, 'img'));
   document.querySelectorAll('source[srcset]').forEach((source) => {
-    const first = String(source.srcset).split(',')[0]?.trim().split(/\s+/)[0];
-    push(source, first, 'source');
+    const url = String(source.srcset).split(',')[0]?.trim().split(/\s+/)[0];
+    push(source, url, 'source');
   });
   document.querySelectorAll('*').forEach((element) => {
     const background = getComputedStyle(element).backgroundImage;
     if (!background || background === 'none') return;
     for (const match of background.matchAll(/url\(["']?(.*?)["']?\)/g)) push(element, match[1], 'background');
   });
-
-  return entries;
+  return output;
 }, viewLabel);
 
-const allAssets = [];
+const assets = [];
 const capture = async (label) => {
   await scrollToEnd();
-  allAssets.push(...await collectDomAssets(label));
+  assets.push(...await collectDomAssets(label));
 };
 
-const typeWords = {
-  lockbox: ['lockbox', 'pack'],
-  companion: ['companion'],
-  mount: ['mount'],
-  artifact: ['artifact', 'enchantment', 'item'],
-  race: ['race', 'special', 'pack'],
-};
-
-const words = (value = '') => normalize(value)
+const words = (value) => normalize(value)
   .split(' ')
   .filter((word) => word.length > 2 && !['the', 'and', 'pack', 'account', 'unlock'].includes(word));
 
 const filenameText = (url) => {
-  try {
-    return normalize(decodeURIComponent(new URL(url).pathname.split('/').pop() || ''));
-  } catch {
-    return '';
-  }
+  try { return normalize(decodeURIComponent(new URL(url).pathname.split('/').pop() || '')); }
+  catch { return ''; }
 };
 
 const scoreAsset = (target, asset) => {
   const targetText = normalize(target.name);
-  if (!targetText || !asset.url) return -1;
-
-  const fields = {
-    alt: normalize(asset.alt),
-    title: normalize(asset.title),
-    aria: normalize(asset.ariaLabel),
-    nearest: normalize(asset.nearestText),
-    card: normalize(asset.cardText),
-    parent: normalize(asset.parentText),
-    sibling: normalize(asset.siblingText),
-    filename: filenameText(asset.url),
-  };
-
+  const fields = [
+    normalize(asset.alt),
+    normalize(asset.title),
+    normalize(asset.ariaLabel),
+    normalize(asset.nearestText),
+    normalize(asset.siblingText),
+  ].filter(Boolean);
+  const filename = filenameText(asset.url);
   const targetWords = words(target.name);
   let score = 0;
-  let directIdentity = false;
+  let direct = false;
 
-  for (const value of [fields.alt, fields.title, fields.aria]) {
-    if (!value) continue;
-    if (value === targetText) { score = Math.max(score, 320); directIdentity = true; }
-    else if (value.includes(targetText) || targetText.includes(value)) { score = Math.max(score, 250); directIdentity = true; }
+  for (const field of fields.slice(0, 3)) {
+    if (field === targetText) { score = Math.max(score, 330); direct = true; }
+    else if (field.includes(targetText) || targetText.includes(field)) { score = Math.max(score, 260); direct = true; }
   }
 
-  if (fields.filename === targetText) { score = Math.max(score, 300); directIdentity = true; }
-  if (targetWords.length && targetWords.every((word) => fields.filename.includes(word))) {
-    score = Math.max(score, targetWords.length > 1 ? 245 : 185);
-    directIdentity = true;
+  if (filename === targetText) { score = Math.max(score, 315); direct = true; }
+  if (targetWords.length && targetWords.every((word) => filename.includes(word))) {
+    score = Math.max(score, targetWords.length > 1 ? 250 : 190);
+    direct = true;
   }
 
-  if (fields.nearest === targetText) score = Math.max(score, 285);
-  else if (fields.nearest.includes(targetText) && targetText.length >= 5) score = Math.max(score, 235);
+  const nearest = normalize(asset.nearestText);
+  const sibling = normalize(asset.siblingText);
+  const parent = normalize(asset.parentText);
+  if (nearest === targetText) score = Math.max(score, 295);
+  else if (nearest.includes(targetText) && targetText.length >= 5) score = Math.max(score, nearest.length <= 180 ? 245 : 190);
+  if (sibling === targetText) score = Math.max(score, 275);
+  else if (sibling.includes(targetText) && targetText.length >= 5) score = Math.max(score, 225);
+  if (parent.includes(targetText) && targetText.length >= 5) score = Math.max(score, parent.length <= 180 ? 205 : 165);
 
-  if (fields.sibling === targetText) score = Math.max(score, 260);
-  else if (fields.sibling.includes(targetText) && targetText.length >= 5) score = Math.max(score, 215);
+  const combined = `${fields.join(' ')} ${filename}`;
+  if (targetWords.length > 1 && targetWords.every((word) => combined.includes(word))) score = Math.max(score, 195);
 
-  if (fields.card === targetText) score = Math.max(score, 245);
-  else if (fields.card.includes(targetText) && targetText.length >= 5) {
-    score = Math.max(score, fields.card.length <= 180 ? 205 : 165);
-  }
-
-  if (fields.parent.includes(targetText) && targetText.length >= 5) {
-    score = Math.max(score, fields.parent.length <= 180 ? 195 : 155);
-  }
-
-  const combined = [fields.alt, fields.title, fields.aria, fields.nearest, fields.sibling, fields.filename].join(' ');
-  if (targetWords.length > 1 && targetWords.every((word) => combined.includes(word))) score = Math.max(score, 190);
-
-  const renderedWidth = asset.width || asset.naturalWidth || 0;
-  const renderedHeight = asset.height || asset.naturalHeight || 0;
-  const ratio = renderedWidth && renderedHeight ? renderedWidth / renderedHeight : 1;
-  if (ratio >= 0.72 && ratio <= 1.38) score += 24;
+  const width = asset.width || asset.naturalWidth || 0;
+  const height = asset.height || asset.naturalHeight || 0;
+  const ratio = width && height ? width / height : 1;
+  if (ratio >= 0.72 && ratio <= 1.38) score += 25;
   if (ratio > 2 || ratio < 0.5) score -= 70;
-  if (renderedWidth >= 32 && renderedHeight >= 32 && renderedWidth <= 320 && renderedHeight <= 320) score += 15;
-
-  const view = normalize(asset.viewLabel);
-  if ((typeWords[target.type] || []).some((word) => view.includes(word))) score += 18;
-  if (target.type === 'lockbox' && /lockbox/.test(fields.filename)) score += 20;
-
-  if (/logo|favicon|avatar|brand|wordmark|header|background/i.test(asset.url)) score -= 120;
-  if (!directIdentity && score < 180) return score - 35;
+  if (width >= 32 && height >= 32 && width <= 360 && height <= 360) score += 15;
+  if (normalize(asset.viewLabel).includes(target.type)) score += 18;
+  if (target.type === 'lockbox' && filename.includes('lockbox')) score += 20;
+  if (/logo|favicon|avatar|brand|wordmark|header|background/i.test(asset.url)) score -= 130;
+  if (!direct && score < 185) score -= 35;
   return score;
 };
 
 try {
   await page.goto(SOURCE_URL, { waitUntil: 'domcontentloaded', timeout: 120_000 });
-  await page.waitForLoadState('networkidle', { timeout: 45_000 }).catch(() => {});
+  await page.waitForLoadState('networkidle', { timeout: 35_000 }).catch(() => {});
 
   for (const label of ['Accept', 'Accept all', 'Allow all', 'I agree']) {
-    const button = page.getByRole('button', { name: new RegExp(`^${label}$`, 'i') });
-    if (await button.count()) {
-      await button.first().click({ timeout: 2_000 }).catch(() => {});
+    const consent = page.getByRole('button', { name: new RegExp(`^${label}$`, 'i') });
+    if (await consent.count()) {
+      await consent.first().click({ timeout: 2_000 }).catch(() => {});
       break;
     }
   }
 
   await capture('all');
 
-  const categoryPattern = /^(all|packs?|lockboxes?|companions?|mounts?|artifacts?|races?|items?|enchantments?|rewards?|special)$/i;
-  const controls = page.locator('button, [role="tab"], a');
-  const controlCount = Math.min(await controls.count(), 320);
-  const visited = new Set();
-  for (let index = 0; index < controlCount; index += 1) {
-    const control = controls.nth(index);
-    const text = String(await control.innerText().catch(() => '')).replace(/\s+/g, ' ').trim();
-    if (!categoryPattern.test(text) || visited.has(text.toLowerCase())) continue;
-    visited.add(text.toLowerCase());
-    await control.click({ timeout: 3_000 }).catch(() => {});
-    await page.waitForTimeout(700);
-    await capture(text.toLowerCase());
+  const visited = [];
+  for (const label of ['Packs', 'Lockboxes', 'Companions', 'Mounts', 'Artifacts', 'Races', 'Items', 'Enchantments', 'Rewards', 'Special']) {
+    const exact = new RegExp(`^\\s*${label}\\s*$`, 'i');
+    const control = page.locator('button, [role="tab"], a').filter({ hasText: exact });
+    if (!await control.count()) continue;
+    visited.push(label.toLowerCase());
+    await control.first().click({ timeout: 2_500 }).catch(() => {});
+    await page.waitForTimeout(500);
+    await capture(label.toLowerCase());
   }
 
   const deduped = new Map();
-  for (const asset of allAssets) {
+  for (const asset of [...assets, ...networkImages.values()]) {
     const url = safeHttpUrl(asset.url);
     if (!url) continue;
-    const key = [url, asset.nearestText, asset.cardText, asset.siblingText, asset.viewLabel].join('|');
+    const key = [url, asset.nearestText || '', asset.siblingText || '', asset.viewLabel || ''].join('|');
     if (!deduped.has(key)) deduped.set(key, { ...asset, url });
   }
-  for (const asset of networkImages.values()) {
-    if (![...deduped.values()].some((existing) => existing.url === asset.url)) deduped.set(`${asset.url}|network`, asset);
-  }
+  const discovered = [...deduped.values()];
 
-  const assets = [...deduped.values()];
   const items = { lockbox: {}, companion: {}, mount: {}, artifact: {}, race: {} };
   const matches = [];
-
-  for (const target of targets) {
+  for (const target of uniqueTargets) {
     let best = null;
-    for (const asset of assets) {
+    for (const asset of discovered) {
       const score = scoreAsset(target, asset);
       if (score < 180 || (best && score <= best.score)) continue;
       best = { asset, score };
     }
     if (!best) continue;
-
     items[target.type][target.key] = {
       name: target.name,
       url: best.asset.url,
       sourceUrl: SOURCE_URL,
       provider: 'NW Hub',
       matchScore: best.score,
-      matchContext: best.asset.nearestText || best.asset.siblingText || best.asset.cardText || '',
+      matchContext: best.asset.nearestText || best.asset.siblingText || best.asset.parentText || '',
       rightsNote: 'Image discovered on NW Hub; Neverwinter artwork rights remain with the respective rights holder.',
     };
-    matches.push({ target, score: best.score, asset: best.asset.url, context: items[target.type][target.key].matchContext });
+    matches.push({ target, score: best.score, url: best.asset.url, context: items[target.type][target.key].matchContext });
   }
 
   const stats = {
-    assetsDiscovered: assets.length,
-    targetsSearched: targets.length,
+    assetsDiscovered: discovered.length,
+    targetsSearched: uniqueTargets.length,
     candidatesMatched: matches.length,
     lockboxesMatched: Object.keys(items.lockbox).length,
     rewardsMatched: matches.filter((match) => match.target.type !== 'lockbox').length,
@@ -326,18 +275,12 @@ try {
     source: SOURCE_URL,
     pageTitle: await page.title(),
     capturedAt,
-    controlsVisited: [...visited],
+    controlsVisited: visited,
     stats,
     matches,
-    assets,
+    assets: discovered,
   }, null, 2)}\n`);
-
-  await fs.writeFile(MAP_OUTPUT, `export default ${JSON.stringify({
-    source: SOURCE_URL,
-    generatedAt: capturedAt,
-    stats,
-    items,
-  }, null, 2)};\n`);
+  await fs.writeFile(MAP_OUTPUT, `export default ${JSON.stringify({ source: SOURCE_URL, generatedAt: capturedAt, stats, items }, null, 2)};\n`);
 
   console.log(`NW Hub extraction complete: ${stats.assetsDiscovered} assets, ${stats.candidatesMatched}/${stats.targetsSearched} matched.`);
 } finally {
