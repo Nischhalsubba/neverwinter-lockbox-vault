@@ -3,50 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#111318">
-  <meta name="description" content="Search Neverwinter lockboxes and packs by name, release, mount, companion, artifact, or account unlock.">
-  <title>Neverwinter Lockboxes & Packs</title>
+  <meta name="theme-color" content="#0c0e12">
+  <meta name="description" content="Browse Neverwinter lockboxes by release year, mount, companion, artifact, special reward, and account unlock.">
+  <title>Neverwinter Lockbox Archive</title>
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="icon" href="/assets/app-icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./redesign.css">
-  <link rel="stylesheet" href="./spacious.css">
 </head>
 <body>
   <a class="skip-link" href="#results">Skip to lockboxes</a>
 
   <header class="topbar">
     <div class="topbar-inner">
-      <a class="brand" href="./" aria-label="Neverwinter Lockboxes and Packs home">
+      <a class="brand" href="./" aria-label="Neverwinter Lockbox Archive home">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 32 32"><path d="M7 12h18v15H7zM10 12V9a6 6 0 0 1 12 0v3M16 18v4"/></svg>
         </span>
         <span>
-          <strong>Lockboxes & Packs</strong>
-          <small>Neverwinter reference</small>
+          <strong>Lockbox Archive</strong>
+          <small>Neverwinter collection index</small>
         </span>
       </a>
 
-      <nav class="topbar-actions" aria-label="Reference links">
-        <a href="https://nw-hub.com/packs" target="_blank" rel="noreferrer">NW Hub</a>
-        <a href="https://neverwinter.fandom.com/wiki/Lockbox" target="_blank" rel="noreferrer">Wiki</a>
+      <nav class="topbar-actions" aria-label="Archive navigation">
+        <a href="#catalog">Archive</a>
+        <a href="#about">About</a>
       </nav>
     </div>
   </header>
 
-  <main class="hub-shell" id="catalog">
-    <header class="page-heading">
-      <div>
-        <p class="eyebrow">Neverwinter archive</p>
-        <h1>Lockboxes & Packs</h1>
-        <p>Search a lockbox or any reward inside it. Open a card to see the full reward list.</p>
+  <main class="archive-shell" id="catalog">
+    <header class="archive-intro">
+      <div class="archive-intro-copy">
+        <p class="eyebrow">Neverwinter · 2013–2026</p>
+        <h1>Lockbox Archive</h1>
+        <p>Browse the full collection by release date or search for any featured mount, companion, artifact, special reward, or account unlock.</p>
       </div>
-      <div class="archive-count" aria-label="Catalog size">
-        <strong id="stat-total">72</strong>
-        <span>lockboxes</span>
+      <div class="archive-meta" aria-label="Archive summary">
+        <div><strong id="stat-total">72</strong><span>lockboxes</span></div>
+        <div><strong>14</strong><span>release years</span></div>
       </div>
     </header>
 
-    <section class="hub-toolbar" aria-label="Catalog controls">
+    <section class="archive-toolbar" aria-label="Catalog controls">
       <form class="search-form" id="search-form" role="search">
         <label class="sr-only" for="search-input">Search lockboxes and rewards</label>
         <div class="search-box">
@@ -57,29 +56,20 @@
         </div>
       </form>
 
-      <div class="category-tabs" role="group" aria-label="Reward type">
-        <button class="category-button is-active" type="button" data-category="all" aria-pressed="true">All <small id="count-all">72</small></button>
-        <button class="category-button" type="button" data-category="companion" aria-pressed="false">Companions <small id="count-companion">0</small></button>
-        <button class="category-button" type="button" data-category="mount" aria-pressed="false">Mounts <small id="count-mount">0</small></button>
-        <button class="category-button" type="button" data-category="artifact" aria-pressed="false">Artifacts <small id="count-artifact">0</small></button>
-        <button class="category-button" type="button" data-category="race" aria-pressed="false">Special <small id="count-race">0</small></button>
-        <button class="category-button" type="button" data-category="account" aria-pressed="false">Account <small id="count-account">0</small></button>
-      </div>
+      <div class="browse-controls">
+        <div class="category-tabs" role="group" aria-label="Reward type">
+          <button class="category-button is-active" type="button" data-category="all" aria-pressed="true">All <small id="count-all">72</small></button>
+          <button class="category-button" type="button" data-category="companion" aria-pressed="false">Companions <small id="count-companion">0</small></button>
+          <button class="category-button" type="button" data-category="mount" aria-pressed="false">Mounts <small id="count-mount">0</small></button>
+          <button class="category-button" type="button" data-category="artifact" aria-pressed="false">Artifacts <small id="count-artifact">0</small></button>
+          <button class="category-button" type="button" data-category="race" aria-pressed="false">Special <small id="count-race">0</small></button>
+          <button class="category-button" type="button" data-category="account" aria-pressed="false">Account <small id="count-account">0</small></button>
+        </div>
 
-      <div class="toolbar-selects">
-        <label>
-          <span>Year</span>
-          <select id="year-filter"><option value="all">All years</option></select>
-        </label>
-        <label>
-          <span>Sort</span>
-          <select id="sort-filter">
-            <option value="newest">Newest</option>
-            <option value="oldest">Oldest</option>
-            <option value="az">A–Z</option>
-            <option value="za">Z–A</option>
-          </select>
-        </label>
+        <div class="toolbar-selects">
+          <label><span>Year</span><select id="year-filter"><option value="all">All years</option></select></label>
+          <label><span>Sort</span><select id="sort-filter"><option value="newest">Newest</option><option value="oldest">Oldest</option><option value="az">A–Z</option><option value="za">Z–A</option></select></label>
+        </div>
       </div>
     </section>
 
@@ -92,14 +82,19 @@
 
     <div class="empty-state" id="empty-state" hidden>
       <strong>No matching lockboxes</strong>
-      <p>Try a different name, reward type, or year.</p>
+      <p>Try another name, reward type, or release year.</p>
       <button class="button" id="empty-reset" type="button">Clear filters</button>
     </div>
+
+    <section class="archive-about" id="about" aria-labelledby="about-title">
+      <div><p class="eyebrow">About the index</p><h2 id="about-title">A compact reference for lockbox history.</h2></div>
+      <p>The archive keeps release information and featured rewards in one searchable view. Artwork is stored with the project whenever a reliable match is available; unresolved media falls back to a neutral local symbol so the catalog remains usable.</p>
+    </section>
   </main>
 
   <footer class="footer">
-    <span>Unofficial Neverwinter reference.</span>
-    <span>Icons use exact artwork when available and clear category artwork for historical pack labels.</span>
+    <span>Unofficial Neverwinter fan reference.</span>
+    <span>Game names and artwork belong to their respective rights holders.</span>
   </footer>
 
   <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title">
@@ -110,6 +105,6 @@
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
-  <script type="module" src="./app-v2.js"></script>
+  <script type="module" src="./archive.js"></script>
 </body>
 </html>
