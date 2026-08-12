@@ -1,0 +1,16 @@
+{
+  "name": "neverwinter-lockbox-vault",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Root build entrypoint for the Neverwinter Lockbox Vault deployment.",
+  "scripts": {
+    "build": "node scripts/build-root.mjs",
+    "dev": "npm --prefix app run dev",
+    "test": "npm --prefix app run test",
+    "check": "node scripts/build-root.mjs && npm --prefix app run test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
