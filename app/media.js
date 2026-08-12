@@ -139,6 +139,35 @@ const aliases = {
   'Twice-Pale Alder Mount': 'Twice-Pale Alder',
 };
 
+const curatedExternalMedia = {
+  companion: {
+    'Sardina the Tressym': {
+      url: 'https://forgottenrealms.fandom.com/wiki/Special:Redirect/file/Sardina_the_Tressym.png',
+      sourceUrl: 'https://forgottenrealms.fandom.com/wiki/Sardina',
+      provider: 'Forgotten Realms Wiki / Neverwinter artwork',
+    },
+  },
+  mount: {
+    'Cactus the Hedgehog': {
+      url: 'https://forgottenrealms.fandom.com/wiki/Special:Redirect/file/Cactus_the_Hedgehog.png',
+      sourceUrl: 'https://forgottenrealms.fandom.com/wiki/Cactus_(hedgehog)',
+      provider: 'Forgotten Realms Wiki / Neverwinter artwork',
+    },
+    "Hag's Hexing Cauldron": {
+      url: 'https://static.wikia.nocookie.net/neverwinter_gamepedia/images/7/77/Icons_Inventory_Mount_Cauldron_Mythic.png/revision/latest/scale-to-width-down/128?cb=20210424062237',
+      sourceUrl: 'https://neverwinter.fandom.com/wiki/Hag%27s_Hexing_Cauldron',
+      provider: 'Neverwinter Wiki',
+    },
+  },
+};
+
+const NW_HUB_CHOICE_PACKS = {
+  companionEpic: 'https://nw-hub.com/assets/choice-packs/epic-companion-choice-pack.webp',
+  companionLegendary: 'https://nw-hub.com/assets/choice-packs/legendary-companion-choice-pack.webp',
+  mount: 'https://nw-hub.com/assets/choice-packs/legendary-mount-choice-pack.webp',
+  artifact: 'https://nw-hub.com/assets/choice-packs/epic-artifact-choice-pack.webp',
+};
+
 export const cleanRewardName = (value = '') => {
   const accountMatch = String(value).match(/^\[(.+)]\s*-\s*Account unlock$/i);
   const unwrapped = accountMatch ? accountMatch[1] : String(value);
@@ -192,6 +221,42 @@ const buildMedia = (folder, filename, canonicalName, match = 'exact') => ({
   rightsNote: 'Community-hosted Neverwinter game asset; rights remain with the game publishers.',
 });
 
+const resolveCuratedExternalMedia = (type, canonicalName) => {
+  const mapped = curatedExternalMedia?.[type]?.[canonicalName];
+  if (!mapped?.url) return null;
+  return {
+    ...mapped,
+    canonicalName,
+    match: 'curated-external',
+    rightsNote: 'Community-hosted Neverwinter artwork; rights remain with the respective rights holder.',
+  };
+};
+
+const resolveNwHubChoicePack = (type, canonicalName) => {
+  if (!/\bpack\b/i.test(canonicalName)) return null;
+
+  let url = null;
+  if (type === 'companion') {
+    url = /legendary/i.test(canonicalName)
+      ? NW_HUB_CHOICE_PACKS.companionLegendary
+      : NW_HUB_CHOICE_PACKS.companionEpic;
+  } else if (type === 'mount') {
+    url = NW_HUB_CHOICE_PACKS.mount;
+  } else if (type === 'artifact') {
+    url = NW_HUB_CHOICE_PACKS.artifact;
+  }
+
+  if (!url) return null;
+  return {
+    url,
+    sourceUrl: 'https://nw-hub.com/packs',
+    provider: 'NW Hub · category pack artwork',
+    canonicalName,
+    match: 'category-pack',
+    rightsNote: 'NW Hub category artwork is used for historical pack labels that do not expose a dedicated image.',
+  };
+};
+
 export const resolveRewardMedia = (type, rewardName) => {
   const local = resolveLocalMedia(type, rewardName);
   if (local) return local;
@@ -201,6 +266,12 @@ export const resolveRewardMedia = (type, rewardName) => {
 
   const cleaned = cleanRewardName(rewardName);
   const canonical = aliases[cleaned] || cleaned;
+
+  const curated = resolveCuratedExternalMedia(type, canonical);
+  if (curated) return curated;
+
+  const categoryPack = resolveNwHubChoicePack(type, canonical);
+  if (categoryPack) return categoryPack;
 
   if (type === 'companion' && companionFiles[canonical]) {
     return buildMedia('companions', companionFiles[canonical], canonical, canonical === cleaned ? 'exact' : 'alias');
