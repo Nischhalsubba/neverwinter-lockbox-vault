@@ -1,3 +1,7 @@
+/*
+ * Tests lockbox cover resolution against the verified-media policy.
+ * Unresolved or unsafe artwork stays absent; sourced HTTPS artwork may render.
+ */
 import assert from 'node:assert/strict';
 import { afterEach, test } from 'node:test';
 
@@ -17,10 +21,8 @@ const entry = {
 
 afterEach(() => __resetCoverMediaForTests());
 
-test('uses the generated local cover until a verified remote image is available', () => {
-  const media = resolveCoverMedia(entry);
-  assert.equal(media.url, entry.image);
-  assert.equal(media.isPlaceholder, true);
+test('keeps unresolved placeholder artwork out of the runtime', () => {
+  assert.equal(resolveCoverMedia(entry), null);
 });
 
 test('builds a batched MediaWiki page-image request', () => {
@@ -59,7 +61,7 @@ test('hydrates a real cover from a MediaWiki response', async () => {
   assert.match(media.url, /^https:\/\//);
 });
 
-test('rejects unsafe image protocols and keeps the fallback', async () => {
+test('rejects unsafe image protocols and keeps the cover absent', async () => {
   const fetchImpl = async () => ({
     ok: true,
     json: async () => ({
@@ -73,5 +75,5 @@ test('rejects unsafe image protocols and keeps the fallback', async () => {
   });
 
   assert.equal(await hydrateCoverMedia([entry], { fetchImpl }), 0);
-  assert.equal(resolveCoverMedia(entry).isPlaceholder, true);
+  assert.equal(resolveCoverMedia(entry), null);
 });
