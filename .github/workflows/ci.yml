@@ -29,3 +29,6 @@ jobs:
         run: npm test
       - name: Build production site
         run: npm run build
+      - name: Validate deployment entrypoint from repository root
+        working-directory: .
+        run: npm run build
