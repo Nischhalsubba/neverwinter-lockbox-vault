@@ -1,9 +1,12 @@
 export default {
-  "generatedAt": "2026-08-12T12:59:14.180Z",
+  "generatedAt": "2026-08-12T13:40:17.185Z",
   "stats": {
     "lockboxesResolved": 50,
     "rewardsResolved": 137,
-    "unresolved": 72
+    "unresolved": 72,
+    "nwhubAdded": 0,
+    "nwhubLockboxesAdded": 0,
+    "nwhubRewardsAdded": 0
   },
   "items": {
     "lockbox": {
