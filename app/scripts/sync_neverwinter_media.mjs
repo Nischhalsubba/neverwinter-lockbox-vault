@@ -1,8 +1,17 @@
-import { readFile, writeFile, mkdir, access, rm } from 'node:fs/promises';
+import {
+  access,
+  mkdir,
+  readFile,
+  readdir,
+  rm,
+  unlink,
+  writeFile,
+} from 'node:fs/promises';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import latestLockboxes from '../data/latest-lockboxes.js';
+import localMedia from '../data/local-media.js';
 import {
   cleanRewardName,
   normalizeMediaKey,
@@ -17,7 +26,6 @@ const lockboxRoot = join(assetsRoot, 'lockboxes');
 const rewardRoot = join(assetsRoot, 'rewards');
 const localMediaPath = join(appRoot, 'data', 'local-media.js');
 const reportPath = join(appRoot, 'data', 'media-sync-report.json');
-const force = process.argv.includes('--force');
 
 const WIKI_API = 'https://neverwinter.fandom.com/api.php';
 const WIKI_ROOT = 'https://neverwinter.fandom.com/wiki/';
@@ -104,8 +112,6 @@ const CURATED_MEDIA = {
 const baseLockboxes = JSON.parse(await readFile(join(appRoot, 'data', 'lockboxes.json'), 'utf8'));
 const entries = [...baseLockboxes, ...latestLockboxes];
 
-const pause = (ms = 70) => new Promise((resolve) => setTimeout(resolve, ms));
-
 const slugify = (value = '') => String(value)
   .normalize('NFKD')
   .replace(/[’']/g, '')
@@ -137,20 +143,31 @@ const similarity = (target, candidate) => {
   if (!targetTokens.length) return 0;
   const shared = targetTokens.filter((token) => candidateTokens.has(token)).length;
   const coverage = shared / targetTokens.length;
-
-  if (candidateKey.includes(targetKey) || targetKey.includes(candidateKey)) {
-    return Math.max(coverage, 0.88);
-  }
+  if (candidateKey.includes(targetKey) || targetKey.includes(candidateKey)) return Math.max(coverage, 0.88);
   return coverage;
 };
 
-const fileExists = async (path) => {
+const exists = async (path) => {
   try {
     await access(path);
     return true;
   } catch {
     return false;
   }
+};
+
+const mapLimit = async (items, limit, worker) => {
+  const output = new Array(items.length);
+  let cursor = 0;
+  const runners = Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (cursor < items.length) {
+      const index = cursor;
+      cursor += 1;
+      output[index] = await worker(items[index], index);
+    }
+  });
+  await Promise.all(runners);
+  return output;
 };
 
 const fetchWithTimeout = async (url, options = {}) => fetch(url, {
@@ -160,7 +177,7 @@ const fetchWithTimeout = async (url, options = {}) => fetch(url, {
     accept: options.accept || '*/*',
     ...(options.headers || {}),
   },
-  signal: AbortSignal.timeout(25000),
+  signal: AbortSignal.timeout(10000),
 });
 
 const isUsefulImageUrl = (value) => {
@@ -171,7 +188,7 @@ const isUsefulImageUrl = (value) => {
 
 const wikiPageUrl = (title) => `${WIKI_ROOT}${encodeURIComponent(String(title).replaceAll(' ', '_'))}`;
 
-const queryWikiPage = async (title) => {
+const queryWikiPageImage = async (title) => {
   const params = new URLSearchParams({
     action: 'query',
     format: 'json',
@@ -230,7 +247,7 @@ const queryWikiFileInfo = async (filename, title) => {
   };
 };
 
-const queryWikiPageFiles = async (title, kind = 'reward') => {
+const queryWikiPageFile = async (title, kind = 'reward') => {
   const params = new URLSearchParams({
     action: 'parse',
     format: 'json',
@@ -240,15 +257,16 @@ const queryWikiPageFiles = async (title, kind = 'reward') => {
     origin: '*',
     page: title,
   });
-
   const response = await fetchWithTimeout(`${WIKI_API}?${params}`, { accept: 'application/json' });
   if (!response.ok) return null;
   const payload = await response.json();
   const files = payload?.parse?.images || [];
-  if (!files.length) return null;
+  const pageTitle = payload?.parse?.title || title;
+  if (!files.length || similarity(title, pageTitle) < 0.84) return null;
 
   const targetTokens = semanticTokens(title);
-  const scored = files
+  const threshold = kind === 'lockbox' ? 0.68 : 0.76;
+  const candidates = files
     .map((filename) => {
       const lower = filename.toLowerCase();
       if (INVALID_IMAGE_PARTS.some((part) => lower.includes(part))) return { filename, score: -1 };
@@ -258,55 +276,21 @@ const queryWikiPageFiles = async (title, kind = 'reward') => {
         + (targetTokens.every((token) => fileKey.includes(token)) ? 0.12 : 0);
       return { filename, score };
     })
-    .filter(({ score }) => score >= (kind === 'lockbox' ? 0.72 : 0.78))
+    .filter(({ score }) => score >= threshold)
     .sort((a, b) => b.score - a.score);
 
-  for (const candidate of scored.slice(0, 3)) {
-    const media = await queryWikiFileInfo(candidate.filename, payload.parse?.title || title);
+  for (const candidate of candidates.slice(0, 2)) {
+    const media = await queryWikiFileInfo(candidate.filename, pageTitle);
     if (media) return media;
-    await pause(35);
-  }
-  return null;
-};
-
-const searchWiki = async (title, kind = 'reward') => {
-  const params = new URLSearchParams({
-    action: 'query',
-    format: 'json',
-    formatversion: '2',
-    list: 'search',
-    srsearch: `"${title}"`,
-    srlimit: '6',
-    srnamespace: '0',
-    origin: '*',
-  });
-
-  const response = await fetchWithTimeout(`${WIKI_API}?${params}`, { accept: 'application/json' });
-  if (!response.ok) return null;
-  const payload = await response.json();
-  const candidates = (payload?.query?.search || [])
-    .map((candidate) => ({ ...candidate, score: similarity(title, candidate.title) }))
-    .filter((candidate) => candidate.score >= 0.84 && !candidate.title.includes('/'))
-    .sort((a, b) => b.score - a.score);
-
-  for (const candidate of candidates.slice(0, 3)) {
-    const pageImage = await queryWikiPage(candidate.title);
-    if (pageImage) return pageImage;
-    const fileImage = await queryWikiPageFiles(candidate.title, kind);
-    if (fileImage) return fileImage;
-    await pause(40);
   }
   return null;
 };
 
 const resolveWikiMedia = async (title, kind = 'reward') => {
   try {
-    const exact = await queryWikiPage(title);
-    if (exact) return exact;
-    const exactFile = await queryWikiPageFiles(title, kind);
-    if (exactFile) return exactFile;
-    await pause(45);
-    return await searchWiki(title, kind);
+    const page = await queryWikiPageImage(title);
+    if (page && similarity(title, page.matchedTitle) >= 0.84) return page;
+    return await queryWikiPageFile(title, kind);
   } catch (error) {
     console.warn(`Wiki lookup failed for ${title}: ${error.message}`);
     return null;
@@ -360,23 +344,18 @@ const normalizeImage = async (buffer, outputPath, kind) => {
   const ratio = width / height;
   const squareLike = ratio > 0.78 && ratio < 1.28;
   let pipeline = source;
-
   if (kind === 'reward') {
-    pipeline = pipeline
-      .trim({ threshold: 6 })
-      .resize(256, 256, {
-        fit: 'contain',
-        background: { r: 0, g: 0, b: 0, alpha: 0 },
-        withoutEnlargement: false,
-      });
+    pipeline = pipeline.trim({ threshold: 6 }).resize(256, 256, {
+      fit: 'contain',
+      background: { r: 0, g: 0, b: 0, alpha: 0 },
+      withoutEnlargement: false,
+    });
   } else if (squareLike) {
-    pipeline = pipeline
-      .trim({ threshold: 5 })
-      .resize(512, 512, {
-        fit: 'contain',
-        background: { r: 11, g: 13, b: 16, alpha: 1 },
-        withoutEnlargement: false,
-      });
+    pipeline = pipeline.trim({ threshold: 5 }).resize(512, 512, {
+      fit: 'contain',
+      background: { r: 11, g: 13, b: 16, alpha: 1 },
+      withoutEnlargement: false,
+    });
   } else {
     pipeline = pipeline.resize(512, 512, {
       fit: 'cover',
@@ -384,13 +363,11 @@ const normalizeImage = async (buffer, outputPath, kind) => {
       withoutEnlargement: false,
     });
   }
-
   await mkdir(dirname(outputPath), { recursive: true });
   await pipeline.webp({ quality: 88, effort: 5 }).toFile(outputPath);
 };
 
 const saveResolvedMedia = async ({ media, outputPath, kind }) => {
-  if (!force && await fileExists(outputPath)) return true;
   try {
     const buffer = await imageBuffer(media.url);
     await normalizeImage(buffer, outputPath, kind);
@@ -401,37 +378,38 @@ const saveResolvedMedia = async ({ media, outputPath, kind }) => {
   }
 };
 
+const localPathForUrl = (url = '') => join(publicRoot, String(url).replace(/^\/+/, ''));
+const priorIsTrusted = (type, name, prior) => {
+  if (!prior?.url?.startsWith('/assets/')) return false;
+  const provider = String(prior.provider || '');
+  if (/ToonForge|Official Neverwinter|NW Hub/i.test(provider)) return true;
+  if (/Neverwinter Wiki/i.test(provider)) {
+    return similarity(name, prior.matchedTitle || prior.name || '') >= 0.84;
+  }
+  return false;
+};
+
+const walkFiles = async (root) => {
+  if (!await exists(root)) return [];
+  const output = [];
+  const visit = async (dir) => {
+    for (const item of await readdir(dir, { withFileTypes: true })) {
+      const path = join(dir, item.name);
+      if (item.isDirectory()) await visit(path);
+      else output.push(path);
+    }
+  };
+  await visit(root);
+  return output;
+};
+
 await rm(lockboxRoot, { recursive: true, force: true });
-await rm(rewardRoot, { recursive: true, force: true });
 await mkdir(lockboxRoot, { recursive: true });
 await mkdir(rewardRoot, { recursive: true });
 
-const result = {
-  generatedAt: new Date().toISOString(),
-  stats: {
-    lockboxesResolved: 0,
-    rewardsResolved: 0,
-    unresolved: 0,
-  },
-  items: {
-    lockbox: {},
-    companion: {},
-    mount: {},
-    artifact: {},
-    race: {},
-  },
-};
-
-const report = {
-  generatedAt: result.generatedAt,
-  lockboxes: { resolved: [], unresolved: [] },
-  rewards: { resolved: [], unresolved: [] },
-};
-
-for (const entry of entries) {
+const lockboxResults = await mapLimit(entries, 5, async (entry) => {
   const title = titleForLockbox(entry);
   let media = CURATED_MEDIA.lockbox[entry.slug] || await resolveWikiMedia(title, 'lockbox');
-  await pause();
 
   const discoveryPage = entry.imageDiscovery?.pageUrl;
   const discoveryIsSpecific = discoveryPage && !/\/announcements\/?$/i.test(discoveryPage);
@@ -439,36 +417,26 @@ for (const entry of entries) {
     media = await resolvePageImage(discoveryPage, entry.imageDiscovery.provider || 'Official Neverwinter');
   }
   const sourceIsSpecific = entry.sourceUrl && !/\/announcements\/?$/i.test(entry.sourceUrl);
-  if (!media && sourceIsSpecific) {
-    media = await resolvePageImage(entry.sourceUrl, entry.sourceLabel || 'Neverwinter source');
-  }
+  if (!media && sourceIsSpecific) media = await resolvePageImage(entry.sourceUrl, entry.sourceLabel || 'Neverwinter source');
 
-  if (!media) {
-    result.stats.unresolved += 1;
-    report.lockboxes.unresolved.push({ slug: entry.slug, name: entry.name });
-    console.log(`lockbox unresolved: ${entry.name}`);
-    continue;
-  }
-
+  if (!media) return { resolved: false, slug: entry.slug, name: entry.name };
   const outputPath = join(lockboxRoot, `${entry.slug}.webp`);
-  const saved = await saveResolvedMedia({ media, outputPath, kind: 'lockbox' });
-  if (!saved) {
-    result.stats.unresolved += 1;
-    report.lockboxes.unresolved.push({ slug: entry.slug, name: entry.name, sourceUrl: media.sourceUrl });
-    continue;
+  if (!await saveResolvedMedia({ media, outputPath, kind: 'lockbox' })) {
+    return { resolved: false, slug: entry.slug, name: entry.name, sourceUrl: media.sourceUrl };
   }
-
-  result.items.lockbox[entry.slug] = {
-    url: `/assets/lockboxes/${entry.slug}.webp`,
-    sourceUrl: media.sourceUrl,
-    provider: media.provider,
-    matchedTitle: media.matchedTitle || title,
-    matchedFile: media.matchedFile,
+  return {
+    resolved: true,
+    slug: entry.slug,
+    name: entry.name,
+    item: {
+      url: `/assets/lockboxes/${entry.slug}.webp`,
+      sourceUrl: media.sourceUrl,
+      provider: media.provider,
+      matchedTitle: media.matchedTitle || title,
+      matchedFile: media.matchedFile,
+    },
   };
-  result.stats.lockboxesResolved += 1;
-  report.lockboxes.resolved.push({ slug: entry.slug, name: entry.name, ...result.items.lockbox[entry.slug] });
-  console.log(`lockbox ${result.stats.lockboxesResolved}/${entries.length}: ${entry.name}`);
-}
+});
 
 const rewardGroups = new Map();
 for (const entry of entries) {
@@ -482,50 +450,85 @@ for (const entry of entries) {
   }
 }
 
-let rewardIndex = 0;
-for (const { type, name, rawName } of rewardGroups.values()) {
-  rewardIndex += 1;
+const rewardList = [...rewardGroups.values()];
+const usedRewardPaths = new Set();
+const rewardResults = await mapLimit(rewardList, 7, async ({ type, name, rawName }) => {
   const key = normalizeMediaKey(name);
+  const prior = localMedia?.items?.[type]?.[key];
+  if (priorIsTrusted(type, name, prior)) {
+    const localPath = localPathForUrl(prior.url);
+    if (await exists(localPath)) {
+      usedRewardPaths.add(localPath);
+      return { resolved: true, type, name, key, item: prior };
+    }
+  }
+
   let media = CURATED_MEDIA[type]?.[key] || resolveRewardMedia(type, rawName);
   if (!media?.url?.startsWith('https://')) media = CURATED_MEDIA[type]?.[key] || null;
+  if (!media) media = await resolveWikiMedia(name, 'reward');
+  if (!media) return { resolved: false, type, name };
 
-  if (!media) {
-    media = await resolveWikiMedia(name, 'reward');
-    await pause();
-  }
-
-  if (!media) {
-    result.stats.unresolved += 1;
-    report.rewards.unresolved.push({ type, name });
-    console.log(`reward unresolved: ${type} / ${name}`);
-    continue;
-  }
-
-  const fileSlug = slugify(name) || `item-${rewardIndex}`;
+  const fileSlug = slugify(name);
   const outputPath = join(rewardRoot, type, `${fileSlug}.webp`);
-  const saved = await saveResolvedMedia({ media, outputPath, kind: 'reward' });
-  if (!saved) {
-    result.stats.unresolved += 1;
-    report.rewards.unresolved.push({ type, name, sourceUrl: media.sourceUrl });
-    continue;
+  if (!await saveResolvedMedia({ media, outputPath, kind: 'reward' })) {
+    return { resolved: false, type, name, sourceUrl: media.sourceUrl };
   }
-
-  result.items[type][key] = {
+  usedRewardPaths.add(outputPath);
+  return {
+    resolved: true,
+    type,
     name,
-    url: `/assets/rewards/${type}/${fileSlug}.webp`,
-    sourceUrl: media.sourceUrl,
-    provider: media.provider,
-    matchedTitle: media.matchedTitle || media.canonicalName || name,
-    matchedFile: media.matchedFile,
+    key,
+    item: {
+      name,
+      url: `/assets/rewards/${type}/${fileSlug}.webp`,
+      sourceUrl: media.sourceUrl,
+      provider: media.provider,
+      matchedTitle: media.matchedTitle || media.canonicalName || name,
+      matchedFile: media.matchedFile,
+    },
   };
-  result.stats.rewardsResolved += 1;
-  report.rewards.resolved.push({ type, name, ...result.items[type][key] });
-  console.log(`reward ${rewardIndex}/${rewardGroups.size}: ${type} / ${name}`);
+});
+
+for (const path of await walkFiles(rewardRoot)) {
+  if (!usedRewardPaths.has(path)) await unlink(path);
 }
 
-const moduleText = `export default ${JSON.stringify(result, null, 2)};\n`;
-await writeFile(localMediaPath, moduleText);
+const result = {
+  generatedAt: new Date().toISOString(),
+  stats: { lockboxesResolved: 0, rewardsResolved: 0, unresolved: 0 },
+  items: { lockbox: {}, companion: {}, mount: {}, artifact: {}, race: {} },
+};
+const report = {
+  generatedAt: result.generatedAt,
+  lockboxes: { resolved: [], unresolved: [] },
+  rewards: { resolved: [], unresolved: [] },
+};
+
+for (const record of lockboxResults) {
+  if (!record.resolved) {
+    result.stats.unresolved += 1;
+    report.lockboxes.unresolved.push(record);
+    continue;
+  }
+  result.items.lockbox[record.slug] = record.item;
+  result.stats.lockboxesResolved += 1;
+  report.lockboxes.resolved.push({ slug: record.slug, name: record.name, ...record.item });
+}
+
+for (const record of rewardResults) {
+  if (!record.resolved) {
+    result.stats.unresolved += 1;
+    report.rewards.unresolved.push(record);
+    continue;
+  }
+  result.items[record.type][record.key] = record.item;
+  result.stats.rewardsResolved += 1;
+  report.rewards.resolved.push({ type: record.type, name: record.name, ...record.item });
+}
+
+await writeFile(localMediaPath, `export default ${JSON.stringify(result, null, 2)};\n`);
 await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
 
-console.log('\nMedia sync complete');
+console.log('Media sync complete');
 console.log(JSON.stringify(result.stats, null, 2));
