@@ -1,7 +1,7 @@
 {
   "source": "https://nw-hub.com/packs",
   "pageTitle": "Lockboxes & Packs — Neverwinter Hub",
-  "capturedAt": "2026-08-12T13:40:15.508Z",
+  "capturedAt": "2026-08-12T13:41:28.643Z",
   "controlsVisited": [
     "lockboxes",
     "races"
@@ -29799,35 +29799,28 @@
       "status": 302
     },
     {
-      "url": "https://c.bing.com/c.gif?ctsa=mr&CtsSyncId=DBE6E652DD7D47BC9F9CB984437F20C1&RedC=c.clarity.ms&MXFR=25D58F473E1463C321C698F43A146DF8",
+      "url": "https://c.bing.com/c.gif?ctsa=mr&CtsSyncId=FDDEA970793F4A1089A1B6CDE6F1ACB6&RedC=c.clarity.ms&MXFR=132384114D76645F25E393A249766A7C",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
       "status": 302
     },
     {
-      "url": "https://c.clarity.ms/c.gif?ctsa=mr&CtsSyncId=DBE6E652DD7D47BC9F9CB984437F20C1&MUID=1AEE7EF6478B6F9F1A93694546406EEF",
+      "url": "https://c.clarity.ms/c.gif?ctsa=mr&CtsSyncId=FDDEA970793F4A1089A1B6CDE6F1ACB6&MUID=1D40F8B9769964F51E91EF0A77BD65CF",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "image/gif",
       "status": 200
     },
     {
+      "url": "https://nw-hub.com/assets/lockboxes/encroaching-frost-lockbox.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
       "url": "https://nw-hub.com/assets/companions/sir-waddlelot.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/lockboxes/deathly-delights-lockbox.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/lockboxes/pet-pals-lockbox.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -29841,49 +29834,21 @@
       "status": 200
     },
     {
+      "url": "https://nw-hub.com/assets/lockboxes/pet-pals-lockbox.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/lockboxes/deathly-delights-lockbox.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
       "url": "https://nw-hub.com/assets/artifacts/demon_skull.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/lockboxes/encroaching-frost-lockbox.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/mounts/grubshank-the-burdened.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/lockboxes/feywild-wonders-lockbox.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/lockboxes/grubby-goods-lockbox.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/mounts/demonic-gravehound.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/lockboxes/glorious-undead-lockbox.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -29897,7 +29862,35 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/lockboxes/earth-mote-lockbox.webp",
+      "url": "https://nw-hub.com/assets/mounts/grubshank-the-burdened.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/mounts/demonic-gravehound.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/lockboxes/feywild-wonders-lockbox.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/lockboxes/glorious-undead-lockbox.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/lockboxes/grubby-goods-lockbox.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -29911,21 +29904,7 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/mounts/phantom-panther.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
       "url": "https://nw-hub.com/assets/companions/aoth-fezim-and-brightwing.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/companions/lysaera.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -29939,7 +29918,21 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/mounts/glorious-undead-lion.webp",
+      "url": "https://nw-hub.com/assets/companions/lysaera.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/lockboxes/earth-mote-lockbox.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/mounts/phantom-panther.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -29947,6 +29940,13 @@
     },
     {
       "url": "https://nw-hub.com/assets/mounts/hags-enchanted-cauldron.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/mounts/glorious-undead-lion.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -29981,14 +29981,14 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/artifacts/heart_of_the_volcano.webp",
+      "url": "https://nw-hub.com/assets/lockboxes/foxfire-lockbox.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/lockboxes/foxfire-lockbox.webp",
+      "url": "https://nw-hub.com/assets/artifacts/heart_of_the_volcano.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30002,7 +30002,7 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/lockboxes/leaping-flame-lockbox.webp",
+      "url": "https://nw-hub.com/assets/mounts/red-mountain-fox.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30016,7 +30016,7 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/mounts/red-mountain-fox.webp",
+      "url": "https://nw-hub.com/assets/lockboxes/leaping-flame-lockbox.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30037,14 +30037,14 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/lockboxes/doomspace-lockbox.webp",
+      "url": "https://nw-hub.com/assets/mounts/space-guppy-school.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/mounts/space-guppy-school.webp",
+      "url": "https://nw-hub.com/assets/lockboxes/doomspace-lockbox.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30086,21 +30086,7 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/companions/xaryxian-defector.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
       "url": "https://nw-hub.com/assets/lockboxes/miniature-giant-space-lockbox.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/lockboxes/shadowy-flight-lockbox.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30114,14 +30100,21 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/artifacts/crystal_of_souls_flight.webp",
+      "url": "https://nw-hub.com/assets/companions/xaryxian-defector.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/mounts/uni-the-unicorn.webp",
+      "url": "https://nw-hub.com/assets/lockboxes/shadowy-flight-lockbox.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/artifacts/crystal_of_souls_flight.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30142,14 +30135,21 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/companions/minotaur-mercenary.webp",
+      "url": "https://nw-hub.com/assets/lockboxes/atramentous-lockbox.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/lockboxes/atramentous-lockbox.webp",
+      "url": "https://nw-hub.com/assets/mounts/uni-the-unicorn.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/companions/minotaur-mercenary.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30198,6 +30198,13 @@
       "status": 200
     },
     {
+      "url": "https://nw-hub.com/assets/mounts/umber-hulk.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
       "url": "https://nw-hub.com/assets/lockboxes/myconid-lockbox.webp",
       "kind": "network",
       "viewLabel": "network",
@@ -30212,13 +30219,6 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/lockboxes/dragonslayer-lockbox.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
       "url": "https://nw-hub.com/assets/companions/rumpadump.webp",
       "kind": "network",
       "viewLabel": "network",
@@ -30226,14 +30226,7 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/mounts/umber-hulk.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/mounts/bigbys-hand.webp",
+      "url": "https://nw-hub.com/assets/lockboxes/dragonslayer-lockbox.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30248,6 +30241,13 @@
     },
     {
       "url": "https://nw-hub.com/assets/lockboxes/dragon-cult-lockbox.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/mounts/bigbys-hand.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30275,6 +30275,13 @@
       "status": 200
     },
     {
+      "url": "https://nw-hub.com/assets/companions/dragon-hunter.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
       "url": "https://nw-hub.com/assets/mounts/omen-of-despair.webp",
       "kind": "network",
       "viewLabel": "network",
@@ -30289,21 +30296,7 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/companions/dragon-hunter.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
       "url": "https://nw-hub.com/assets/lockboxes/skeletal-lockbox.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/mounts/empowered-dragonbone-golem.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30317,7 +30310,7 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/lockboxes/stealth-lockbox.webp",
+      "url": "https://nw-hub.com/assets/mounts/empowered-dragonbone-golem.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30325,6 +30318,20 @@
     },
     {
       "url": "https://nw-hub.com/assets/mounts/rimefire-salamander.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/lockboxes/stealth-lockbox.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/mounts/dragonbone-golem.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30345,28 +30352,7 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/mounts/dragonbone-golem.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
       "url": "https://nw-hub.com/assets/mounts/marvelous-reconnaissance-balloons.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/mounts/legendary-reconnaissance-balloons.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/lockboxes/ensorcelled-lockbox.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30380,7 +30366,7 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/companions/butterfly.webp",
+      "url": "https://nw-hub.com/assets/mounts/legendary-reconnaissance-balloons.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30388,6 +30374,20 @@
     },
     {
       "url": "https://nw-hub.com/assets/lockboxes/justice-lockbox.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/companions/butterfly.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/lockboxes/ensorcelled-lockbox.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30415,13 +30415,6 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/lockboxes/blood-war-lockbox.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
       "url": "https://nw-hub.com/assets/companions/displacer-beast.webp",
       "kind": "network",
       "viewLabel": "network",
@@ -30443,7 +30436,21 @@
       "status": 200
     },
     {
+      "url": "https://nw-hub.com/assets/lockboxes/blood-war-lockbox.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
       "url": "https://nw-hub.com/assets/companions/spined-devil.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/mounts/infernal-war-machine.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30464,7 +30471,7 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/mounts/infernal-war-machine.webp",
+      "url": "https://nw-hub.com/assets/lockboxes/descent-lockbox.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30478,28 +30485,7 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/lockboxes/descent-lockbox.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
       "url": "https://nw-hub.com/assets/mounts/legendary-barlgura.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/lockboxes/halaster-lockbox.webp",
-      "kind": "network",
-      "viewLabel": "network",
-      "contentType": "",
-      "status": 200
-    },
-    {
-      "url": "https://nw-hub.com/assets/lockboxes/stardock-lockbox.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30513,7 +30499,14 @@
       "status": 200
     },
     {
-      "url": "https://nw-hub.com/assets/mounts/legendary-giant-toad.webp",
+      "url": "https://nw-hub.com/assets/lockboxes/stardock-lockbox.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/lockboxes/halaster-lockbox.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",
@@ -30521,6 +30514,13 @@
     },
     {
       "url": "https://nw-hub.com/assets/companions/crystal-golem.webp",
+      "kind": "network",
+      "viewLabel": "network",
+      "contentType": "",
+      "status": 200
+    },
+    {
+      "url": "https://nw-hub.com/assets/mounts/legendary-giant-toad.webp",
       "kind": "network",
       "viewLabel": "network",
       "contentType": "",

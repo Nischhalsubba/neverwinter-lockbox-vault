@@ -1,6 +1,6 @@
 export default {
   "source": "https://nw-hub.com/packs",
-  "generatedAt": "2026-08-12T13:40:15.508Z",
+  "generatedAt": "2026-08-12T13:41:28.643Z",
   "stats": {
     "assetsDiscovered": 796,
     "targetsSearched": 259,
