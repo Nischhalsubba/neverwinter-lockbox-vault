@@ -41,11 +41,13 @@ test('fills historical pack labels with NW Hub category artwork', () => {
   assert.match(companion.provider, /NW Hub/);
 });
 
-test('resolves the remaining visible individual rewards from curated sources', () => {
+test('resolves remaining individual and special rewards from curated sources', () => {
   for (const [type, name] of [
     ['mount', "Hag's Hexing Cauldron"],
     ['mount', 'Cactus the Hedgehog'],
     ['companion', 'Sardina the Tressym'],
+    ['race', 'Sigil of the Metallic Ancestry Dragonborn'],
+    ['race', 'Glorious Resurgence Legendary Pack'],
   ]) {
     const media = resolveRewardMedia(type, name);
     assert.ok(media?.url, `${name} should have artwork`);
