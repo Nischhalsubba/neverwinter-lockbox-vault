@@ -142,20 +142,32 @@ const aliases = {
 const curatedExternalMedia = {
   companion: {
     'Sardina the Tressym': {
-      url: 'https://forgottenrealms.fandom.com/wiki/Special:Redirect/file/Sardina_the_Tressym.png',
+      url: 'https://forgottenrealms.fandom.com/wiki/Special:FilePath/Sardina_the_Tressym.png',
       sourceUrl: 'https://forgottenrealms.fandom.com/wiki/Sardina',
       provider: 'Forgotten Realms Wiki / Neverwinter artwork',
     },
   },
   mount: {
     'Cactus the Hedgehog': {
-      url: 'https://forgottenrealms.fandom.com/wiki/Special:Redirect/file/Cactus_the_Hedgehog.png',
+      url: 'https://forgottenrealms.fandom.com/wiki/Special:FilePath/Cactus_the_Hedgehog.png',
       sourceUrl: 'https://forgottenrealms.fandom.com/wiki/Cactus_(hedgehog)',
       provider: 'Forgotten Realms Wiki / Neverwinter artwork',
     },
     "Hag's Hexing Cauldron": {
       url: 'https://static.wikia.nocookie.net/neverwinter_gamepedia/images/7/77/Icons_Inventory_Mount_Cauldron_Mythic.png/revision/latest/scale-to-width-down/128?cb=20210424062237',
       sourceUrl: 'https://neverwinter.fandom.com/wiki/Hag%27s_Hexing_Cauldron',
+      provider: 'Neverwinter Wiki',
+    },
+  },
+  race: {
+    'Sigil of the Metallic Ancestry Dragonborn': {
+      url: 'https://static.wikia.nocookie.net/neverwinter_gamepedia/images/3/31/Icon_Lockbox_Sigil_Metallicdragonborn.png/revision/latest?cb=20150115203247',
+      sourceUrl: 'https://neverwinter.fandom.com/wiki/Sigil_of_the_Metallic_Ancestry_Dragonborn',
+      provider: 'Neverwinter Wiki',
+    },
+    'Glorious Resurgence Legendary Pack': {
+      url: 'https://static.wikia.nocookie.net/neverwinter_gamepedia/images/5/5c/Icon_Lockbox_Resurgence_Legendarypack.png/revision/latest?cb=20151118143748',
+      sourceUrl: 'https://neverwinter.fandom.com/wiki/Glorious_Resurgence_Legendary_Pack',
       provider: 'Neverwinter Wiki',
     },
   },
