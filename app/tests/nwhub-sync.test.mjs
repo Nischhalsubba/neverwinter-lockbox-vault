@@ -8,7 +8,9 @@ const sync = await readFile(new URL('../scripts/sync_nwhub_missing_media.mjs', i
 test('NW Hub extraction covers the base and latest lockbox catalog', () => {
   assert.match(extractor, /latestLockboxes/);
   assert.match(extractor, /https:\/\/nw-hub\.com\/packs/);
-  assert.match(extractor, /lockboxes\?\|companions\?\|mounts\?\|artifacts\?/);
+  for (const category of ['Lockboxes', 'Companions', 'Mounts', 'Artifacts']) {
+    assert.ok(extractor.includes(`'${category}'`), `Expected NW Hub category ${category}`);
+  }
   assert.match(extractor, /candidatesMatched/);
 });
 
