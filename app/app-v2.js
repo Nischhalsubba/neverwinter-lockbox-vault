@@ -1,45 +1,8 @@
-import base from './data/lockboxes.json';
 import latest from './data/latest-lockboxes.js';
 import { filterLockboxes } from './catalog.js';
 
-const entries = [...base, ...latest];
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
-
-const DEFAULT_MEDIA_SOURCES = {
-  wiki: { url: 'https://neverwinter.fandom.com/wiki/Lockbox' },
-  nwhub: { url: 'https://nw-hub.com/packs' },
-};
-
-let resolveRewardMedia = () => null;
-let resolveCoverMedia = () => null;
-let hydrateCoverMedia = async () => 0;
-let MEDIA_SOURCES = DEFAULT_MEDIA_SOURCES;
-
-const safeStorage = {
-  get(key) {
-    try {
-      return globalThis.localStorage?.getItem(key) ?? null;
-    } catch {
-      return null;
-    }
-  },
-  set(key, value) {
-    try {
-      globalThis.localStorage?.setItem(key, value);
-    } catch {
-      // View preferences are optional and must never block catalog rendering.
-    }
-  },
-};
-
-const safeReplaceUrl = (value) => {
-  try {
-    history.replaceState(null, '', value);
-  } catch {
-    // URL synchronization is optional in restricted preview contexts.
-  }
-};
 
 const esc = (value = '') => String(value)
   .replaceAll('&', '&amp;')
@@ -48,11 +11,49 @@ const esc = (value = '') => String(value)
   .replaceAll('"', '&quot;')
   .replaceAll("'", '&#039;');
 
-const clean = (value = '') => (
-  String(value).match(/^\[(.+)]\s*-\s*Account unlock$/i)?.[1] || String(value)
-)
-  .replace(/\s+\((?:Epic|Rare)\)$/i, '')
-  .trim();
+const clean = (value = '') => {
+  const text = String(value);
+  const accountMatch = text.match(/^\[(.+)]\s*-\s*Account unlock$/i);
+  return (accountMatch?.[1] || text)
+    .replace(/^\s*(?:companion|artifact|mount|race)\s*:\s*/i, '')
+    .replace(/\s+\((?:Epic|Rare)\)$/i, '')
+    .replace(/[’]/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+};
+
+const safeStorage = {
+  get(key) {
+    try { return window.localStorage?.getItem(key) ?? null; } catch { return null; }
+  },
+  set(key, value) {
+    try { window.localStorage?.setItem(key, value); } catch { /* optional persistence */ }
+  },
+};
+
+const loadBaseEntries = async () => {
+  try {
+    const dataUrl = new URL('./data/lockboxes.json', import.meta.url);
+    const response = await fetch(dataUrl, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`Catalog request failed with ${response.status}`);
+    const payload = await response.json();
+    return Array.isArray(payload) ? payload : [];
+  } catch (error) {
+    console.error('Could not load the base lockbox catalog.', error);
+    return [];
+  }
+};
+
+const base = await loadBaseEntries();
+const entries = [...base, ...latest];
+
+let resolveRewardMedia = () => null;
+let resolveCoverMedia = () => null;
+let hydrateCoverMedia = async () => 0;
+let mediaSources = {
+  nwhub: { url: 'https://nw-hub.com/packs' },
+  wiki: { url: 'https://neverwinter.fandom.com/wiki/Lockbox' },
+};
 
 const allRewards = (entry) => [
   ...entry.rewards.companions.map((name) => ({ type: 'companion', name })),
@@ -76,29 +77,19 @@ const iconPaths = {
   race: '<circle cx="12" cy="7.5" r="3.2"/><path d="M5.5 21c.6-5.2 2.8-8 6.5-8s5.9 2.8 6.5 8M5.8 10 3 7.5m15.2 2.5L21 7.5"/>',
 };
 
-const safeRewardMedia = (type, name) => {
-  try {
-    return resolveRewardMedia(type, name);
-  } catch {
-    return null;
-  }
-};
-
-const safeCoverMedia = (entry) => {
-  try {
-    return resolveCoverMedia(entry);
-  } catch {
-    return null;
-  }
-};
+const rewardFallback = (type, compact = false) => `
+  <span class="reward-monogram${compact ? ' compact' : ''}" aria-hidden="true">
+    <svg viewBox="0 0 24 24">${iconPaths[type] || iconPaths.artifact}</svg>
+  </span>`;
 
 const rewardIcon = (type, name, compact = false) => {
-  const media = safeRewardMedia(type, name);
-  if (media?.url) {
-    return `<span class="reward-thumb${compact ? ' compact' : ''}"><img src="${esc(media.url)}" alt="" loading="lazy" referrerpolicy="no-referrer"></span>`;
-  }
+  const media = resolveRewardMedia(type, name);
+  if (!media?.url) return rewardFallback(type, compact);
 
-  return `<span class="reward-monogram${compact ? ' compact' : ''}" aria-hidden="true"><svg viewBox="0 0 24 24">${iconPaths[type] || iconPaths.artifact}</svg></span>`;
+  return `
+    <span class="reward-thumb${compact ? ' compact' : ''}">
+      <img src="${esc(media.url)}" alt="" loading="lazy" referrerpolicy="no-referrer" data-reward-image data-reward-type="${esc(type)}">
+    </span>`;
 };
 
 const vaultIcon = (entry, detail = false) => `
@@ -113,11 +104,11 @@ const vaultIcon = (entry, detail = false) => `
   </div>`;
 
 const cover = (entry, detail = false) => {
-  const media = safeCoverMedia(entry);
+  const media = resolveCoverMedia(entry);
   return `
     <div class="cover-stage${media ? ' has-media' : ' is-fallback'}">
       ${vaultIcon(entry, detail)}
-      ${media?.url ? `<img class="cover-art" src="${esc(media.url)}" alt="${esc(entry.name)} artwork" loading="lazy" referrerpolicy="no-referrer">` : ''}
+      ${media?.url ? `<img class="cover-art" src="${esc(media.url)}" alt="${esc(entry.name)} artwork" loading="lazy" referrerpolicy="no-referrer" data-cover-image>` : ''}
       <span class="media-source-badge${media ? '' : ' is-fallback'}">${esc(media?.provider || 'Vault icon')}</span>
     </div>`;
 };
@@ -153,6 +144,12 @@ const state = {
 
 const card = (entry) => {
   const rewards = allRewards(entry);
+  const rewardRows = rewards.slice(0, 4).map(({ type, name }) => `
+    <div class="reward-strip-item">
+      ${rewardIcon(type, name, true)}
+      <span>${esc(clean(name))}</span>
+    </div>`).join('');
+
   return `
     <article class="lockbox-card">
       <div class="card-visual">${cover(entry)}</div>
@@ -163,13 +160,7 @@ const card = (entry) => {
         </div>
         <h3>${esc(entry.name)}</h3>
         <p class="card-summary">${rewards.length} highlighted ${rewards.length === 1 ? 'reward' : 'rewards'}</p>
-        <div class="reward-strip">
-          ${rewards.slice(0, 4).map((reward) => `
-            <div class="reward-strip-item">
-              ${rewardIcon(reward.type, reward.name, true)}
-              <span>${esc(clean(reward.name))}</span>
-            </div>`).join('') || '<p class="no-rewards">No headline rewards listed</p>'}
-        </div>
+        <div class="reward-strip">${rewardRows || '<p class="no-rewards">No headline rewards listed</p>'}</div>
         <button class="card-open" type="button" data-open="${esc(entry.slug)}">
           <span>Explore rewards</span>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -179,26 +170,26 @@ const card = (entry) => {
 };
 
 const syncUrl = () => {
-  const url = new URL(location.href);
-  const params = url.searchParams;
-
-  state.query ? params.set('q', state.query) : params.delete('q');
-  state.category !== 'all' ? params.set('type', state.category) : params.delete('type');
-  state.year !== 'all' ? params.set('year', state.year) : params.delete('year');
-  state.sort !== 'newest' ? params.set('sort', state.sort) : params.delete('sort');
-
-  safeReplaceUrl(`${url.pathname}${params.toString() ? `?${params}` : ''}${url.hash}`);
+  try {
+    const url = new URL(location.href);
+    const params = url.searchParams;
+    state.query ? params.set('q', state.query) : params.delete('q');
+    state.category !== 'all' ? params.set('type', state.category) : params.delete('type');
+    state.year !== 'all' ? params.set('year', state.year) : params.delete('year');
+    state.sort !== 'newest' ? params.set('sort', state.sort) : params.delete('sort');
+    history.replaceState(null, '', `${url.pathname}${params.toString() ? `?${params}` : ''}${url.hash}`);
+  } catch {
+    // URL persistence is nonessential to the catalog.
+  }
 };
 
 const render = () => {
   const list = filterLockboxes(entries, state);
-
   el.results.classList.toggle('is-list', state.view === 'list');
   el.results.innerHTML = list.map(card).join('');
   el.results.hidden = !list.length;
   el.empty.hidden = Boolean(list.length);
   el.count.textContent = `Showing ${list.length} ${list.length === 1 ? 'lockbox' : 'lockboxes'}`;
-
   el.search.value = state.query;
   el.clear.hidden = !state.query;
   el.year.value = state.year;
@@ -210,25 +201,19 @@ const render = () => {
     button.setAttribute('aria-pressed', String(active));
   });
 
-  el.reset.hidden = !(
-    state.query
-    || state.category !== 'all'
-    || state.year !== 'all'
-    || state.sort !== 'newest'
-  );
-
+  el.reset.hidden = !(state.query || state.category !== 'all' || state.year !== 'all' || state.sort !== 'newest');
   syncUrl();
 };
 
 const section = (title, type, items) => items.length ? `
   <section class="detail-reward-section">
     <div class="detail-section-heading">
-      <div><p>${type}</p><h3>${title}</h3></div>
+      <div><p>${esc(type)}</p><h3>${esc(title)}</h3></div>
       <span>${items.length}</span>
     </div>
     <div class="detail-reward-grid">
       ${items.map((name) => {
-        const media = safeRewardMedia(type, name);
+        const media = resolveRewardMedia(type, name);
         return `
           <article class="detail-reward-card">
             ${rewardIcon(type, name)}
@@ -241,18 +226,11 @@ const section = (title, type, items) => items.length ? `
     </div>
   </section>` : '';
 
-const open = (slug, setHash = true) => {
+const openDetails = (slug, setHash = true) => {
   const entry = entries.find((item) => item.slug === slug);
   if (!entry) return;
 
-  const source = entry.sourceUrl
-    || entry.imageDiscovery?.pageUrl
-    || MEDIA_SOURCES.wiki?.url
-    || DEFAULT_MEDIA_SOURCES.wiki.url;
-
-  const nwhubUrl = MEDIA_SOURCES.nwhub?.url || DEFAULT_MEDIA_SOURCES.nwhub.url;
-  const wikiUrl = MEDIA_SOURCES.wiki?.url || DEFAULT_MEDIA_SOURCES.wiki.url;
-
+  const source = entry.sourceUrl || entry.imageDiscovery?.pageUrl || mediaSources.wiki.url;
   el.content.innerHTML = `
     <header class="detail-hero">
       <div class="detail-cover">${cover(entry, true)}</div>
@@ -280,8 +258,8 @@ const open = (slug, setHash = true) => {
         </div>
         <div class="source-links">
           <a href="${esc(source)}" target="_blank" rel="noreferrer">Entry source</a>
-          <a href="${esc(nwhubUrl)}" target="_blank" rel="noreferrer">NW Hub</a>
-          <a href="${esc(wikiUrl)}" target="_blank" rel="noreferrer">Wiki</a>
+          <a href="${esc(mediaSources.nwhub.url)}" target="_blank" rel="noreferrer">NW Hub</a>
+          <a href="${esc(mediaSources.wiki.url)}" target="_blank" rel="noreferrer">Wiki</a>
         </div>
       </section>
       <div class="detail-actions">
@@ -291,15 +269,15 @@ const open = (slug, setHash = true) => {
     </div>`;
 
   if (!el.dialog.open) el.dialog.showModal();
-  if (setHash) safeReplaceUrl(`${location.pathname}${location.search}#${entry.slug}`);
+  if (setHash) history.replaceState(null, '', `${location.pathname}${location.search}#${entry.slug}`);
 };
 
-const close = () => {
+const closeDetails = () => {
   if (el.dialog.open) el.dialog.close();
-  if (location.hash) safeReplaceUrl(`${location.pathname}${location.search}`);
+  if (location.hash) history.replaceState(null, '', `${location.pathname}${location.search}`);
 };
 
-const reset = () => {
+const resetFilters = () => {
   Object.assign(state, { query: '', category: 'all', year: 'all', sort: 'newest' });
   render();
 };
@@ -315,11 +293,10 @@ const setView = (view) => {
 };
 
 const updateStats = () => {
+  const uniqueRewards = new Set(entries.flatMap(allRewards).map(({ type, name }) => `${type}:${clean(name).toLowerCase()}`));
   $('#stat-total').textContent = String(entries.length);
   $('#stat-years').textContent = String(years.size);
-  $('#stat-rewards').textContent = String(new Set(
-    entries.flatMap(allRewards).map((reward) => `${reward.type}:${clean(reward.name).toLowerCase()}`),
-  ).size);
+  $('#stat-rewards').textContent = String(uniqueRewards.size);
   $('#stat-account').textContent = String(entries.filter((entry) => entry.hasAccountUnlock).length);
   $('#count-all').textContent = String(entries.length);
   $('#count-companion').textContent = String(entries.filter((entry) => entry.rewards.companions.length).length);
@@ -329,60 +306,40 @@ const updateStats = () => {
   $('#count-account').textContent = String(entries.filter((entry) => entry.hasAccountUnlock).length);
 };
 
-const renderEmergencyCatalog = (error) => {
-  console.error('Lockbox Vault startup failed; rendering core catalog fallback.', error);
-  if (!el.results) return;
+const populateFilters = () => {
+  [...years].sort((a, b) => Number(b) - Number(a)).forEach((year) => {
+    const option = document.createElement('option');
+    option.value = year;
+    option.textContent = year;
+    el.year.append(option);
+  });
 
-  el.results.classList.remove('is-list');
-  el.results.innerHTML = entries.map((entry) => `
-    <article class="lockbox-card">
-      <div class="card-visual">${vaultIcon(entry)}</div>
-      <div class="card-content">
-        <div class="card-topline"><time datetime="${entry.releaseDate}">${esc(entry.releaseLabel)}</time></div>
-        <h3>${esc(entry.name)}</h3>
-        <p class="card-summary">${allRewards(entry).length} highlighted rewards</p>
-      </div>
-    </article>`).join('');
-  el.results.hidden = false;
-  if (el.empty) el.empty.hidden = true;
-  if (el.count) el.count.textContent = `Showing ${entries.length} lockboxes`;
+  const params = new URLSearchParams(location.search);
+  state.query = params.get('q') || '';
+  state.category = ['all', 'companion', 'mount', 'artifact', 'race', 'account'].includes(params.get('type'))
+    ? params.get('type')
+    : 'all';
+  state.year = years.has(params.get('year')) ? params.get('year') : 'all';
+  state.sort = ['newest', 'oldest', 'az', 'za'].includes(params.get('sort')) ? params.get('sort') : 'newest';
 };
 
 const bindEvents = () => {
   el.form.addEventListener('submit', (event) => event.preventDefault());
-  el.search.addEventListener('input', () => {
-    state.query = el.search.value;
-    render();
-  });
-  el.clear.addEventListener('click', () => {
-    state.query = '';
-    render();
-    el.search.focus();
-  });
-  el.year.addEventListener('change', () => {
-    state.year = el.year.value;
-    render();
-  });
-  el.sort.addEventListener('change', () => {
-    state.sort = el.sort.value;
-    render();
-  });
-  el.categories.forEach((button) => button.addEventListener('click', () => {
-    state.category = button.dataset.category;
-    render();
-  }));
-  el.reset.addEventListener('click', reset);
-  el.emptyReset.addEventListener('click', reset);
+  el.search.addEventListener('input', () => { state.query = el.search.value; render(); });
+  el.clear.addEventListener('click', () => { state.query = ''; render(); el.search.focus(); });
+  el.year.addEventListener('change', () => { state.year = el.year.value; render(); });
+  el.sort.addEventListener('change', () => { state.sort = el.sort.value; render(); });
+  el.categories.forEach((button) => button.addEventListener('click', () => { state.category = button.dataset.category; render(); }));
+  el.reset.addEventListener('click', resetFilters);
+  el.emptyReset.addEventListener('click', resetFilters);
   el.grid.addEventListener('click', () => setView('grid'));
   el.list.addEventListener('click', () => setView('list'));
-  el.close.addEventListener('click', close);
-  el.dialog.addEventListener('click', (event) => {
-    if (event.target === el.dialog) close();
-  });
+  el.close.addEventListener('click', closeDetails);
+  el.dialog.addEventListener('click', (event) => { if (event.target === el.dialog) closeDetails(); });
 
   document.addEventListener('click', async (event) => {
     const openButton = event.target.closest('[data-open]');
-    if (openButton) open(openButton.dataset.open);
+    if (openButton) openDetails(openButton.dataset.open);
 
     const copyButton = event.target.closest('[data-copy]');
     if (!copyButton) return;
@@ -399,70 +356,58 @@ const bindEvents = () => {
     setTimeout(() => { el.toast.hidden = true; }, 2200);
   });
 
+  document.addEventListener('error', (event) => {
+    const image = event.target instanceof HTMLImageElement ? event.target : null;
+    if (!image) return;
+    image.hidden = true;
+    image.closest('.cover-stage, .reward-thumb')?.classList.add('media-failed');
+  }, true);
+
   window.addEventListener('hashchange', () => {
-    if (location.hash) open(location.hash.slice(1), false);
+    if (location.hash) openDetails(location.hash.slice(1), false);
     else if (el.dialog.open) el.dialog.close();
   });
 };
 
-const readUrlState = () => {
-  const params = new URLSearchParams(location.search);
-  state.query = params.get('q') || '';
-  state.category = ['all', 'companion', 'mount', 'artifact', 'race', 'account'].includes(params.get('type'))
-    ? params.get('type')
-    : 'all';
-  state.year = years.has(params.get('year')) ? params.get('year') : 'all';
-  state.sort = ['newest', 'oldest', 'az', 'za'].includes(params.get('sort'))
-    ? params.get('sort')
-    : 'newest';
-};
-
-const boot = () => {
-  [...years].sort((a, b) => Number(b) - Number(a)).forEach((year) => {
-    const option = document.createElement('option');
-    option.value = year;
-    option.textContent = year;
-    el.year.append(option);
-  });
-
-  readUrlState();
-  updateStats();
-  bindEvents();
-  setView(state.view);
-  if (location.hash) open(location.hash.slice(1), false);
-};
-
-try {
-  boot();
-} catch (error) {
-  renderEmergencyCatalog(error);
-}
-
-Promise.all([
-  import('./media.js'),
-  import('./covers.js'),
-]).then(async ([media, covers]) => {
-  resolveRewardMedia = media.resolveRewardMedia || resolveRewardMedia;
-  MEDIA_SOURCES = media.MEDIA_SOURCES || MEDIA_SOURCES;
-  resolveCoverMedia = covers.resolveCoverMedia || resolveCoverMedia;
-  hydrateCoverMedia = covers.hydrateCoverMedia || hydrateCoverMedia;
-
-  render();
-  if (location.hash && el.dialog.open) open(location.hash.slice(1), false);
-
+const loadOptionalMedia = async () => {
   try {
+    const [mediaModule, coverModule] = await Promise.all([
+      import('./media.js'),
+      import('./covers.js'),
+    ]);
+
+    resolveRewardMedia = mediaModule.resolveRewardMedia || resolveRewardMedia;
+    mediaSources = mediaModule.MEDIA_SOURCES || mediaSources;
+    resolveCoverMedia = coverModule.resolveCoverMedia || resolveCoverMedia;
+    hydrateCoverMedia = coverModule.hydrateCoverMedia || hydrateCoverMedia;
+
+    render();
+    if (location.hash && el.dialog.open) openDetails(location.hash.slice(1), false);
+
     const updated = await hydrateCoverMedia(entries);
     if (updated) {
       render();
-      if (location.hash && el.dialog.open) open(location.hash.slice(1), false);
+      if (location.hash && el.dialog.open) openDetails(location.hash.slice(1), false);
     }
-  } catch {
-    // Remote media hydration is optional; local icons already cover every entry.
+  } catch (error) {
+    console.warn('Optional media services are unavailable. Local vector artwork will remain in use.', error);
   }
-}).catch(() => {
-  // Optional media modules must never prevent the core catalog from being usable.
-});
+};
+
+populateFilters();
+updateStats();
+bindEvents();
+setView(state.view);
+
+if (!base.length) {
+  el.count.textContent = `Showing ${entries.length} lockbox${entries.length === 1 ? '' : 'es'} · base catalog failed to load`;
+}
+
+if (location.hash) openDetails(location.hash.slice(1), false);
+void loadOptionalMedia();
 
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' }).catch(() => {});
+  });
 }
