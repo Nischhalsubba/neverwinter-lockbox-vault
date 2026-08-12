@@ -1,0 +1,56 @@
+name: Prepare browser media map
+
+on:
+  push:
+    branches:
+      - agent/nwhub-icons-simple-catalog
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v5
+        with:
+          ref: agent/nwhub-icons-simple-catalog
+          fetch-depth: 0
+
+      - name: Build runtime media map
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import { writeFile } from 'node:fs/promises';
+          import localMedia from './app/data/local-media.js';
+
+          const items = {};
+          for (const [type, entries] of Object.entries(localMedia.items || {})) {
+            items[type] = {};
+            for (const [key, value] of Object.entries(entries || {})) {
+              if (!value?.url) continue;
+              items[type][key] = {
+                name: value.name || value.matchedTitle || key,
+                url: value.url,
+              };
+            }
+          }
+
+          const output = `export default ${JSON.stringify({ items }, null, 2)};\n`;
+          await writeFile('./app/data/runtime-media.js', output, 'utf8');
+          NODE
+
+      - name: Commit browser media map
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/data/runtime-media.js
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Add browser media map"
+          git pull --rebase origin agent/nwhub-icons-simple-catalog
+          git push origin HEAD:agent/nwhub-icons-simple-catalog
