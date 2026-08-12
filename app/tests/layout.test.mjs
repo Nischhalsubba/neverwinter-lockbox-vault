@@ -23,11 +23,11 @@ test('catalog runtime loads data and artwork from project modules', () => {
   assert.doesNotMatch(app, /import\(['"]\.\/media\.js['"]\)|import\(['"]\.\/covers\.js['"]\)/);
 });
 
-test('artwork resolver prefers project-hosted media', () => {
-  assert.match(artwork, /local-media\.js/);
+test('artwork resolver uses stripped project-hosted runtime media', () => {
+  assert.match(artwork, /runtime-media\.js/);
   assert.match(artwork, /\/assets\/packs\/companion-choice\.webp/);
   assert.match(artwork, /resolveCoverMedia/);
-  assert.doesNotMatch(artwork, /nwhub-media\.js/);
+  assert.doesNotMatch(artwork, /local-media\.js|nwhub-media\.js/);
 });
 
 test('stylesheet uses vertical archive cards with generous gutters', () => {
