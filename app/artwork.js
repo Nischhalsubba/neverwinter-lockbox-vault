@@ -1,4 +1,4 @@
-import localMedia from './data/local-media.js';
+import runtimeMedia from './data/runtime-media.js';
 
 const LOCAL_PACK_ART = {
   companion: '/assets/packs/companion-choice.webp',
@@ -60,7 +60,7 @@ export const normalizeMediaKey = (value = '') => cleanRewardName(value)
   .toLowerCase();
 
 const localReward = (type, rewardName) => {
-  const mapped = localMedia?.items?.[type]?.[normalizeMediaKey(rewardName)];
+  const mapped = runtimeMedia?.items?.[type]?.[normalizeMediaKey(rewardName)];
   if (!mapped?.url) return null;
   return {
     ...mapped,
@@ -102,7 +102,7 @@ export const resolveRewardMedia = (type, rewardName) => {
 };
 
 export const resolveCoverMedia = (entry) => {
-  const mapped = localMedia?.items?.lockbox?.[entry?.slug];
+  const mapped = runtimeMedia?.items?.lockbox?.[entry?.slug];
   if (!mapped?.url) return null;
   return {
     ...mapped,
