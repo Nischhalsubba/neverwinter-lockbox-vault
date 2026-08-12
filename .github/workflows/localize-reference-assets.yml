@@ -1,4 +1,4 @@
-name: Localize reference artwork
+name: Localize catalog artwork
 
 on:
   push:
@@ -19,11 +19,11 @@ jobs:
           ref: agent/nwhub-icons-simple-catalog
           fetch-depth: 0
 
-      - name: Download reference artwork
+      - name: Download catalog artwork
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p app/public/assets/packs app/public/assets/rewards/curated
+          mkdir -p app/public/assets/packs
 
           fetch() {
             local url="$1"
@@ -37,21 +37,15 @@ jobs:
           fetch "https://nw-hub.com/assets/choice-packs/legendary-mount-choice-pack.webp" "app/public/assets/packs/mount-choice.webp"
           fetch "https://nw-hub.com/assets/choice-packs/epic-artifact-choice-pack.webp" "app/public/assets/packs/artifact-choice.webp"
 
-          fetch "https://forgottenrealms.fandom.com/wiki/Special:FilePath/Sardina_the_Tressym.png" "app/public/assets/rewards/curated/sardina-the-tressym.png"
-          fetch "https://forgottenrealms.fandom.com/wiki/Special:FilePath/Cactus_the_Hedgehog.png" "app/public/assets/rewards/curated/cactus-the-hedgehog.png"
-          fetch "https://static.wikia.nocookie.net/neverwinter_gamepedia/images/7/77/Icons_Inventory_Mount_Cauldron_Mythic.png/revision/latest?cb=20210424062237" "app/public/assets/rewards/curated/hags-hexing-cauldron.png"
-          fetch "https://static.wikia.nocookie.net/neverwinter_gamepedia/images/3/31/Icon_Lockbox_Sigil_Metallicdragonborn.png/revision/latest?cb=20150115203247" "app/public/assets/rewards/curated/metallic-ancestry-dragonborn.png"
-          fetch "https://static.wikia.nocookie.net/neverwinter_gamepedia/images/5/5c/Icon_Lockbox_Resurgence_Legendarypack.png/revision/latest?cb=20151118143748" "app/public/assets/rewards/curated/glorious-resurgence-legendary-pack.png"
-
       - name: Commit localized artwork
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add app/public/assets/packs app/public/assets/rewards/curated
+          git add app/public/assets/packs
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m "Store reference artwork locally"
+          git commit -m "Store catalog artwork locally"
           git pull --rebase origin agent/nwhub-icons-simple-catalog
           git push origin HEAD:agent/nwhub-icons-simple-catalog
