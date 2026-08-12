@@ -59,9 +59,9 @@ const fetchImage = async (url) => {
     signal: AbortSignal.timeout(20000),
   });
   if (!response.ok) throw new Error(`image request returned ${response.status}`);
-  const contentType = response.headers.get('content-type') || '';
-  if (!contentType.startsWith('image/')) throw new Error(`unexpected content type ${contentType || 'unknown'}`);
-  return Buffer.from(await response.arrayBuffer());
+  const buffer = Buffer.from(await response.arrayBuffer());
+  if (buffer.length < 64) throw new Error(`image response is too small (${buffer.length} bytes)`);
+  return buffer;
 };
 
 const normalizeImage = async (buffer, outputPath, size) => {
@@ -69,6 +69,7 @@ const normalizeImage = async (buffer, outputPath, size) => {
   const metadata = await image.metadata();
   const width = metadata.width || 0;
   const height = metadata.height || 0;
+  if (!metadata.format) throw new Error('response is not a decodable image');
   if (width < 24 || height < 24) throw new Error(`image is too small (${width}x${height})`);
 
   await mkdir(dirname(outputPath), { recursive: true });
