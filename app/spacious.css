@@ -1,0 +1,195 @@
+/* Breathing-room pass for the catalog while keeping the direct NW Hub-style workflow. */
+
+.topbar-inner,
+.hub-shell,
+.footer {
+  width: min(1480px, calc(100% - 48px));
+}
+
+.hub-shell {
+  padding: 42px 0 78px;
+}
+
+.page-heading {
+  gap: 32px;
+  margin-bottom: 30px;
+}
+
+.page-heading p:not(.eyebrow) {
+  margin-top: 10px;
+  line-height: 1.65;
+}
+
+.hub-toolbar {
+  gap: 16px;
+  padding: 18px;
+}
+
+.search-box {
+  min-height: 50px;
+  padding-inline: 13px;
+}
+
+.category-tabs {
+  gap: 8px;
+}
+
+.category-button {
+  min-height: 38px;
+  padding: 7px 12px;
+}
+
+.toolbar-selects {
+  gap: 12px;
+}
+
+.toolbar-selects label {
+  min-width: 142px;
+}
+
+.toolbar-selects select {
+  min-height: 40px;
+  padding-block: 8px;
+}
+
+.results-heading {
+  min-height: 58px;
+}
+
+.pack-grid {
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 18px;
+}
+
+.pack-card {
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 16px;
+  min-height: 126px;
+  padding: 14px;
+  border-radius: 11px;
+}
+
+.pack-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 9px;
+}
+
+.pack-card-meta {
+  font-size: 11px;
+}
+
+.pack-card-title {
+  margin-top: 7px;
+  font-size: 15px;
+  line-height: 1.32;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.pack-card-types {
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.type-chip {
+  padding: 3px 6px;
+  font-size: 10px;
+}
+
+.pack-card-footer {
+  gap: 12px;
+  padding-top: 11px;
+}
+
+.reward-preview > span {
+  margin-left: -3px;
+}
+
+.reward-icon.compact {
+  width: 31px;
+  height: 31px;
+}
+
+.reward-count {
+  font-size: 11px;
+}
+
+.detail-dialog {
+  width: min(1040px, calc(100% - 32px));
+}
+
+.detail-header {
+  gap: 24px;
+  padding: 28px 64px 28px 28px;
+}
+
+.detail-content {
+  padding: 24px 28px 30px;
+}
+
+.detail-section + .detail-section {
+  margin-top: 26px;
+}
+
+.reward-grid {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+}
+
+.reward-card {
+  gap: 12px;
+  padding: 10px;
+}
+
+@media (max-width: 1150px) {
+  .topbar-inner,
+  .hub-shell,
+  .footer {
+    width: min(100% - 32px, 1240px);
+  }
+
+  .pack-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar-inner,
+  .hub-shell,
+  .footer {
+    width: min(100% - 20px, 1480px);
+  }
+
+  .hub-shell {
+    padding-top: 24px;
+  }
+
+  .hub-toolbar {
+    padding: 12px;
+  }
+
+  .pack-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .pack-card {
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 12px;
+    min-height: 106px;
+    padding: 11px;
+  }
+
+  .pack-icon {
+    width: 82px;
+    height: 82px;
+  }
+
+  .reward-grid {
+    grid-template-columns: 1fr;
+  }
+}
