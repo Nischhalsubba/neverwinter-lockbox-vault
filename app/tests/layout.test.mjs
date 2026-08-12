@@ -14,6 +14,14 @@ test('application shell exposes the active archive workspace controls', () => {
   assert.match(html, /src="\.\/app-v2\.js"/);
 });
 
+test('catalog runtime can boot when served directly or through Vite', () => {
+  assert.doesNotMatch(app, /import\s+base\s+from\s+["']\.\/data\/lockboxes\.json["']/);
+  assert.match(app, /new URL\(['"]\.\/data\/lockboxes\.json['"], import\.meta\.url\)/);
+  assert.match(app, /fetch\(dataUrl/);
+  assert.match(app, /import\(['"]\.\/media\.js['"]\)/);
+  assert.match(app, /import\(['"]\.\/covers\.js['"]\)/);
+});
+
 test('refreshed runtime guarantees vector cover and reward fallbacks', () => {
   assert.match(covers, /return null;/);
   assert.match(app, /vaultIcon/);
