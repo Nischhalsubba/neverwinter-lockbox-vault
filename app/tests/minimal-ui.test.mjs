@@ -30,6 +30,12 @@ test('viewer-facing shell has its own identity and no external catalog branding'
   assert.doesNotMatch(runtimeMedia, /NW Hub|nw-hub\.com/i);
 });
 
+test('browser artwork resolver contains no remote image URLs', () => {
+  assert.doesNotMatch(artwork, /https?:\/\//i);
+  assert.match(artwork, /\/assets\/packs\/companion-choice\.webp/);
+  assert.match(artwork, /\/assets\/rewards\/curated\/sardina-the-tressym\.png/);
+});
+
 test('browser media map contains only project-hosted synced paths', () => {
   const urls = [...runtimeMedia.matchAll(/"url":\s*"([^"]+)"/g)].map((match) => match[1]);
   assert.ok(urls.length > 100);
