@@ -1,9 +1,12 @@
 export default {
-  "generatedAt": "2026-08-12T12:59:14.180Z",
+  "generatedAt": "2026-08-12T13:41:46.487Z",
   "stats": {
-    "lockboxesResolved": 50,
-    "rewardsResolved": 137,
-    "unresolved": 72
+    "lockboxesResolved": 72,
+    "rewardsResolved": 158,
+    "unresolved": 29,
+    "nwhubAdded": 43,
+    "nwhubLockboxesAdded": 22,
+    "nwhubRewardsAdded": 21
   },
   "items": {
     "lockbox": {
@@ -353,6 +356,204 @@ export default {
         "sourceUrl": "https://steamcommunity.com/app/109600/announcements/",
         "provider": "Official Neverwinter / Steam",
         "matchedTitle": "Buried Treasure Lockbox / Ollie the Octie"
+      },
+      "acquired-treasures-lockbox": {
+        "name": "Acquired Treasures Lockbox",
+        "url": "/assets/lockboxes/acquired-treasures-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Acquired Treasures Lockbox",
+        "matchScore": 408,
+        "matchContext": "Acquired Treasures Lockbox LOCKBOX Feb 2019"
+      },
+      "dragonslayer-s-lockbox": {
+        "name": "Dragonslayer's Lockbox",
+        "url": "/assets/lockboxes/dragonslayer-s-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Dragonslayer's Lockbox",
+        "matchScore": 408,
+        "matchContext": "Dragonslayer's Lockbox LOCKBOX Sep 2022"
+      },
+      "myconid-lockbox": {
+        "name": "Myconid Lockbox",
+        "url": "/assets/lockboxes/myconid-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Myconid Lockbox",
+        "matchScore": 408,
+        "matchContext": "Myconid Lockbox LOCKBOX Nov 2022"
+      },
+      "lockbox-of-lost-knowledge": {
+        "name": "Lockbox of Lost Knowledge",
+        "url": "/assets/lockboxes/lockbox-of-lost-knowledge.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Lockbox of Lost Knowledge",
+        "matchScore": 408,
+        "matchContext": "Lockbox of Lost Knowledge LOCKBOX Jan 2023"
+      },
+      "lolthian-lockbox": {
+        "name": "Lolthian Lockbox",
+        "url": "/assets/lockboxes/lolthian-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Lolthian Lockbox",
+        "matchScore": 408,
+        "matchContext": "Lolthian Lockbox LOCKBOX Mar 2023"
+      },
+      "atramentous-lockbox": {
+        "name": "Atramentous Lockbox",
+        "url": "/assets/lockboxes/atramentous-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Atramentous Lockbox",
+        "matchScore": 408,
+        "matchContext": "Atramentous Lockbox LOCKBOX May 2023"
+      },
+      "lockbox-of-shadowy-flight": {
+        "name": "Lockbox of Shadowy Flight",
+        "url": "/assets/lockboxes/lockbox-of-shadowy-flight.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Lockbox of Shadowy Flight",
+        "matchScore": 408,
+        "matchContext": "Lockbox of Shadowy Flight LOCKBOX Sep 2023"
+      },
+      "miniature-giant-space-lockbox": {
+        "name": "Miniature Giant Space Lockbox",
+        "url": "/assets/lockboxes/miniature-giant-space-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Miniature Giant Space Lockbox",
+        "matchScore": 408,
+        "matchContext": "Miniature Giant Space Lockbox LOCKBOX Nov 2023"
+      },
+      "starlight-armaments-lockbox": {
+        "name": "Starlight Armaments Lockbox",
+        "url": "/assets/lockboxes/starlight-armaments-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Starlight Armaments Lockbox",
+        "matchScore": 408,
+        "matchContext": "Starlight Armaments Lockbox LOCKBOX Jan 2024"
+      },
+      "doomspace-lockbox": {
+        "name": "Doomspace Lockbox",
+        "url": "/assets/lockboxes/doomspace-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Doomspace Lockbox",
+        "matchScore": 408,
+        "matchContext": "Doomspace Lockbox LOCKBOX Apr 2024"
+      },
+      "astronautical-lockbox": {
+        "name": "Astronautical Lockbox",
+        "url": "/assets/lockboxes/astronautical-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Astronautical Lockbox",
+        "matchScore": 408,
+        "matchContext": "Astronautical Lockbox LOCKBOX Jun 2024"
+      },
+      "leaping-flame-lockbox": {
+        "name": "Leaping Flame Lockbox",
+        "url": "/assets/lockboxes/leaping-flame-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Leaping Flame Lockbox",
+        "matchScore": 408,
+        "matchContext": "Leaping Flame Lockbox LOCKBOX Jul 2024"
+      },
+      "foxfire-lockbox": {
+        "name": "Foxfire Lockbox",
+        "url": "/assets/lockboxes/foxfire-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Foxfire Lockbox",
+        "matchScore": 408,
+        "matchContext": "Foxfire Lockbox LOCKBOX Sep 2024"
+      },
+      "psionic-lockbox": {
+        "name": "Psionic Lockbox",
+        "url": "/assets/lockboxes/psionic-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Psionic Lockbox",
+        "matchScore": 408,
+        "matchContext": "Psionic Lockbox LOCKBOX Nov 2024"
+      },
+      "earth-mote-lockbox": {
+        "name": "Earth Mote Lockbox",
+        "url": "/assets/lockboxes/earth-mote-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Earth Mote Lockbox",
+        "matchScore": 408,
+        "matchContext": "Earth Mote Lockbox LOCKBOX Jan 2025"
+      },
+      "glorious-undead-lockbox": {
+        "name": "Glorious Undead Lockbox",
+        "url": "/assets/lockboxes/glorious-undead-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Glorious Undead Lockbox",
+        "matchScore": 408,
+        "matchContext": "Glorious Undead Lockbox LOCKBOX Mar 2025"
+      },
+      "wings-and-cauldrons-lockbox": {
+        "name": "Wings and Cauldrons Lockbox",
+        "url": "/assets/lockboxes/wings-and-cauldrons-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Wings and Cauldrons Lockbox",
+        "matchScore": 408,
+        "matchContext": "Wings and Cauldrons Lockbox LOCKBOX May 2025"
+      },
+      "phantasmal-fantasy-lockbox": {
+        "name": "Phantasmal Fantasy Lockbox",
+        "url": "/assets/lockboxes/phantasmal-fantasy-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Phantasmal Fantasy Lockbox",
+        "matchScore": 408,
+        "matchContext": "Phantasmal Fantasy Lockbox LOCKBOX Jul 2025"
+      },
+      "feywild-wonders-lockbox": {
+        "name": "Feywild Wonders Lockbox",
+        "url": "/assets/lockboxes/feywild-wonders-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Feywild Wonders Lockbox",
+        "matchScore": 408,
+        "matchContext": "Feywild Wonders Lockbox LOCKBOX Aug 2025"
+      },
+      "grubby-goods-lockbox": {
+        "name": "Grubby Goods Lockbox",
+        "url": "/assets/lockboxes/grubby-goods-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Grubby Goods Lockbox",
+        "matchScore": 408,
+        "matchContext": "Grubby Goods Lockbox LOCKBOX Nov 2025"
+      },
+      "deathly-delights-lockbox": {
+        "name": "Deathly Delights Lockbox",
+        "url": "/assets/lockboxes/deathly-delights-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Deathly Delights Lockbox",
+        "matchScore": 408,
+        "matchContext": "Deathly Delights Lockbox LOCKBOX Jan 2026"
+      },
+      "pet-pals-lockbox": {
+        "name": "Pet Pals Lockbox",
+        "url": "/assets/lockboxes/pet-pals-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Pet Pals Lockbox",
+        "matchScore": 408,
+        "matchContext": "Pet Pals Lockbox LOCKBOX Mar 2026"
       }
     },
     "companion": {
@@ -622,6 +823,24 @@ export default {
         "sourceUrl": "https://steamcommunity.com/app/109600/announcements/",
         "provider": "Official Neverwinter / Steam",
         "matchedTitle": "Sir Waddlelot"
+      },
+      "legendary class companion choice pack": {
+        "name": "Legendary Class Companion Choice Pack",
+        "url": "/assets/rewards/companion/legendary-class-companion-choice-pack.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Legendary Class Companion Choice Pack",
+        "matchScore": 300,
+        "matchContext": "Companion Choice Pack ZEN STORE Bind on Pickup (Account) when used"
+      },
+      "aoth fezim brightwing": {
+        "name": "Aoth Fezim & Brightwing",
+        "url": "/assets/rewards/companion/aoth-fezim-brightwing.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Aoth Fezim & Brightwing",
+        "matchScore": 355,
+        "matchContext": "Aoth Fezim & Brightwing"
       }
     },
     "mount": {
@@ -1322,6 +1541,177 @@ export default {
         "sourceUrl": "https://steamcommunity.com/app/109600/announcements/",
         "provider": "Official Neverwinter / Steam",
         "matchedTitle": "Shattered Resolve"
+      },
+      "sphere of black ice": {
+        "name": "Sphere of Black Ice",
+        "url": "/assets/rewards/artifact/sphere-of-black-ice.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Sphere of Black Ice",
+        "matchScore": 355,
+        "matchContext": "Sphere of Black Ice"
+      },
+      "kessell s spheres of annihilation": {
+        "name": "Kessell's Spheres of Annihilation",
+        "url": "/assets/rewards/artifact/kessells-spheres-of-annihilation.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Kessell's Spheres of Annihilation",
+        "matchScore": 355,
+        "matchContext": "Kessell's Spheres of Annihilation"
+      },
+      "oghma s token of free movement": {
+        "name": "Oghma's Token of Free Movement",
+        "url": "/assets/rewards/artifact/oghmas-token-of-free-movement.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Oghma's Token of Free Movement",
+        "matchScore": 355,
+        "matchContext": "Oghma's Token of Free Movement"
+      },
+      "belial s portal stone": {
+        "name": "Belial's Portal Stone",
+        "url": "/assets/rewards/artifact/belials-portal-stone.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Belial's Portal Stone",
+        "matchScore": 355,
+        "matchContext": "Belial's Portal Stone"
+      },
+      "symbol of earth": {
+        "name": "Symbol of Earth",
+        "url": "/assets/rewards/artifact/symbol-of-earth.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Symbol of Earth",
+        "matchScore": 355,
+        "matchContext": "Symbol of Earth"
+      },
+      "symbol of water": {
+        "name": "Symbol of Water",
+        "url": "/assets/rewards/artifact/symbol-of-water.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Symbol of Water",
+        "matchScore": 355,
+        "matchContext": "Symbol of Water"
+      },
+      "symbol of air": {
+        "name": "Symbol of Air",
+        "url": "/assets/rewards/artifact/symbol-of-air.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Symbol of Air",
+        "matchScore": 355,
+        "matchContext": "Symbol of Air"
+      },
+      "eye of the giant": {
+        "name": "Eye of the Giant",
+        "url": "/assets/rewards/artifact/eye-of-the-giant.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Eye of the Giant",
+        "matchScore": 355,
+        "matchContext": "Eye of the Giant"
+      },
+      "tome of ascendance": {
+        "name": "Tome of Ascendance",
+        "url": "/assets/rewards/artifact/tome-of-ascendance.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Tome of Ascendance",
+        "matchScore": 355,
+        "matchContext": "Tome of Ascendance"
+      },
+      "sigil of the nine": {
+        "name": "Sigil of the Nine",
+        "url": "/assets/rewards/artifact/sigil-of-the-nine.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Sigil of the Nine",
+        "matchScore": 355,
+        "matchContext": "Sigil of the Nine"
+      },
+      "wheel of elements": {
+        "name": "Wheel of Elements",
+        "url": "/assets/rewards/artifact/wheel-of-elements.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Wheel of Elements",
+        "matchScore": 355,
+        "matchContext": "Wheel of Elements"
+      },
+      "dragonbone blades": {
+        "name": "Dragonbone Blades",
+        "url": "/assets/rewards/artifact/dragonbone-blades.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Dragonbone Blades",
+        "matchScore": 355,
+        "matchContext": "Dragonbone Blades"
+      },
+      "crystal of soul s flight": {
+        "name": "Crystal of Soul's Flight",
+        "url": "/assets/rewards/artifact/crystal-of-souls-flight.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Crystal of Soul's Flight",
+        "matchScore": 355,
+        "matchContext": "Crystal of Soul's Flight"
+      },
+      "marco s mystic marker": {
+        "name": "Marco's Mystic Marker",
+        "url": "/assets/rewards/artifact/marcos-mystic-marker.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Marco's Mystic Marker",
+        "matchScore": 355,
+        "matchContext": "Marco's Mystic Marker"
+      },
+      "beacon of meteor swarm": {
+        "name": "Beacon of Meteor Swarm",
+        "url": "/assets/rewards/artifact/beacon-of-meteor-swarm.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Beacon of Meteor Swarm",
+        "matchScore": 355,
+        "matchContext": "Beacon of Meteor Swarm"
+      },
+      "heart of the volcano": {
+        "name": "Heart of the Volcano",
+        "url": "/assets/rewards/artifact/heart-of-the-volcano.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Heart of the Volcano",
+        "matchScore": 355,
+        "matchContext": "Heart of the Volcano"
+      },
+      "grace of pelor": {
+        "name": "Grace of Pelor",
+        "url": "/assets/rewards/artifact/grace-of-pelor.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Grace of Pelor",
+        "matchScore": 355,
+        "matchContext": "Grace of Pelor"
+      },
+      "nightflame censer": {
+        "name": "Nightflame Censer",
+        "url": "/assets/rewards/artifact/nightflame-censer.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Nightflame Censer",
+        "matchScore": 355,
+        "matchContext": "Nightflame Censer"
+      },
+      "demon skull": {
+        "name": "Demon Skull",
+        "url": "/assets/rewards/artifact/demon-skull.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Demon Skull",
+        "matchScore": 355,
+        "matchContext": "Demon Skull"
       }
     },
     "race": {}

@@ -1,5 +1,266 @@
 {
-  "generatedAt": "2026-08-12T12:59:14.180Z",
+  "generatedAt": "2026-08-12T13:41:46.487Z",
+  "nwhubSource": "https://nw-hub.com/packs",
+  "nwhubAdditions": [
+    {
+      "type": "lockbox",
+      "key": "acquired-treasures-lockbox",
+      "name": "Acquired Treasures Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/acquired-treasures-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "dragonslayer-s-lockbox",
+      "name": "Dragonslayer's Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/dragonslayer-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "myconid-lockbox",
+      "name": "Myconid Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/myconid-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "lockbox-of-lost-knowledge",
+      "name": "Lockbox of Lost Knowledge",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/lost-knowledge-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "lolthian-lockbox",
+      "name": "Lolthian Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/lolthian-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "atramentous-lockbox",
+      "name": "Atramentous Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/atramentous-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "lockbox-of-shadowy-flight",
+      "name": "Lockbox of Shadowy Flight",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/shadowy-flight-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "miniature-giant-space-lockbox",
+      "name": "Miniature Giant Space Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/miniature-giant-space-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "starlight-armaments-lockbox",
+      "name": "Starlight Armaments Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/starlight-armaments-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "doomspace-lockbox",
+      "name": "Doomspace Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/doomspace-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "astronautical-lockbox",
+      "name": "Astronautical Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/astronautical-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "leaping-flame-lockbox",
+      "name": "Leaping Flame Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/leaping-flame-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "foxfire-lockbox",
+      "name": "Foxfire Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/foxfire-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "psionic-lockbox",
+      "name": "Psionic Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/psionic-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "earth-mote-lockbox",
+      "name": "Earth Mote Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/earth-mote-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "glorious-undead-lockbox",
+      "name": "Glorious Undead Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/glorious-undead-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "wings-and-cauldrons-lockbox",
+      "name": "Wings and Cauldrons Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/wings-and-cauldrons-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "phantasmal-fantasy-lockbox",
+      "name": "Phantasmal Fantasy Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/phantasmal-fantasy-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "feywild-wonders-lockbox",
+      "name": "Feywild Wonders Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/feywild-wonders-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "grubby-goods-lockbox",
+      "name": "Grubby Goods Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/grubby-goods-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "deathly-delights-lockbox",
+      "name": "Deathly Delights Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/deathly-delights-lockbox.webp"
+    },
+    {
+      "type": "lockbox",
+      "key": "pet-pals-lockbox",
+      "name": "Pet Pals Lockbox",
+      "remoteUrl": "https://nw-hub.com/assets/lockboxes/pet-pals-lockbox.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "sphere of black ice",
+      "name": "Sphere of Black Ice",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/sphere_of_black_ice.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "kessell s spheres of annihilation",
+      "name": "Kessell's Spheres of Annihilation",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/kessells_spheres_of_annihilation.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "oghma s token of free movement",
+      "name": "Oghma's Token of Free Movement",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/oghmas_token_of_free_movement.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "belial s portal stone",
+      "name": "Belial's Portal Stone",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/belials_portal_stone.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "symbol of earth",
+      "name": "Symbol of Earth",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/symbol_of_earth.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "symbol of water",
+      "name": "Symbol of Water",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/symbol_of_water.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "symbol of air",
+      "name": "Symbol of Air",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/symbol_of_air.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "eye of the giant",
+      "name": "Eye of the Giant",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/eye_of_the_giant.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "tome of ascendance",
+      "name": "Tome of Ascendance",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/tome_of_ascendance.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "sigil of the nine",
+      "name": "Sigil of the Nine",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/sigil_of_the_nine.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "wheel of elements",
+      "name": "Wheel of Elements",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/wheel_of_elements.webp"
+    },
+    {
+      "type": "companion",
+      "key": "legendary class companion choice pack",
+      "name": "Legendary Class Companion Choice Pack",
+      "remoteUrl": "https://nw-hub.com/assets/choice-packs/epic-companion-choice-pack.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "dragonbone blades",
+      "name": "Dragonbone Blades",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/dragonbone_blades.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "crystal of soul s flight",
+      "name": "Crystal of Soul's Flight",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/crystal_of_souls_flight.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "marco s mystic marker",
+      "name": "Marco's Mystic Marker",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/marcos_mystic_marker.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "beacon of meteor swarm",
+      "name": "Beacon of Meteor Swarm",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/beacon_of_meteor_swarm.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "heart of the volcano",
+      "name": "Heart of the Volcano",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/heart_of_the_volcano.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "grace of pelor",
+      "name": "Grace of Pelor",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/grace_of_pelor.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "nightflame censer",
+      "name": "Nightflame Censer",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/nightflame_censer.webp"
+    },
+    {
+      "type": "companion",
+      "key": "aoth fezim brightwing",
+      "name": "Aoth Fezim & Brightwing",
+      "remoteUrl": "https://nw-hub.com/assets/companions/aoth-fezim-and-brightwing.webp"
+    },
+    {
+      "type": "artifact",
+      "key": "demon skull",
+      "name": "Demon Skull",
+      "remoteUrl": "https://nw-hub.com/assets/artifacts/demon_skull.webp"
+    }
+  ],
   "lockboxes": {
     "resolved": [
       {
@@ -264,6 +525,16 @@
         "matchedFile": "Icon_Lockbox_Reborn.png"
       },
       {
+        "slug": "acquired-treasures-lockbox",
+        "name": "Acquired Treasures Lockbox",
+        "url": "/assets/lockboxes/acquired-treasures-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Acquired Treasures Lockbox",
+        "matchScore": 408,
+        "matchContext": "Acquired Treasures Lockbox LOCKBOX Feb 2019"
+      },
+      {
         "slug": "lockbox-of-the-mad-mage",
         "name": "Lockbox of the Mad Mage",
         "url": "/assets/lockboxes/lockbox-of-the-mad-mage.webp",
@@ -426,12 +697,222 @@
         "matchedFile": "Icon_M23_Lockbox_Dragoncult.png"
       },
       {
+        "slug": "dragonslayer-s-lockbox",
+        "name": "Dragonslayer's Lockbox",
+        "url": "/assets/lockboxes/dragonslayer-s-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Dragonslayer's Lockbox",
+        "matchScore": 408,
+        "matchContext": "Dragonslayer's Lockbox LOCKBOX Sep 2022"
+      },
+      {
+        "slug": "myconid-lockbox",
+        "name": "Myconid Lockbox",
+        "url": "/assets/lockboxes/myconid-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Myconid Lockbox",
+        "matchScore": 408,
+        "matchContext": "Myconid Lockbox LOCKBOX Nov 2022"
+      },
+      {
+        "slug": "lockbox-of-lost-knowledge",
+        "name": "Lockbox of Lost Knowledge",
+        "url": "/assets/lockboxes/lockbox-of-lost-knowledge.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Lockbox of Lost Knowledge",
+        "matchScore": 408,
+        "matchContext": "Lockbox of Lost Knowledge LOCKBOX Jan 2023"
+      },
+      {
+        "slug": "lolthian-lockbox",
+        "name": "Lolthian Lockbox",
+        "url": "/assets/lockboxes/lolthian-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Lolthian Lockbox",
+        "matchScore": 408,
+        "matchContext": "Lolthian Lockbox LOCKBOX Mar 2023"
+      },
+      {
+        "slug": "atramentous-lockbox",
+        "name": "Atramentous Lockbox",
+        "url": "/assets/lockboxes/atramentous-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Atramentous Lockbox",
+        "matchScore": 408,
+        "matchContext": "Atramentous Lockbox LOCKBOX May 2023"
+      },
+      {
         "slug": "planar-panic-lockbox",
         "name": "Planar Panic Lockbox",
         "url": "/assets/lockboxes/planar-panic-lockbox.webp",
         "sourceUrl": "https://www.playneverwinter.com/en/news-details/11547963",
         "provider": "Official Neverwinter",
         "matchedTitle": "https://www.playneverwinter.com/en/news-details/11547963"
+      },
+      {
+        "slug": "lockbox-of-shadowy-flight",
+        "name": "Lockbox of Shadowy Flight",
+        "url": "/assets/lockboxes/lockbox-of-shadowy-flight.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Lockbox of Shadowy Flight",
+        "matchScore": 408,
+        "matchContext": "Lockbox of Shadowy Flight LOCKBOX Sep 2023"
+      },
+      {
+        "slug": "miniature-giant-space-lockbox",
+        "name": "Miniature Giant Space Lockbox",
+        "url": "/assets/lockboxes/miniature-giant-space-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Miniature Giant Space Lockbox",
+        "matchScore": 408,
+        "matchContext": "Miniature Giant Space Lockbox LOCKBOX Nov 2023"
+      },
+      {
+        "slug": "starlight-armaments-lockbox",
+        "name": "Starlight Armaments Lockbox",
+        "url": "/assets/lockboxes/starlight-armaments-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Starlight Armaments Lockbox",
+        "matchScore": 408,
+        "matchContext": "Starlight Armaments Lockbox LOCKBOX Jan 2024"
+      },
+      {
+        "slug": "doomspace-lockbox",
+        "name": "Doomspace Lockbox",
+        "url": "/assets/lockboxes/doomspace-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Doomspace Lockbox",
+        "matchScore": 408,
+        "matchContext": "Doomspace Lockbox LOCKBOX Apr 2024"
+      },
+      {
+        "slug": "astronautical-lockbox",
+        "name": "Astronautical Lockbox",
+        "url": "/assets/lockboxes/astronautical-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Astronautical Lockbox",
+        "matchScore": 408,
+        "matchContext": "Astronautical Lockbox LOCKBOX Jun 2024"
+      },
+      {
+        "slug": "leaping-flame-lockbox",
+        "name": "Leaping Flame Lockbox",
+        "url": "/assets/lockboxes/leaping-flame-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Leaping Flame Lockbox",
+        "matchScore": 408,
+        "matchContext": "Leaping Flame Lockbox LOCKBOX Jul 2024"
+      },
+      {
+        "slug": "foxfire-lockbox",
+        "name": "Foxfire Lockbox",
+        "url": "/assets/lockboxes/foxfire-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Foxfire Lockbox",
+        "matchScore": 408,
+        "matchContext": "Foxfire Lockbox LOCKBOX Sep 2024"
+      },
+      {
+        "slug": "psionic-lockbox",
+        "name": "Psionic Lockbox",
+        "url": "/assets/lockboxes/psionic-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Psionic Lockbox",
+        "matchScore": 408,
+        "matchContext": "Psionic Lockbox LOCKBOX Nov 2024"
+      },
+      {
+        "slug": "earth-mote-lockbox",
+        "name": "Earth Mote Lockbox",
+        "url": "/assets/lockboxes/earth-mote-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Earth Mote Lockbox",
+        "matchScore": 408,
+        "matchContext": "Earth Mote Lockbox LOCKBOX Jan 2025"
+      },
+      {
+        "slug": "glorious-undead-lockbox",
+        "name": "Glorious Undead Lockbox",
+        "url": "/assets/lockboxes/glorious-undead-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Glorious Undead Lockbox",
+        "matchScore": 408,
+        "matchContext": "Glorious Undead Lockbox LOCKBOX Mar 2025"
+      },
+      {
+        "slug": "wings-and-cauldrons-lockbox",
+        "name": "Wings and Cauldrons Lockbox",
+        "url": "/assets/lockboxes/wings-and-cauldrons-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Wings and Cauldrons Lockbox",
+        "matchScore": 408,
+        "matchContext": "Wings and Cauldrons Lockbox LOCKBOX May 2025"
+      },
+      {
+        "slug": "phantasmal-fantasy-lockbox",
+        "name": "Phantasmal Fantasy Lockbox",
+        "url": "/assets/lockboxes/phantasmal-fantasy-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Phantasmal Fantasy Lockbox",
+        "matchScore": 408,
+        "matchContext": "Phantasmal Fantasy Lockbox LOCKBOX Jul 2025"
+      },
+      {
+        "slug": "feywild-wonders-lockbox",
+        "name": "Feywild Wonders Lockbox",
+        "url": "/assets/lockboxes/feywild-wonders-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Feywild Wonders Lockbox",
+        "matchScore": 408,
+        "matchContext": "Feywild Wonders Lockbox LOCKBOX Aug 2025"
+      },
+      {
+        "slug": "grubby-goods-lockbox",
+        "name": "Grubby Goods Lockbox",
+        "url": "/assets/lockboxes/grubby-goods-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Grubby Goods Lockbox",
+        "matchScore": 408,
+        "matchContext": "Grubby Goods Lockbox LOCKBOX Nov 2025"
+      },
+      {
+        "slug": "deathly-delights-lockbox",
+        "name": "Deathly Delights Lockbox",
+        "url": "/assets/lockboxes/deathly-delights-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Deathly Delights Lockbox",
+        "matchScore": 408,
+        "matchContext": "Deathly Delights Lockbox LOCKBOX Jan 2026"
+      },
+      {
+        "slug": "pet-pals-lockbox",
+        "name": "Pet Pals Lockbox",
+        "url": "/assets/lockboxes/pet-pals-lockbox.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Pet Pals Lockbox",
+        "matchScore": 408,
+        "matchContext": "Pet Pals Lockbox LOCKBOX Mar 2026"
       },
       {
         "slug": "encroaching-frost-lockbox",
@@ -450,118 +931,7 @@
         "matchedTitle": "Buried Treasure Lockbox / Ollie the Octie"
       }
     ],
-    "unresolved": [
-      {
-        "resolved": false,
-        "slug": "acquired-treasures-lockbox",
-        "name": "Acquired Treasures Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "dragonslayer-s-lockbox",
-        "name": "Dragonslayer's Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "myconid-lockbox",
-        "name": "Myconid Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "lockbox-of-lost-knowledge",
-        "name": "Lockbox of Lost Knowledge"
-      },
-      {
-        "resolved": false,
-        "slug": "lolthian-lockbox",
-        "name": "Lolthian Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "atramentous-lockbox",
-        "name": "Atramentous Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "lockbox-of-shadowy-flight",
-        "name": "Lockbox of Shadowy Flight"
-      },
-      {
-        "resolved": false,
-        "slug": "miniature-giant-space-lockbox",
-        "name": "Miniature Giant Space Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "starlight-armaments-lockbox",
-        "name": "Starlight Armaments Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "doomspace-lockbox",
-        "name": "Doomspace Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "astronautical-lockbox",
-        "name": "Astronautical Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "leaping-flame-lockbox",
-        "name": "Leaping Flame Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "foxfire-lockbox",
-        "name": "Foxfire Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "psionic-lockbox",
-        "name": "Psionic Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "earth-mote-lockbox",
-        "name": "Earth Mote Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "glorious-undead-lockbox",
-        "name": "Glorious Undead Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "wings-and-cauldrons-lockbox",
-        "name": "Wings and Cauldrons Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "phantasmal-fantasy-lockbox",
-        "name": "Phantasmal Fantasy Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "feywild-wonders-lockbox",
-        "name": "Feywild Wonders Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "grubby-goods-lockbox",
-        "name": "Grubby Goods Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "deathly-delights-lockbox",
-        "name": "Deathly Delights Lockbox"
-      },
-      {
-        "resolved": false,
-        "slug": "pet-pals-lockbox",
-        "name": "Pet Pals Lockbox"
-      }
-    ]
+    "unresolved": []
   },
   "rewards": {
     "resolved": [
@@ -670,6 +1040,16 @@
         "matchedTitle": "Black Ice Warhorse"
       },
       {
+        "type": "artifact",
+        "name": "Sphere of Black Ice",
+        "url": "/assets/rewards/artifact/sphere-of-black-ice.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Sphere of Black Ice",
+        "matchScore": 355,
+        "matchContext": "Sphere of Black Ice"
+      },
+      {
         "type": "companion",
         "name": "Laughing Skull",
         "url": "/assets/rewards/companion/laughing-skull.webp",
@@ -684,6 +1064,16 @@
         "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/tensers-floating-disk.webp",
         "provider": "ToonForge / Neverwinter Compendium",
         "matchedTitle": "Tenser's Floating Disk"
+      },
+      {
+        "type": "artifact",
+        "name": "Kessell's Spheres of Annihilation",
+        "url": "/assets/rewards/artifact/kessells-spheres-of-annihilation.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Kessell's Spheres of Annihilation",
+        "matchScore": 355,
+        "matchContext": "Kessell's Spheres of Annihilation"
       },
       {
         "type": "mount",
@@ -702,6 +1092,16 @@
         "matchedTitle": "Rage Drake"
       },
       {
+        "type": "artifact",
+        "name": "Oghma's Token of Free Movement",
+        "url": "/assets/rewards/artifact/oghmas-token-of-free-movement.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Oghma's Token of Free Movement",
+        "matchScore": 355,
+        "matchContext": "Oghma's Token of Free Movement"
+      },
+      {
         "type": "companion",
         "name": "Assassin Drake",
         "url": "/assets/rewards/companion/assassin-drake.webp",
@@ -716,6 +1116,16 @@
         "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/skeleton-steed.webp",
         "provider": "ToonForge / Neverwinter Compendium",
         "matchedTitle": "Skeleton Steed"
+      },
+      {
+        "type": "artifact",
+        "name": "Belial's Portal Stone",
+        "url": "/assets/rewards/artifact/belials-portal-stone.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Belial's Portal Stone",
+        "matchScore": 355,
+        "matchContext": "Belial's Portal Stone"
       },
       {
         "type": "artifact",
@@ -793,6 +1203,16 @@
         "matchedTitle": "Bulette"
       },
       {
+        "type": "artifact",
+        "name": "Symbol of Earth",
+        "url": "/assets/rewards/artifact/symbol-of-earth.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Symbol of Earth",
+        "matchScore": 355,
+        "matchContext": "Symbol of Earth"
+      },
+      {
         "type": "mount",
         "name": "Armored Giant Strider",
         "url": "/assets/rewards/mount/armored-giant-strider.webp",
@@ -833,6 +1253,16 @@
         "matchedTitle": "Flail Snail"
       },
       {
+        "type": "artifact",
+        "name": "Symbol of Water",
+        "url": "/assets/rewards/artifact/symbol-of-water.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Symbol of Water",
+        "matchScore": 355,
+        "matchContext": "Symbol of Water"
+      },
+      {
         "type": "mount",
         "name": "Armored Axe Beak",
         "url": "/assets/rewards/mount/armored-axe-beak.webp",
@@ -847,6 +1277,16 @@
         "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/axe-beak.webp",
         "provider": "ToonForge / Neverwinter Compendium",
         "matchedTitle": "Axe Beak"
+      },
+      {
+        "type": "artifact",
+        "name": "Symbol of Air",
+        "url": "/assets/rewards/artifact/symbol-of-air.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Symbol of Air",
+        "matchScore": 355,
+        "matchContext": "Symbol of Air"
       },
       {
         "type": "artifact",
@@ -897,6 +1337,16 @@
         "matchedTitle": "Manticore"
       },
       {
+        "type": "artifact",
+        "name": "Eye of the Giant",
+        "url": "/assets/rewards/artifact/eye-of-the-giant.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Eye of the Giant",
+        "matchScore": 355,
+        "matchContext": "Eye of the Giant"
+      },
+      {
         "type": "mount",
         "name": "Arcane Whirlwind",
         "url": "/assets/rewards/mount/arcane-whirlwind.webp",
@@ -913,6 +1363,16 @@
         "matchedTitle": "Whirlwind"
       },
       {
+        "type": "artifact",
+        "name": "Tome of Ascendance",
+        "url": "/assets/rewards/artifact/tome-of-ascendance.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Tome of Ascendance",
+        "matchScore": 355,
+        "matchContext": "Tome of Ascendance"
+      },
+      {
         "type": "mount",
         "name": "Celestial Stag",
         "url": "/assets/rewards/mount/celestial-stag.webp",
@@ -927,6 +1387,16 @@
         "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/starfade-stag.webp",
         "provider": "ToonForge / Neverwinter Compendium",
         "matchedTitle": "Starfade Stag"
+      },
+      {
+        "type": "artifact",
+        "name": "Sigil of the Nine",
+        "url": "/assets/rewards/artifact/sigil-of-the-nine.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Sigil of the Nine",
+        "matchScore": 355,
+        "matchContext": "Sigil of the Nine"
       },
       {
         "type": "companion",
@@ -1071,6 +1541,16 @@
         "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/hellfire-engine.webp",
         "provider": "ToonForge / Neverwinter Compendium",
         "matchedTitle": "Hellfire Engine"
+      },
+      {
+        "type": "artifact",
+        "name": "Wheel of Elements",
+        "url": "/assets/rewards/artifact/wheel-of-elements.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Wheel of Elements",
+        "matchScore": 355,
+        "matchContext": "Wheel of Elements"
       },
       {
         "type": "companion",
@@ -1250,6 +1730,16 @@
         "matchedTitle": "Pegasus"
       },
       {
+        "type": "companion",
+        "name": "Legendary Class Companion Choice Pack",
+        "url": "/assets/rewards/companion/legendary-class-companion-choice-pack.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Legendary Class Companion Choice Pack",
+        "matchScore": 300,
+        "matchContext": "Companion Choice Pack ZEN STORE Bind on Pickup (Account) when used"
+      },
+      {
         "type": "mount",
         "name": "Marvelous Reconnaissance Balloons",
         "url": "/assets/rewards/mount/marvelous-reconnaissance-balloons.webp",
@@ -1344,6 +1834,16 @@
         "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/nightfire-dragonnel.webp",
         "provider": "ToonForge / Neverwinter Compendium",
         "matchedTitle": "Nightfire Dragonnel"
+      },
+      {
+        "type": "artifact",
+        "name": "Dragonbone Blades",
+        "url": "/assets/rewards/artifact/dragonbone-blades.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Dragonbone Blades",
+        "matchScore": 355,
+        "matchContext": "Dragonbone Blades"
       },
       {
         "type": "companion",
@@ -1450,6 +1950,16 @@
         "matchedTitle": "Demon Wings"
       },
       {
+        "type": "artifact",
+        "name": "Crystal of Soul's Flight",
+        "url": "/assets/rewards/artifact/crystal-of-souls-flight.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Crystal of Soul's Flight",
+        "matchScore": 355,
+        "matchContext": "Crystal of Soul's Flight"
+      },
+      {
         "type": "companion",
         "name": "Xaryxian Defector",
         "url": "/assets/rewards/companion/xaryxian-defector.webp",
@@ -1474,12 +1984,32 @@
         "matchedTitle": "Golden Armored Griffon"
       },
       {
+        "type": "artifact",
+        "name": "Marco's Mystic Marker",
+        "url": "/assets/rewards/artifact/marcos-mystic-marker.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Marco's Mystic Marker",
+        "matchScore": 355,
+        "matchContext": "Marco's Mystic Marker"
+      },
+      {
         "type": "mount",
         "name": "Zodar Armor",
         "url": "/assets/rewards/mount/zodar-armor.webp",
         "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/zodar-armor.webp",
         "provider": "ToonForge / Neverwinter Compendium",
         "matchedTitle": "Zodar Armor"
+      },
+      {
+        "type": "artifact",
+        "name": "Beacon of Meteor Swarm",
+        "url": "/assets/rewards/artifact/beacon-of-meteor-swarm.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Beacon of Meteor Swarm",
+        "matchScore": 355,
+        "matchContext": "Beacon of Meteor Swarm"
       },
       {
         "type": "companion",
@@ -1522,12 +2052,32 @@
         "matchedTitle": "Red Mountain Fox"
       },
       {
+        "type": "artifact",
+        "name": "Heart of the Volcano",
+        "url": "/assets/rewards/artifact/heart-of-the-volcano.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Heart of the Volcano",
+        "matchScore": 355,
+        "matchContext": "Heart of the Volcano"
+      },
+      {
         "type": "mount",
         "name": "Brain Stealer Dragon",
         "url": "/assets/rewards/mount/brain-stealer-dragon.webp",
         "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/brain-stealer-dragon.webp",
         "provider": "ToonForge / Neverwinter Compendium",
         "matchedTitle": "Brain Stealer Dragon"
+      },
+      {
+        "type": "artifact",
+        "name": "Grace of Pelor",
+        "url": "/assets/rewards/artifact/grace-of-pelor.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Grace of Pelor",
+        "matchScore": 355,
+        "matchContext": "Grace of Pelor"
       },
       {
         "type": "companion",
@@ -1552,6 +2102,26 @@
         "sourceUrl": "https://github.com/n00bin/nwc/blob/main/images/mounts/glorious-undead-lion.webp",
         "provider": "ToonForge / Neverwinter Compendium",
         "matchedTitle": "Glorious Undead Lion"
+      },
+      {
+        "type": "artifact",
+        "name": "Nightflame Censer",
+        "url": "/assets/rewards/artifact/nightflame-censer.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Nightflame Censer",
+        "matchScore": 355,
+        "matchContext": "Nightflame Censer"
+      },
+      {
+        "type": "companion",
+        "name": "Aoth Fezim & Brightwing",
+        "url": "/assets/rewards/companion/aoth-fezim-brightwing.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Aoth Fezim & Brightwing",
+        "matchScore": 355,
+        "matchContext": "Aoth Fezim & Brightwing"
       },
       {
         "type": "mount",
@@ -1618,6 +2188,16 @@
         "matchedTitle": "Demonic Gravehound"
       },
       {
+        "type": "artifact",
+        "name": "Demon Skull",
+        "url": "/assets/rewards/artifact/demon-skull.webp",
+        "sourceUrl": "https://nw-hub.com/packs",
+        "provider": "NW Hub",
+        "matchedTitle": "Demon Skull",
+        "matchScore": 355,
+        "matchContext": "Demon Skull"
+      },
+      {
         "type": "companion",
         "name": "Sir Waddlelot",
         "url": "/assets/rewards/companion/sir-waddlelot.webp",
@@ -1669,43 +2249,8 @@
     "unresolved": [
       {
         "resolved": false,
-        "type": "artifact",
-        "name": "Sphere of Black Ice"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Kessell's Spheres of Annihilation"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Oghma's Token of Free Movement"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Belial's Portal Stone"
-      },
-      {
-        "resolved": false,
         "type": "race",
         "name": "Sigil of the Metallic Ancestry Dragonborn"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Symbol of Earth"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Symbol of Water"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Symbol of Air"
       },
       {
         "resolved": false,
@@ -1736,21 +2281,6 @@
         "resolved": false,
         "type": "companion",
         "name": "New Life Epic Companion Pack"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Eye of the Giant"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Tome of Ascendance"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Sigil of the Nine"
       },
       {
         "resolved": false,
@@ -1786,11 +2316,6 @@
         "resolved": false,
         "type": "mount",
         "name": "Acquired Treasures Epic Mount Pack"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Wheel of Elements"
       },
       {
         "resolved": false,
@@ -1856,56 +2381,6 @@
         "resolved": false,
         "type": "companion",
         "name": "Enchanting Epic Companion Pack"
-      },
-      {
-        "resolved": false,
-        "type": "companion",
-        "name": "Legendary Class Companion Choice Pack"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Dragonbone Blades"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Crystal of Soul's Flight"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Marco's Mystic Marker"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Beacon of Meteor Swarm"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Heart of the Volcano"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Grace of Pelor"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Nightflame Censer"
-      },
-      {
-        "resolved": false,
-        "type": "companion",
-        "name": "Aoth Fezim & Brightwing"
-      },
-      {
-        "resolved": false,
-        "type": "artifact",
-        "name": "Demon Skull"
       },
       {
         "resolved": false,
