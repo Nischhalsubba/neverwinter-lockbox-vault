@@ -50,12 +50,16 @@ flowchart TD
 
 ## Getting started
 
+The maintained application is in `app/`, not the repository root. Use Node.js 22+; the root build scripts are separate from the maintained `app/` workspace.
+
 ```bash
 git clone https://github.com/Nischhalsubba/neverwinter-lockbox-vault.git
-cd neverwinter-lockbox-vault
+cd neverwinter-lockbox-vault/app
+npm ci
+npm run dev
 ```
 
-Use the repository manifests/lockfiles to determine the current runtime and commands.
+Run `npm run check` from `app/` to validate changes before submitting them.
 
 ## Data quality
 
