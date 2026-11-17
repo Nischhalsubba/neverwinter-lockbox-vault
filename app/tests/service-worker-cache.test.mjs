@@ -37,3 +37,41 @@ test('activation removes only stale Lockbox Vault caches', async () => {
   await completion;
   assert.deepEqual(deleted, ['lockbox-vault-v14']);
 });
+
+test('offline scripts do not receive the HTML navigation fallback', async () => {
+  const script = readFileSync(new URL('../public/sw.js', import.meta.url), 'utf8');
+  const handlers = new Map();
+  const requestedCacheKeys = [];
+  const document = { body: 'HTML navigation fallback' };
+  const context = {
+    self: {
+      location: { origin: 'https://example.test' },
+      addEventListener: (name, handler) => handlers.set(name, handler),
+      skipWaiting: () => undefined,
+      clients: { claim: async () => undefined },
+    },
+    caches: {
+      match: async (key) => {
+        requestedCacheKeys.push(key);
+        return key === '/' ? document : undefined;
+      },
+      open: async () => ({ put: async () => undefined }),
+    },
+    fetch: async () => { throw new Error('offline'); },
+  };
+  runInNewContext(script, context);
+  const dispatch = async (request) => {
+    let result;
+    handlers.get('fetch')({
+      request,
+      respondWith(promise) { result = promise; },
+    });
+    return await result;
+  };
+  const scriptRequest = { method: 'GET', mode: 'no-cors', destination: 'script' };
+  const offlineScript = await dispatch(scriptRequest);
+  assert.equal(offlineScript, undefined);
+  assert.ok(!requestedCacheKeys.includes('/'), 'Script request must not receive index HTML');
+  const navigation = await dispatch({ method: 'GET', mode: 'navigate', destination: 'document' });
+  assert.equal(navigation, document, 'Navigation retains its offline fallback');
+});
