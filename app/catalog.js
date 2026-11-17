@@ -33,11 +33,15 @@ export const matchesCategory = (entry, category = 'all') => {
 };
 
 export const sortLockboxes = (entries, sort = 'newest') => [...entries].sort((a, b) => {
+  const dateA = String(a?.releaseDate ?? '');
+  const dateB = String(b?.releaseDate ?? '');
+  const nameA = String(a?.name ?? '');
+  const nameB = String(b?.name ?? '');
   switch (sort) {
-    case 'oldest': return a.releaseDate.localeCompare(b.releaseDate);
-    case 'az': return a.name.localeCompare(b.name);
-    case 'za': return b.name.localeCompare(a.name);
-    default: return b.releaseDate.localeCompare(a.releaseDate);
+    case 'oldest': return (dateA === '' ? 1 : dateB === '' ? -1 : dateA.localeCompare(dateB));
+    case 'az': return nameA.localeCompare(nameB);
+    case 'za': return nameB.localeCompare(nameA);
+    default: return (dateA === '' ? 1 : dateB === '' ? -1 : dateB.localeCompare(dateA));
   }
 });
 
