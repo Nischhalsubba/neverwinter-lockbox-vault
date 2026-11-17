@@ -78,7 +78,11 @@ export const hydrateFallbackRewardMedia = async (
 
   for (let index = 0; index < unique.length; index += pageSize) {
     const batch = unique.slice(index, index + pageSize);
-    const byTitle = new Map(batch.map((request) => [request.title.toLowerCase(), request]));
+    const byTitle = new Map();
+    for (const request of batch) {
+      const key = request.title.toLowerCase();
+      byTitle.set(key, [...(byTitle.get(key) || []), request]);
+    }
     const params = new URLSearchParams({
       action: 'query',
       format: 'json',
@@ -108,17 +112,19 @@ export const hydrateFallbackRewardMedia = async (
       for (const page of query.pages || []) {
         if (page.missing) continue;
         const pageTitle = String(page.title || '').toLowerCase();
-        const request = byTitle.get(pageTitle) || byTitle.get(aliases.get(pageTitle));
+        const matchingRequests = byTitle.get(pageTitle) || byTitle.get(aliases.get(pageTitle));
         const imageUrl = page.thumbnail?.source || page.original?.source;
-        if (!request || !imageUrl || !safeUrl(imageUrl)) continue;
+        if (!matchingRequests?.length || !imageUrl || !safeUrl(imageUrl)) continue;
 
-        mediaCache.set(request.key, {
-          url: imageUrl,
-          sourceUrl: page.fullurl || `https://neverwinter.fandom.com/wiki/${encodeURIComponent(String(page.title || '').replaceAll(' ', '_'))}`,
-          provider: 'Neverwinter Wiki / Fandom',
-          rightsNote: 'Community wiki image; game artwork rights remain with the respective publisher.',
-        });
-        updated += 1;
+        for (const request of matchingRequests) {
+          mediaCache.set(request.key, {
+            url: imageUrl,
+            sourceUrl: page.fullurl || `https://neverwinter.fandom.com/wiki/${encodeURIComponent(String(page.title || '').replaceAll(' ', '_'))}`,
+            provider: 'Neverwinter Wiki / Fandom',
+            rightsNote: 'Community wiki image; game artwork rights remain with the respective publisher.',
+          });
+          updated += 1;
+        }
       }
     } catch {
       // Remote lookup failure leaves the current fallback intact.
