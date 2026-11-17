@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import { normalizeMediaText, mediaSlug, scoreMediaCandidate } from '../nwhub.js';
 
 test('NW Hub names match regardless of accents and punctuation', () => {
-  assert.equal(normalizeMediaText('Ébon’s Triumph'), 'ebon\'s triumph');
+  assert.equal(normalizeMediaText('Ébon’s Triumph'), 'ebon s triumph');
   assert.equal(mediaSlug('Ébon’s Triumph'), 'ebon-s-triumph');
 });
 
