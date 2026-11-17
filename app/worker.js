@@ -1,6 +1,7 @@
 const NW_HUB_PACKS_URL = 'https://nw-hub.com/packs';
 const MAX_SCRIPT_FILES = 16;
 const MAX_SCRIPT_BYTES = 1_500_000;
+const MAX_PAGE_BYTES = 2_000_000;
 const IMAGE_EXTENSIONS = /\.(?:avif|gif|jpe?g|png|svg|webp)(?:$|[?#])/i;
 
 const decodeHtml = (value = '') => String(value)
@@ -124,7 +125,8 @@ export const fetchNwHubCandidates = async (fetchImpl = fetch) => {
     },
   });
   if (!response.ok) throw new Error(`NW Hub returned ${response.status}`);
-  const html = await response.text();
+  const html = await readBoundedScript(response, MAX_PAGE_BYTES);
+  if (html === null) throw new Error('NW Hub page exceeds maximum safe size');
   const htmlCandidates = extractCandidatesFromText(html, NW_HUB_PACKS_URL);
   const all = new Map(htmlCandidates.map((item) => [`${item.title}|${item.url}`, item]));
 

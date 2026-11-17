@@ -37,3 +37,22 @@ test('normal small NW Hub scripts remain readable without Content-Length', async
   assert.equal(result.stats.scriptsScanned, 1);
   assert.ok(result.candidates.some((item) => item.url === 'https://cdn.example.org/sample.png'));
 });
+
+test('NW Hub HTML page refuses oversized streaming responses', async () => {
+  let cancelled = false;
+  let reads = 0;
+  const fetchImpl = async () => {
+    const body = new ReadableStream({
+      pull(controller) {
+        reads += 1;
+        controller.enqueue(new Uint8Array(2_000_001));
+      },
+      cancel() { cancelled = true; },
+    });
+    return new Response(body, { status: 200 });
+  };
+
+  await assert.rejects(fetchNwHubCandidates(fetchImpl), /exceeds maximum safe size/);
+  assert.equal(cancelled, true);
+  assert.ok(reads <= 2, 'Large HTML should not be fully consumed');
+});
