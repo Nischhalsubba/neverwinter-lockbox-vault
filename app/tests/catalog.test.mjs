@@ -51,6 +51,17 @@ test('sorts names in both directions without mutating source data', () => {
   assert.deepEqual(descending, [...original].sort((a, b) => b.localeCompare(a)));
 });
 
+test('multiple undated releases keep their original order after dated releases', () => {
+  const sample = [
+    { name: 'Undated A' },
+    { name: 'Latest', releaseDate: '2026-10-01' },
+    { name: 'Undated B' },
+    { name: 'Earlier', releaseDate: '2026-01-01' },
+  ];
+  assert.deepEqual(sortLockboxes(sample, 'newest').map(x => x.name), ['Latest', 'Earlier', 'Undated A', 'Undated B']);
+  assert.deepEqual(sortLockboxes(sample, 'oldest').map(x => x.name), ['Earlier', 'Latest', 'Undated A', 'Undated B']);
+});
+
 test('incomplete catalog dates do not crash sorting or outrank dated releases', () => {
   const sample = [
     { name: 'Missing release' },
