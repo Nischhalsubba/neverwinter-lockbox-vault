@@ -24,7 +24,8 @@ const safeUrl = (value) => {
 if (typeof window !== 'undefined' && window.localStorage) {
   try {
     const stored = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || 'null');
-    if (stored && Date.now() - stored.savedAt < CACHE_TTL_MS) {
+    const age = Date.now() - stored?.savedAt;
+    if (typeof stored?.savedAt === 'number' && Number.isFinite(age) && age >= 0 && age < CACHE_TTL_MS) {
       Object.entries(stored.items || {}).forEach(([key, media]) => {
         if (media?.url && safeUrl(media.url)) mediaCache.set(key, media);
       });
