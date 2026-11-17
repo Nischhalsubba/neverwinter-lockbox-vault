@@ -75,3 +75,35 @@ test('offline scripts do not receive the HTML navigation fallback', async () => 
   const navigation = await dispatch({ method: 'GET', mode: 'navigate', destination: 'document' });
   assert.equal(navigation, document, 'Navigation retains its offline fallback');
 });
+
+test('healthy network responses survive storage/quota failures', async () => {
+  const script = readFileSync(new URL('../public/sw.js', import.meta.url), 'utf8');
+  const networkResponse = { ok: true, type: 'basic', clone() { return this; } };
+
+  for (const failingOperation of ['open', 'put']) {
+    const handlers = new Map();
+    const context = {
+      self: {
+        location: { origin: 'https://example.test' },
+        addEventListener: (name, handler) => handlers.set(name, handler),
+        skipWaiting: () => undefined,
+        clients: { claim: async () => undefined },
+      },
+      caches: {
+        open: async () => {
+          if (failingOperation === 'open') throw new Error('Quota exceeded');
+          return { put: async () => { throw new Error('Quota exceeded'); } };
+        },
+        match: async () => undefined,
+      },
+      fetch: async () => networkResponse,
+    };
+    runInNewContext(script, context);
+    let response;
+    handlers.get('fetch')({
+      request: { method: 'GET', mode: 'navigate', destination: 'document' },
+      respondWith(promise) { response = promise; },
+    });
+    assert.equal(await response, networkResponse, `network response lost after ${failingOperation} failure`);
+  }
+});
