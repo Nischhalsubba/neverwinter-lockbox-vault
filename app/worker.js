@@ -84,6 +84,38 @@ const scriptUrlsFromHtml = (html, baseUrl) => {
   return [...new Set(urls)].slice(0, MAX_SCRIPT_FILES);
 };
 
+async function readBoundedScript(response, maxBytes = MAX_SCRIPT_BYTES) {
+  const contentLength = Number(response.headers?.get('content-length') || 0);
+  if (contentLength > maxBytes) return null;
+
+  // Stream rather than using response.text(), which buffers unbounded
+  // bodies when third-party servers omit Content-Length.
+  if (!response.body?.getReader) {
+    const text = await response.text();
+    return text.length <= maxBytes ? text : null;
+  }
+
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let total = 0;
+  let result = '';
+  try {
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      total += value.byteLength;
+      if (total > maxBytes) {
+        await reader.cancel();
+        return null;
+      }
+      result += decoder.decode(value, { stream: true });
+    }
+    return result + decoder.decode();
+  } finally {
+    reader.releaseLock();
+  }
+}
+
 export const fetchNwHubCandidates = async (fetchImpl = fetch) => {
   const response = await fetchImpl(NW_HUB_PACKS_URL, {
     headers: {
@@ -100,10 +132,8 @@ export const fetchNwHubCandidates = async (fetchImpl = fetch) => {
   const results = await Promise.allSettled(scripts.map(async (url) => {
     const scriptResponse = await fetchImpl(url, { headers: { accept: 'text/javascript,*/*;q=0.8' } });
     if (!scriptResponse.ok) return [];
-    const contentLength = Number(scriptResponse.headers.get('content-length') || 0);
-    if (contentLength > MAX_SCRIPT_BYTES) return [];
-    const text = (await scriptResponse.text()).slice(0, MAX_SCRIPT_BYTES);
-    return extractCandidatesFromText(text, url);
+    const text = await readBoundedScript(scriptResponse);
+    return text === null ? [] : extractCandidatesFromText(text, url);
   }));
 
   for (const result of results) {
