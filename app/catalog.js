@@ -32,9 +32,20 @@ export const matchesCategory = (entry, category = 'all') => {
   }
 };
 
+const sortableReleaseDate = (value) => {
+  const text = String(value ?? '');
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(text);
+  if (!match) return '';
+  const [year, month, day] = match.slice(1).map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  return date.getUTCFullYear() === year
+    && date.getUTCMonth() === month - 1
+    && date.getUTCDate() === day ? text : '';
+};
+
 export const sortLockboxes = (entries, sort = 'newest') => [...entries].sort((a, b) => {
-  const dateA = String(a?.releaseDate ?? '');
-  const dateB = String(b?.releaseDate ?? '');
+  const dateA = sortableReleaseDate(a?.releaseDate);
+  const dateB = sortableReleaseDate(b?.releaseDate);
   const nameA = String(a?.name ?? '');
   const nameB = String(b?.name ?? '');
   switch (sort) {

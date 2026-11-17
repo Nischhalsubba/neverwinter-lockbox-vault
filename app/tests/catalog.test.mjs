@@ -72,3 +72,17 @@ test('incomplete catalog dates do not crash sorting or outrank dated releases', 
   assert.deepEqual(sortLockboxes(sample,'oldest').map(x=>x.name), ['Older','Recent','Missing release']);
   assert.deepEqual(sample.map(x=>x.name), ['Missing release','Recent','Older']);
 });
+
+test('invalid release date strings sort after verified calendar dates', () => {
+  const sample = [
+    { name: 'Not dated', releaseDate: 'TBD' },
+    { name: 'Impossible day', releaseDate: '2026-02-31' },
+    { name: 'Dated', releaseDate: '2026-04-01' },
+    { name: 'No date' },
+  ];
+  for (const direction of ['newest', 'oldest']) {
+    const result = sortLockboxes(sample, direction).map(({ name }) => name);
+    assert.equal(result[0], 'Dated');
+    assert.deepEqual(new Set(result.slice(1)), new Set(['Not dated', 'Impossible day', 'No date']));
+  }
+});
