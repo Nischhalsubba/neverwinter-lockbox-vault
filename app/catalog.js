@@ -38,10 +38,17 @@ export const sortLockboxes = (entries, sort = 'newest') => [...entries].sort((a,
   const nameA = String(a?.name ?? '');
   const nameB = String(b?.name ?? '');
   switch (sort) {
-    case 'oldest': return (dateA === '' ? 1 : dateB === '' ? -1 : dateA.localeCompare(dateB));
+    case 'oldest':
+    case 'newest': {
+      // Undated entries sort last; two undated entries retain input order.
+      if (!dateA && !dateB) return 0;
+      if (!dateA) return 1;
+      if (!dateB) return -1;
+      return sort === 'oldest' ? dateA.localeCompare(dateB) : dateB.localeCompare(dateA);
+    }
     case 'az': return nameA.localeCompare(nameB);
     case 'za': return nameB.localeCompare(nameA);
-    default: return (dateA === '' ? 1 : dateB === '' ? -1 : dateB.localeCompare(dateA));
+    default: return dateB.localeCompare(dateA);
   }
 });
 
