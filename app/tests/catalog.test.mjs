@@ -50,3 +50,14 @@ test('sorts names in both directions without mutating source data', () => {
   assert.deepEqual(sample.map(({ name }) => name), original);
   assert.deepEqual(descending, [...original].sort((a, b) => b.localeCompare(a)));
 });
+
+test('incomplete catalog dates do not crash sorting or outrank dated releases', () => {
+  const sample = [
+    { name: 'Missing release' },
+    { name: 'Recent', releaseDate: '2026-10-01' },
+    { name: 'Older', releaseDate: '2026-01-01' },
+  ];
+  assert.deepEqual(sortLockboxes(sample,'newest').map(x=>x.name), ['Recent','Older','Missing release']);
+  assert.deepEqual(sortLockboxes(sample,'oldest').map(x=>x.name), ['Older','Recent','Missing release']);
+  assert.deepEqual(sample.map(x=>x.name), ['Missing release','Recent','Older']);
+});
