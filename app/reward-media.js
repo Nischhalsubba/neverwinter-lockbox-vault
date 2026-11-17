@@ -73,9 +73,11 @@ export const hydrateFallbackRewardMedia = async (
 
   const unique = [...new Map(requests.map((request) => [request.key, request])).values()];
   let updated = 0;
+  // A zero or negative increment can hang the page indefinitely.
+  const pageSize = Number.isSafeInteger(batchSize) && batchSize > 0 ? batchSize : 20;
 
-  for (let index = 0; index < unique.length; index += batchSize) {
-    const batch = unique.slice(index, index + batchSize);
+  for (let index = 0; index < unique.length; index += pageSize) {
+    const batch = unique.slice(index, index + pageSize);
     const byTitle = new Map(batch.map((request) => [request.title.toLowerCase(), request]));
     const params = new URLSearchParams({
       action: 'query',
