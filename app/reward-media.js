@@ -21,9 +21,10 @@ const safeUrl = (value) => {
   }
 };
 
-if (typeof window !== 'undefined' && window.localStorage) {
+if (typeof window !== 'undefined') {
   try {
-    const stored = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || 'null');
+    const storage = window.localStorage;
+    const stored = storage ? JSON.parse(storage.getItem(STORAGE_KEY) || 'null') : null;
     const age = Date.now() - stored?.savedAt;
     if (typeof stored?.savedAt === 'number' && Number.isFinite(age) && age >= 0 && age < CACHE_TTL_MS) {
       Object.entries(stored.items || {}).forEach(([key, media]) => {
@@ -36,9 +37,11 @@ if (typeof window !== 'undefined' && window.localStorage) {
 }
 
 const saveCache = () => {
-  if (typeof window === 'undefined' || !window.localStorage) return;
+  if (typeof window === 'undefined') return;
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify({
+    const storage = window.localStorage;
+    if (!storage) return;
+    storage.setItem(STORAGE_KEY, JSON.stringify({
       savedAt: Date.now(),
       items: Object.fromEntries(mediaCache),
     }));
