@@ -75,3 +75,7 @@ Use accurate terms such as **Neverwinter lockboxes, Neverwinter lockbox rewards,
 flowchart LR
     DATA["New / corrected lockbox data"] --> SOURCE["Verify source"] --> UPDATE["Update catalog"] --> CHECK["Check search/detail views"] --> DOCS["Record provenance"] --> PR["Pull request"]
 ```
+
+## Contributor verification guide
+
+For changes to neverwinter-lockbox-vault, follow [source verification](docs/SOURCE_VERIFICATION.md) for reproducible checks, review evidence and rollback expectations.
