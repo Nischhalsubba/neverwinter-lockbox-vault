@@ -75,3 +75,7 @@ Use accurate terms such as **Neverwinter lockboxes, Neverwinter lockbox rewards,
 flowchart LR
     DATA["New / corrected lockbox data"] --> SOURCE["Verify source"] --> UPDATE["Update catalog"] --> CHECK["Check search/detail views"] --> DOCS["Record provenance"] --> PR["Pull request"]
 ```
+
+## Source and review guide
+
+Review [the project-specific verification standard](docs/SOURCE_VERIFICATION.md) before proposing changes to data, user-facing behavior or release quality.
